@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from leaderssummit.digitalventures.ph/docs/en/event.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2017 01:54:34 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events &mdash; LS Summit API Docs 1.0 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="LS Summit API Docs 1.0 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Participants" href="participant.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LS Summit API Docs 1.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://leaderssummit.digitalventures.ph/docs/en/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news-feed.html">News-feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="like.html">Likes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Participants</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#all-events-with-pagination-numbers">All events with pagination numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-event-details-by-id">Get event details by Id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-image-banner-by-id">Get image banner by Id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-image-photo-by-id">Get image photo by Id</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LS Summit API Docs 1.0</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Events</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="events">
+<h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="all-events-with-pagination-numbers">
+<h2>All events with pagination numbers<a class="headerlink" href="#all-events-with-pagination-numbers" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-program-list-(int-offset)-(int-limit)">
+<code class="descname">GET </code><code class="descname">/api/program/list/</code><span class="sig-paren">(</span><em class="property">int: </em><em>offset</em><span class="sig-paren">)</span><code class="descname">/</code><span class="sig-paren">(</span><em class="property">int: </em><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-program-list-(int-offset)-(int-limit)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+   <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;35&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;imageUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/api/program/banner/get/35&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;date_from&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-14 00:00:00&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;date_to&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-02-01 23:59:00&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-14&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;dayOfWeek&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;sss&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;00:00:00&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;ssd&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;00:00:00&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-02-01&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;dayOfWeek&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;asdads&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;23:59:00&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;31&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;asdasd111&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;imageUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/api/program/banner/get/31&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;date_from&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;date_to&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;asdasdasdasdasdasdasdasd&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;imageUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/api/program/banner/get/29&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;date_from&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;date_to&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-16 11:21:41&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;cb72be7f09226f6dba6009a7ea04a89f11dbe413&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-event-details-by-id">
+<h2>Get event details by Id<a class="headerlink" href="#get-event-details-by-id" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-program-details-(int-id)">
+<code class="descname">GET </code><code class="descname">/api/program/details/</code><span class="sig-paren">(</span><em class="property">int: </em><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-program-details-(int-id)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;programs&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The e-Money Challenge:  What is Telco missing to breakthrough?&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;banner&quot;</span><span class="p">:</span> <span class="s2">&quot;/var/www/html/ls-summit/repo/images/program/88964338db56e4ebaddff1986173f01e-telco missing.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;program_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-21&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;program_time&quot;</span><span class="p">:</span> <span class="s2">&quot;01:30:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Japan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;speaker&quot;</span><span class="p">:</span> <span class="s2">&quot;Rohan Mahadevan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;SVP and General Manager&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;PayPal&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="s2">&quot;/var/www/html/ls-summit/repo/images/speaker/74c7788cfb550a81de83944c65504e40-rohan-mahadevan.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Rohan Mahadevan is SVP and General Manager for PayPal&lt;/p&gt;\r\n&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;details&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Is telco missing a vital piece to be able to really &amp;quot;break through&amp;quot;?&lt;/p&gt;\r\n&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-12-09 08:26:03&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;modified_by&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deleted_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deleted_by&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;is_deleted&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;posted_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;posted_by&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;is_posted&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;venue&quot;</span><span class="p">:</span> <span class="s2">&quot;Here&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 10:39:07&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;1a4203424c4f2ea56c2b2fc3ca425c4a79dee5f4&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-image-banner-by-id">
+<h2>Get image banner by Id<a class="headerlink" href="#get-image-banner-by-id" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-program-banner-get-(int-id)">
+<code class="descname">GET </code><code class="descname">/api/program/banner/get/</code><span class="sig-paren">(</span><em class="property">int: </em><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-program-banner-get-(int-id)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<img alt="_images/banner.png" src="_images/banner.png" />
+</div>
+<div class="section" id="get-image-photo-by-id">
+<h2>Get image photo by Id<a class="headerlink" href="#get-image-photo-by-id" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-program-photo-get-(int-id)">
+<code class="descname">GET </code><code class="descname">/api/program/photo/get/</code><span class="sig-paren">(</span><em class="property">int: </em><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-program-photo-get-(int-id)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<img alt="_images/photo.jpg" src="_images/photo.jpg" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="participant.html" class="btn btn-neutral" title="Participants" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jasper Carpizo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+
+<!-- Mirrored from leaderssummit.digitalventures.ph/docs/en/event.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2017 01:54:35 GMT -->
+</html>

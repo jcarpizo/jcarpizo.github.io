@@ -1,0 +1,457 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>4.4. Entity-Attribute-Value (EAV) &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="4.3. Repository" href="../Repository/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Repository/README.html" title="4.3. Repository"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">4. More</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Behavioral/README.html">3. Behavioral</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">4. More</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Delegation/README.html">4.1. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ServiceLocator/README.html">4.2. Service Locator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Repository/README.html">4.3. Repository</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.4. Entity-Attribute-Value (EAV)</a></li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">4. More</a></li>
+              
+              <li>4.4. Entity-Attribute-Value (EAV)</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="entity-attribute-value-eav">
+<h1>4.4. <a class="reference external" href="https://en.wikipedia.org/wiki/Entity–attribute–value_model">Entity-Attribute-Value (EAV)</a><a class="headerlink" href="#entity-attribute-value-eav" title="Permalink to this headline">¶</a></h1>
+<p>The Entity–attribute–value (EAV) pattern in order to implement EAV model with PHP.</p>
+<div class="section" id="purpose">
+<h2>4.4.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>The Entity–attribute–value (EAV) model is a data model to describe entities
+where the number of attributes (properties, parameters) that can be used
+to describe them is potentially vast, but the number that will actually apply
+to a given entity is relatively modest.</p>
+</div>
+<div class="section" id="uml-diagram">
+<h2>4.4.2. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="EAV UML Diagram" class="align-center" src="../../_images/uml22.png" />
+</div>
+<div class="section" id="code">
+<h2>4.4.3. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/More/EAV">GitHub</a></p>
+<p>Entity.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\More\EAV</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Entity</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var \SplObjectStorage</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$values</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param string $name</span>
+<span class="sd">     * @param Value[] $values</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$values</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\SplObjectStorage</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$values</span> <span class="k">as</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">];</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span> <span class="k">as</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$text</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nb">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$text</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Attribute.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\More\EAV</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Attribute</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var \SplObjectStorage</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$values</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\SplObjectStorage</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addValue</span><span class="p">(</span><span class="nx">Value</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return \SplObjectStorage</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getValues</span><span class="p">()</span><span class="o">:</span> <span class="nx">\SplObjectStorage</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">values</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Value.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\More\EAV</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Value</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var Attribute</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$attribute</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Attribute</span> <span class="nv">$attribute</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attribute</span> <span class="o">=</span> <span class="nv">$attribute</span><span class="p">;</span>
+
+        <span class="nv">$attribute</span><span class="o">-&gt;</span><span class="na">addValue</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s: %s&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attribute</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>4.4.4. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/EAVTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\More\EAV\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\More\EAV\Attribute</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\More\EAV\Entity</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\More\EAV\Value</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">EAVTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testCanAddAttributeToEntity</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$colorAttribute</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Attribute</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">);</span>
+        <span class="nv">$colorSilver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Value</span><span class="p">(</span><span class="nv">$colorAttribute</span><span class="p">,</span> <span class="s1">&#39;silver&#39;</span><span class="p">);</span>
+        <span class="nv">$colorBlack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Value</span><span class="p">(</span><span class="nv">$colorAttribute</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">);</span>
+
+        <span class="nv">$memoryAttribute</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Attribute</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">);</span>
+        <span class="nv">$memory8Gb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Value</span><span class="p">(</span><span class="nv">$memoryAttribute</span><span class="p">,</span> <span class="s1">&#39;8GB&#39;</span><span class="p">);</span>
+
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="s1">&#39;MacBook Pro&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$colorSilver</span><span class="p">,</span> <span class="nv">$colorBlack</span><span class="p">,</span> <span class="nv">$memory8Gb</span><span class="p">]);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s1">&#39;MacBook Pro, color: silver, color: black, memory: 8GB&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$entity</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../Repository/README.html" title="previous chapter (use the left arrow)">4.3. Repository</a>
+      </div>
+    
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Repository/README.html" title="4.3. Repository"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >4. More</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

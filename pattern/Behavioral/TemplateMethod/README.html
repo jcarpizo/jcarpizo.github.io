@@ -1,0 +1,470 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>3.11. Template Method &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.12. Visitor" href="../Visitor/README.html" />
+    <link rel="prev" title="3.10. Strategy" href="../Strategy/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Visitor/README.html" title="3.12. Visitor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Strategy/README.html" title="3.10. Strategy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">3. Behavioral</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Command/README.html">3.2. Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Memento/README.html">3.5. Memento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../State/README.html">3.9. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Strategy/README.html">3.10. Strategy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.11. Template Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">3. Behavioral</a></li>
+              
+              <li>3.11. Template Method</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="template-method">
+<h1>3.11. <a class="reference external" href="http://en.wikipedia.org/wiki/Template_method_pattern">Template Method</a><a class="headerlink" href="#template-method" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>3.11.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>Template Method is a behavioral design pattern.</p>
+<p>Perhaps you have encountered it many times already. The idea is to let
+subclasses of this abstract template “finish” the behavior of an
+algorithm.</p>
+<p>A.k.a the “Hollywood principle”: “Don’t call us, we call you.” This
+class is not called by subclasses but the inverse. How? With abstraction
+of course.</p>
+<p>In other words, this is a skeleton of algorithm, well-suited for
+framework libraries. The user has just to implement one method and the
+superclass do the job.</p>
+<p>It is an easy way to decouple concrete classes and reduce copy-paste,
+that’s why you’ll find it everywhere.</p>
+</div>
+<div class="section" id="uml-diagram">
+<h2>3.11.2. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="Alt TemplateMethod UML Diagram" class="align-center" src="../../_images/uml10.png" />
+</div>
+<div class="section" id="code">
+<h2>3.11.3. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/Behavioral/TemplateMethod">GitHub</a></p>
+<p>Journey.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\TemplateMethod</span><span class="p">;</span>
+
+<span class="k">abstract</span> <span class="k">class</span> <span class="nc">Journey</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var string[]</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$thingsToDo</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This is the public service provided by this class and its subclasses.</span>
+<span class="sd">     * Notice it is final to &quot;freeze&quot; the global behavior of algorithm.</span>
+<span class="sd">     * If you want to override this contract, make an interface with only takeATrip()</span>
+<span class="sd">     * and subclass it.</span>
+<span class="sd">     */</span>
+    <span class="k">final</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">takeATrip</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">buyAFlight</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">takePlane</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enjoyVacation</span><span class="p">();</span>
+        <span class="nv">$buyGift</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">buyGift</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$buyGift</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$buyGift</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">takePlane</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This method must be implemented, this is the key-feature of this pattern.</span>
+<span class="sd">     */</span>
+    <span class="k">abstract</span> <span class="k">protected</span> <span class="k">function</span> <span class="nf">enjoyVacation</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This method is also part of the algorithm but it is optional.</span>
+<span class="sd">     * You can override it only if you need to</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return null|string</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">buyGift</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">buyAFlight</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Buy a flight ticket&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">takePlane</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Taking the plane&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return string[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getThingsToDo</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">thingsToDo</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>BeachJourney.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\TemplateMethod</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">BeachJourney</span> <span class="k">extends</span> <span class="nx">Journey</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">enjoyVacation</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Swimming and sun-bathing&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>CityJourney.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\TemplateMethod</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CityJourney</span> <span class="k">extends</span> <span class="nx">Journey</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">enjoyVacation</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Eat, drink, take photos and sleep&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">buyGift</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Buy a gift&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>3.11.4. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/JourneyTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\TemplateMethod\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\TemplateMethod</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">JourneyTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testCanGetOnVacationOnTheBeach</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$beachJourney</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TemplateMethod\BeachJourney</span><span class="p">();</span>
+        <span class="nv">$beachJourney</span><span class="o">-&gt;</span><span class="na">takeATrip</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span>
+            <span class="p">[</span><span class="s1">&#39;Buy a flight ticket&#39;</span><span class="p">,</span> <span class="s1">&#39;Taking the plane&#39;</span><span class="p">,</span> <span class="s1">&#39;Swimming and sun-bathing&#39;</span><span class="p">,</span> <span class="s1">&#39;Taking the plane&#39;</span><span class="p">],</span>
+            <span class="nv">$beachJourney</span><span class="o">-&gt;</span><span class="na">getThingsToDo</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testCanGetOnAJourneyToACity</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$beachJourney</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TemplateMethod\CityJourney</span><span class="p">();</span>
+        <span class="nv">$beachJourney</span><span class="o">-&gt;</span><span class="na">takeATrip</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s1">&#39;Buy a flight ticket&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Taking the plane&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Eat, drink, take photos and sleep&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Buy a gift&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Taking the plane&#39;</span>
+            <span class="p">],</span>
+            <span class="nv">$beachJourney</span><span class="o">-&gt;</span><span class="na">getThingsToDo</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../Strategy/README.html" title="previous chapter (use the left arrow)">3.10. Strategy</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../Visitor/README.html" title="next chapter (use the right arrow)">3.12. Visitor</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Visitor/README.html" title="3.12. Visitor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Strategy/README.html" title="3.10. Strategy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

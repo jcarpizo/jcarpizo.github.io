@@ -1,0 +1,314 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/framework-controllers.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>FW-Controllers &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="FW-Services" href="framework-services.html" />
+    <link rel="prev" title="FW-Basic-Conventions" href="framework-conventions.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="framework-services.html" title="FW-Services"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="framework-conventions.html" title="FW-Basic-Conventions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FW-Controllers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#services">1. Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-input">2. User input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation">3. Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>FW-Controllers</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="fw-controllers">
+<h1>FW-Controllers<a class="headerlink" href="#fw-controllers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="services">
+<h2>1. Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A controller SHOULD NOT use more than 4 Services</li>
+<li>A controller MUST NOT instantiate Services</li>
+<li>Application-Services (classes from app\service) MUST be injected with
+the &#64;Inject annotation</li>
+<li>Controllers SHOULD use ServiceInterfaces and NOT concrete implementations</li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">app\controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">app\service\AccountServiceInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AccountController</span><span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var \app\service\AccountServiceInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$service</span><span class="p">;</span>
+
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param $service app\service\AccountServiceInterface</span>
+<span class="sd">     * @Inject(&quot;service&quot;, &quot;app\service\AccountService&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">AccountServiceInterface</span> <span class="nv">$service</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span> <span class="o">=</span> <span class="nv">$service</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-input">
+<h2>2. User input<a class="headerlink" href="#user-input" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Models SHOULD NOT be instantiatet in a controller</li>
+<li>User input SHOULD NOT be applied to a model from a controller method</li>
+<li>Models SHOULD be passed as a parameter to a controller method</li>
+<li>The User input should by automatically applied by the framework to a model</li>
+</ul>
+<p>Wrong usage:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">app\controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">app\service\AccountServiceInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">app\model\Account</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RedirectResponse</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AccountController</span><span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var \app\service\AccountServiceInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$service</span><span class="p">;</span>
+
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param $service app\service\AccountServiceInterface</span>
+<span class="sd">     * @Inject(&quot;service&quot;, &quot;app\service\AccountService&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">AccountServiceInterface</span> <span class="nv">$service</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span> <span class="o">=</span> <span class="nv">$service</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">){</span>
+        <span class="nv">$account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Account</span><span class="p">();</span>
+        <span class="nv">$account</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">setMail</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;mail&#39;</span><span class="p">));</span>
+        <span class="c1">// ....</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s1">&#39;/accounts/&#39;</span> <span class="o">.</span> <span class="nv">$account</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Right usage:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">app\controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">app\service\AccountServiceInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">app\model\Account</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RedirectResponse</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AccountController</span><span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var \app\service\AccountServiceInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$service</span><span class="p">;</span>
+
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param $service app\service\AccountServiceInterface</span>
+<span class="sd">     * @Inject(&quot;service&quot;, &quot;app\service\AccountService&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">AccountServiceInterface</span> <span class="nv">$service</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span> <span class="o">=</span> <span class="nv">$service</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Account</span> <span class="nv">$account</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s1">&#39;/accounts/&#39;</span> <span class="o">.</span> <span class="nv">$account</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You have to specify the accessible properties in the file:
+config/metadata/property-access.php</p>
+</div>
+</div>
+<div class="section" id="validation">
+<h2>3. Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>MUST NOT be done in a controller!</li>
+<li>SHOULD be done in a service</li>
+<li>The provided validator MUST be used</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<div class="last line-block">
+<div class="line">See <a class="reference external" href="http://symfony.com/doc/current/book/validation.html">http://symfony.com/doc/current/book/validation.html</a></div>
+<div class="line">Configuration file of the Framework: config/validation/validation.xml</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="framework-conventions.html" title="previous chapter (use the left arrow)">FW-Basic-Conventions</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="framework-services.html" title="next chapter (use the right arrow)">FW-Services</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="framework-services.html" title="FW-Services"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="framework-conventions.html" title="FW-Basic-Conventions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/framework-controllers.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

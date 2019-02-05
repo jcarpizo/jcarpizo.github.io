@@ -1,0 +1,208 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/comments.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Comments &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="Routing" href="routing.html" />
+    <link rel="prev" title="PHP-Doc-Comments" href="php-doc.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="routing.html" title="Routing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="php-doc.html" title="PHP-Doc-Comments"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Comments</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="comments">
+<h1>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>One Space after comment open tag is REQUIRED</li>
+<li>MUST start with a capital letter</li>
+<li>MUST end with a full stop</li>
+<li>Perl-style comments (<cite>#</cite>) MUST not be used</li>
+<li>PHP-Doc-Comments MUST not be used</li>
+</ul>
+<p>Example of invalid comments:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1"># Invalid perl style comment.</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * PHP doc comments MUST NOT be used</span>
+<span class="sd"> */</span>
+
+<span class="c1">//Space is missing.</span>
+
+<span class="c1">// must start with a capital letter.</span>
+
+<span class="c1">// MUST end with a full stop</span>
+</pre></div>
+</div>
+<p>Example of valid comments:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Multi</span>
+<span class="cm"> * line</span>
+<span class="cm"> * comment</span>
+<span class="cm"> */</span>
+
+<span class="c1">// Must start with a capital letter and MUST end with a full stop.</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="php-doc.html" title="previous chapter (use the left arrow)">PHP-Doc-Comments</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="routing.html" title="next chapter (use the right arrow)">Routing</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="routing.html" title="Routing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="php-doc.html" title="PHP-Doc-Comments"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/comments.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

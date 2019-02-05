@@ -1,0 +1,298 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Feil, Feil &amp; Feil PHP-Coding-Conventions &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="#" />
+    <link rel="next" title="Project-Setup" href="project-setup.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="project-setup.html" title="Project-Setup"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index-2.html#" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="#">Docs</a></li>
+              
+              <li>Feil, Feil &amp; Feil PHP-Coding-Conventions</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="feil-feil-feil-php-coding-conventions">
+<h1>Feil, Feil &amp; Feil PHP-Coding-Conventions<a class="headerlink" href="#feil-feil-feil-php-coding-conventions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You should really take the time and read the whole Coding Conventions.
+Coding standards are an important tool to for software quality improvement!
+So please follow these guidelines and help us to make software maintenance easier.</p>
+</div>
+<p><strong>TL;DR</strong></p>
+<div class="section" id="project-setup">
+<h2>Project-Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="project-setup.html"><em>Project-Setup</em></a></p>
+</div>
+<div class="section" id="code-formatting">
+<h2>Code formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h2>
+<p>We use the PSR-1 AND PSR-2 standard with following modifications:</p>
+<ul class="simple">
+<li>The opening curly bracket of methods stays in the same line without a whitespace.</li>
+<li>Abstract classes has the prefix &quot;Abstract&quot; e.g. AbstractFoo</li>
+<li>Interfaces has the postfix &quot;Interface&quot; e.g. FooInterface</li>
+<li>Traits has the prefix Trait e.g. TraitFoo</li>
+</ul>
+</div>
+<div class="section" id="php-doc-comments">
+<h2>PHP-Doc-Comments<a class="headerlink" href="#php-doc-comments" title="Permalink to this headline">¶</a></h2>
+<p>Please provide at least following comments for <strong>classes,interfaces or traits:</strong></p>
+<ul class="simple">
+<li>A short description for the purpose</li>
+<li>Please don't use the &#64;author tag.</li>
+</ul>
+<p>For <strong>Class Members:</strong></p>
+<ul class="simple">
+<li>The <strong>&#64;var</strong> tag with the data type of the member
+(string,integer,boolean,float, array, YourObject, YourListOfObjects[])</li>
+</ul>
+<p>For <strong>Methods:</strong></p>
+<ul class="simple">
+<li>If parameters are used then foreach parameters an <strong>&#64;param</strong> tag with the data type</li>
+<li>If a return value will be produced, then a <strong>&#64;return</strong> tag with the data type(s) e.g. &#64;return integer|null</li>
+<li>If the method throws or produce an exception, then a <strong>&#64;throws</strong> tag with the exception types
+e.g. fooFooException|barBarException</li>
+</ul>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>One Space after comment open tag is REQUIRED</li>
+<li>MUST start with a capital letter</li>
+<li>MUST end with a full stop</li>
+<li>Perl-style comments (<cite>#</cite>) MUST not be used</li>
+<li>PHP-Doc-Comments MUST not be used</li>
+</ul>
+</div>
+<div class="section" id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Resource names MUST be in plural e.g. customers</li>
+<li>Resource names SHOULD be all lower case</li>
+<li>A Route MUST begin with a slash and end with one (in views without an leading slash!)</li>
+<li>Use HTTP-Verbs</li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All dependencies MUST be managed by composer.</li>
+<li>Dependencies MUST NOT be installed manually!</li>
+<li>DEV/Master-Branches versions MUST NOT be used</li>
+<li>The Caret (^) operator SHOULD be used for versions</li>
+</ul>
+</div>
+<div class="section" id="front-end-dependencies">
+<h2>Front-End-Dependencies<a class="headerlink" href="#front-end-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Use bower-installer for all Front-End-Dependencies.
+<strong>Don't commit them to the SVN!</strong></p>
+</div>
+<div class="section" id="fw-basic-conventions">
+<h2>FW-Basic-Conventions<a class="headerlink" href="#fw-basic-conventions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>No Superglobals <strong>!!!</strong></li>
+<li>No Script termination commands (exit, die)</li>
+<li>No file inclusion</li>
+<li>No static methods</li>
+<li>No user defined function! Use Classes and Methods!</li>
+<li>Use PHP-Internal password_* functions for password hashing</li>
+<li>Cryptographically strong pseudo-random strings are recommended (don't use mt_rand)</li>
+<li>Use always the DateTime class of PHP instead of date_* functions</li>
+<li>Use the type safe Comparison Operators (===) for <strong>boolean</strong> and <strong>null</strong> data types</li>
+<li>Generic exceptions must neither be thrown nor be caught!
+Empty catch blocks are not allowed! At least a comment must be provided, which explains why the block is empty!</li>
+<li>In general all classes SHOULD be passed as a parameter. No manual instantiation!</li>
+</ul>
+</div>
+<div class="section" id="fw-controllers">
+<h2>FW-Controllers<a class="headerlink" href="#fw-controllers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Use max. 4 Services</li>
+<li>User input should be handled with the serialization library (paste the whole object to your method instead of
+dozens of parameters, or instead of a dozens of setter calls)</li>
+<li>No Validation in a controller! This task belongs into a Service!</li>
+</ul>
+</div>
+<div class="section" id="fw-services">
+<h2>FW-Services<a class="headerlink" href="#fw-services" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Must always implement an interface</li>
+<li>All other Classes must use only this interface! Never the concrete implementation!</li>
+<li>Can and should use other services</li>
+</ul>
+</div>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p>Naming:</p>
+<table class="table table-bordered">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Naming</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Entity</td>
+<td>Singular, lower case, underscore for spacing</td>
+</tr>
+<tr class="row-odd"><td>Attribute</td>
+<td>All lower case, underscore for spacing</td>
+</tr>
+<tr class="row-even"><td>Relationship Entity</td>
+<td>Combination of both singular entity names, spaced with an underscore (e.g. account_address)</td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="project-setup.html" title="next chapter (use the right arrow)">Project-Setup</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="project-setup.html" title="Project-Setup"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

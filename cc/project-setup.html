@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/project-setup.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Project-Setup &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="Basic Coding Standard" href="coding-standards.html" />
+    <link rel="prev" title="Feil, Feil &amp; Feil PHP-Coding-Conventions" href="index.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="coding-standards.html" title="Basic Coding Standard"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Feil, Feil &amp; Feil PHP-Coding-Conventions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project-Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#customize">Customize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-dependencies">Install the Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-front-end-dependencies">Install the Front-End-Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Project-Setup</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="project-setup">
+<h1>Project-Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h1>
+<p>Download the latest version of the project template:</p>
+<ul class="simple">
+<li>For Web-Applications: <a class="reference external" href="https://bitbucket.org/FFUF/ffuf-webapp/downloads">https://bitbucket.org/FFUF/ffuf-webapp/downloads</a></li>
+<li>For REST-Applications: <a class="reference external" href="https://bitbucket.org/FFUF/ffuf-restapp/downloads">https://bitbucket.org/FFUF/ffuf-restapp/downloads</a></li>
+</ul>
+<div class="section" id="customize">
+<h2>Customize<a class="headerlink" href="#customize" title="Permalink to this headline">¶</a></h2>
+<p>Open the composer.json file and change following parts:</p>
+<p>APPLICATION_NAME must be replaced with the project name. Naming schema:</p>
+<ul class="simple">
+<li>Valid Characters: [A-Z, a-z, -, 0-9]</li>
+<li>Blanks becomes dashes (-)</li>
+<li>No Umlauts (change ä to ae and so on)</li>
+<li>All letters are lower case</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ffuf/APPLICATION_NAME&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Change the author information</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Firstname Lastname&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;fistname.lastname@ffuf.de&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Change the namespace for your project. Naming schema:</p>
+<ul class="simple">
+<li>Valid Characters: [A-Z, a-z, 0-9]</li>
+<li>No Umlauts (change ä to ae and so on)</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;ffuf\\customer\\project\\&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-the-dependencies">
+<h2>Install the Dependencies<a class="headerlink" href="#install-the-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Run the composer CLI-Command:</p>
+<div class="highlight-bash"><div class="highlight"><pre>composer.phar install --no-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-the-front-end-dependencies">
+<h2>Install the Front-End-Dependencies<a class="headerlink" href="#install-the-front-end-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Runt the CLI-Command</p>
+<div class="highlight-bash"><div class="highlight"><pre>bower-installer
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Feil, Feil &amp; Feil PHP-Coding-Conventions</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="coding-standards.html" title="next chapter (use the right arrow)">Basic Coding Standard</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="coding-standards.html" title="Basic Coding Standard"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Feil, Feil &amp; Feil PHP-Coding-Conventions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/project-setup.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

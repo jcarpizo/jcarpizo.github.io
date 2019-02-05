@@ -1,0 +1,115 @@
+PHP CodeSniffer
+================
+
+PHP_CodeSniffer is a set of two PHP scripts; the main phpcs script that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard, and a second phpcbf script to automatically correct coding standard violations. PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
+
+Requirements
+------------
+
+PHP_CodeSniffer requires PHP version 5.4.0 or greater, although individual sniffs may have additional requirements such as external applications and scripts. See the `Configuration Options manual`_ page for a list of these requirements.
+
+
+Installation
+------------
+
+The easiest way to get started with PHP_CodeSniffer is to download the Phar files for each of the commands:
+
+.. code-block:: console
+
+    curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+    php phpcs.phar -h
+
+    curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+    php phpcbf.phar -h
+
+
+Composer
+--------
+
+If you use Composer, you can install PHP_CodeSniffer system-wide with the following command:
+
+.. code-block:: console
+
+    composer global require "squizlabs/php_codesniffer=*"
+
+
+Make sure you have the composer bin dir in your PATH. The default value is ``~/.composer/vendor/bin/``, but you can check the value that you need to use by running composer global config bin-dir ``--absolute``.
+
+Or alternatively, include a dependency for ``squizlabs/php_codesniffer`` in your ``composer.json file``. For example:
+
+::
+
+    {
+        "require-dev": {
+            "squizlabs/php_codesniffer": "3.*"
+        }
+    }
+
+
+You will then be able to run PHP_CodeSniffer from the vendor bin directory:
+
+
+.. code-block:: console
+
+    ./vendor/bin/phpcs -h
+    ./vendor/bin/phpcbf -h
+
+
+
+Phive
+-----
+
+
+If you use Phive, you can install PHP_CodeSniffer as a project tool using the following commands:
+
+.. code-block:: console
+
+    phive install phpcs
+    phive install phpcbf
+
+
+You will then be able to run PHP_CodeSniffer from the tools directory:
+
+.. code-block:: console
+
+    ./tools/phpcs -h
+    ./tools/phpcbf -h
+
+
+PEAR
+----
+
+If you use PEAR, you can install PHP_CodeSniffer using the `PEAR installer`_. This will make the phpcs and phpcbf commands immediately available for use. To install PHP_CodeSniffer using the PEAR installer, first ensure you have installed PEAR and then run the following command:
+
+.. code-block:: console
+
+    pear install PHP_CodeSniffer
+
+
+Git Clone
+---------
+
+.. code-block:: console
+
+    git clone https://github.com/squizlabs/PHP_CodeSniffer.git
+    cd PHP_CodeSniffer
+    php bin/phpcs -h
+    php bin/phpcbf -h
+
+
+
+Documentation
+-------------
+
+The documentation for PHP_CodeSniffer is available on the `Github wiki`_.
+
+.. _Github wiki: https://github.com/squizlabs/PHP_CodeSniffer/wiki
+
+.. _Configuration Options manual: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options
+
+.. _PEAR installer: http://pear.php.net/manual/en/installation.getting.php
+
+.. meta::
+    :description: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :keywords: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :author: Jasper Carpizo

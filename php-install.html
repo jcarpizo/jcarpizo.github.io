@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs." name="description" />
+<meta content="PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs." name="keywords" />
+<meta content="Jasper Carpizo" name="author" />
+
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Install PHP 5.6 or PHP 7.1 on Ubuntu 16.04, 14.04 using PPA &#8212; Jasper Carpizo</title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/jenkins.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install Sphinx Documentation" href="sphinx.html" />
+    <link rel="prev" title="Install MySQL on Mac OS X" href="mac-mysql.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sphinx.html" title="Install Sphinx Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mac-mysql.html" title="Install MySQL on Mac OS X"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Reference Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    index.html" class="text-logo">Jasper Carpizo</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lamp.html">Install LAMP in one command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lemp.html">How To Install Linux, Nginx, MySQL, PHP (LEMP stack) on Ubuntu 18.04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xampp.html">XAMPP - Replacing MariaDB with MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac-mysql.html">Install MySQL on Mac OS X</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install PHP 5.6 or PHP 7.1 on Ubuntu 16.04, 14.04 using PPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-php-5-6-on-ubuntu">Install PHP 5.6 on Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-php-7-1-on-ubuntu">Install PHP 7.1 on Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Install Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-node.html">Install Node.js via Package Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejabberd.html">Install eJabberd XMPP Server on Ubuntu 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac-php.html">Update PHP on Mac OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-codesniffer.html">PHP CodeSniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual-host.html">Set Up Apache Virtual Hosts on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple-php.html">Switch between Multiple PHP Version on Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine.html">Doctrine Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solid.html">The First 5 Principles of Object Oriented Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-permission.html">Unix / Linux File permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git-flow.html">Git Flow Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adwords-api.html">Adwords API Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tao-of-programming.html">The Tao / Zen of Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-storm.html">PhpStorm Keymap Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync-gmail-inbox.html">Synchronized GMail Inbox [PHP]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repositories-doctrine.html">Using Repositories in Doctrine 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="composite-pattern.html">Composite Pattern in PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owasp.html">OWASP Secure Coding Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Getting the Best MySQL Performance in Your Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu-tree.html">Build a Menu with Recursive Functions</a></li>
+</ul>
+
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Install PHP 5.6 or PHP 7.1 on Ubuntu 16.04, 14.04 using PPA</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="install-php-5-6-or-php-7-1-on-ubuntu-16-04-14-04-using-ppa">
+<h1>Install PHP 5.6 or PHP 7.1 on Ubuntu 16.04, 14.04 using PPA<a class="headerlink" href="#install-php-5-6-or-php-7-1-on-ubuntu-16-04-14-04-using-ppa" title="Permalink to this headline">¶</a></h1>
+<p>Installing PHP 5.6 or PHP 7.1 using PPA on Ubuntu 16.10, 16.04 LTS, 14.04 LTS or 12.04 LTS systems. If you have already have higher version installed on your system and you need to install lower version, then you have to remove higher version first and remove apt repository from system.</p>
+<div class="section" id="install-php-5-6-on-ubuntu">
+<h2>Install PHP 5.6 on Ubuntu<a class="headerlink" href="#install-php-5-6-on-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Use the following set of command to add PPA for PHP 5.6 in your Ubuntu system and install PHP 5.6.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install python-software-properties</span>
+
+<span class="go">sudo add-apt-repository ppa:ondrej/php</span>
+
+<span class="go">sudo apt-get update</span>
+
+<span class="go">sudo apt-get install -y php5.6</span>
+</pre></div>
+</div>
+<div class="section" id="check-installed-php-version">
+<h3>Check Installed PHP Version:<a class="headerlink" href="#check-installed-php-version" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> php -v
+
+<span class="go">PHP 5.6.29-1+deb.sury.org~xenial+1 (cli)</span>
+<span class="go">Copyright (c) 1997-2016 The PHP Group</span>
+<span class="go">Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies</span>
+<span class="go">with Zend OPcache v7.0.6-dev, Copyright (c) 1999-2016, by Zend Technologies</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-php-7-1-on-ubuntu">
+<h2>Install PHP 7.1 on Ubuntu<a class="headerlink" href="#install-php-7-1-on-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Use the following set of command to add PPA for PHP 7.1 in your Ubuntu system and install PHP 7.1.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install python-software-properties</span>
+
+<span class="go">sudo add-apt-repository ppa:ondrej/php</span>
+
+<span class="go">sudo apt-get update</span>
+
+<span class="go">sudo apt-get install -y php7.1</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Check Installed PHP Version:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> php -v
+
+<span class="go">PHP 7.1.0-5+deb.sury.org~xenial+1 (cli) ( NTS )</span>
+<span class="go">Copyright (c) 1997-2016 The PHP Group</span>
+<span class="go">Zend Engine v3.1.0-dev, Copyright (c) 1998-2016 Zend Technologies</span>
+<span class="go">with Zend OPcache v7.1.0-5+deb.sury.org~xenial+1, Copyright (c) 1999-2016, by Zend Technologies</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="mac-mysql.html" title="previous chapter (use the left arrow)">Install MySQL on Mac OS X</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="sphinx.html" title="next chapter (use the right arrow)">Install Sphinx Documentation</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sphinx.html" title="Install Sphinx Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mac-mysql.html" title="Install MySQL on Mac OS X"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Reference Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2009-2018 Jasper Carpizo. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133821205-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

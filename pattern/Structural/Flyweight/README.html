@@ -1,0 +1,402 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>2.9. Flyweight &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.10. Proxy" href="../Proxy/README.html" />
+    <link rel="prev" title="2.8. Fluent Interface" href="../FluentInterface/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Proxy/README.html" title="2.10. Proxy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../FluentInterface/README.html" title="2.8. Fluent Interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">2. Structural</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">2. Structural</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Adapter/README.html">2.1. Adapter / Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bridge/README.html">2.2. Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Composite/README.html">2.3. Composite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DataMapper/README.html">2.4. Data Mapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Decorator/README.html">2.5. Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DependencyInjection/README.html">2.6. Dependency Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Facade/README.html">2.7. Facade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FluentInterface/README.html">2.8. Fluent Interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.9. Flyweight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proxy/README.html">2.10. Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Registry/README.html">2.11. Registry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Behavioral/README.html">3. Behavioral</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">2. Structural</a></li>
+              
+              <li>2.9. Flyweight</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="flyweight">
+<h1>2.9. <a class="reference external" href="https://en.wikipedia.org/wiki/Flyweight_pattern">Flyweight</a><a class="headerlink" href="#flyweight" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>2.9.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>To minimise memory usage, a Flyweight shares as much as possible memory with similar objects. It
+is needed when a large amount of objects is used that don’t differ much in state. A common practice is
+to hold state in external data structures and pass them to the flyweight object when needed.</p>
+</div>
+<div class="section" id="uml-diagram">
+<h2>2.9.2. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="Alt Flyweight UML Diagram" class="align-center" src="../../_images/uml33.png" />
+</div>
+<div class="section" id="code">
+<h2>2.9.3. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/Structural/Flyweight">GitHub</a></p>
+<p>FlyweightInterface.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Structural\Flyweight</span><span class="p">;</span>
+
+<span class="k">interface</span> <span class="nx">FlyweightInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$extrinsicState</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>CharacterFlyweight.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Structural\Flyweight</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Implements the flyweight interface and adds storage for intrinsic state, if any.</span>
+<span class="sd"> * Instances of concrete flyweights are shared by means of a factory.</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">CharacterFlyweight</span> <span class="k">implements</span> <span class="nx">FlyweightInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Any state stored by the concrete flyweight must be independent of its context.</span>
+<span class="sd">     * For flyweights representing characters, this is usually the corresponding character code.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$font</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+         <span class="c1">// Clients supply the context-dependent information that the flyweight needs to draw itself</span>
+         <span class="c1">// For flyweights representing characters, extrinsic state usually contains e.g. the font.</span>
+
+        <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;Character %s with font %s&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="nv">$font</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>FlyweightFactory.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Structural\Flyweight</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * A factory manages shared flyweights. Clients should not instantiate them directly,</span>
+<span class="sd"> * but let the factory take care of returning existing objects or creating new ones.</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">FlyweightFactory</span> <span class="k">implements</span> <span class="nx">\Countable</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var CharacterFlyweight[]</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$pool</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">)</span><span class="o">:</span> <span class="nx">CharacterFlyweight</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pool</span><span class="p">[</span><span class="nv">$name</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pool</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CharacterFlyweight</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pool</span><span class="p">[</span><span class="nv">$name</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">count</span><span class="p">()</span><span class="o">:</span> <span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pool</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>2.9.4. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/FlyweightTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Structural\Flyweight\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\Structural\Flyweight\FlyweightFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FlyweightTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$characters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">];</span>
+    <span class="k">private</span> <span class="nv">$fonts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="s1">&#39;Times New Roman&#39;</span><span class="p">,</span> <span class="s1">&#39;Verdana&#39;</span><span class="p">,</span> <span class="s1">&#39;Helvetica&#39;</span><span class="p">];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testFlyweight</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlyweightFactory</span><span class="p">();</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">characters</span> <span class="k">as</span> <span class="nv">$char</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fonts</span> <span class="k">as</span> <span class="nv">$font</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$flyweight</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$char</span><span class="p">);</span>
+                <span class="nv">$rendered</span> <span class="o">=</span> <span class="nv">$flyweight</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="nv">$font</span><span class="p">);</span>
+
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;Character %s with font %s&#39;</span><span class="p">,</span> <span class="nv">$char</span><span class="p">,</span> <span class="nv">$font</span><span class="p">),</span> <span class="nv">$rendered</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Flyweight pattern ensures that instances are shared</span>
+        <span class="c1">// instead of having hundreds of thousands of individual objects</span>
+        <span class="c1">// there must be one instance for every char that has been reused for displaying in different fonts</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertCount</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">characters</span><span class="p">),</span> <span class="nv">$factory</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../FluentInterface/README.html" title="previous chapter (use the left arrow)">2.8. Fluent Interface</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../Proxy/README.html" title="next chapter (use the right arrow)">2.10. Proxy</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Proxy/README.html" title="2.10. Proxy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../FluentInterface/README.html" title="2.8. Fluent Interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >2. Structural</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

@@ -1,0 +1,546 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>3.5. Memento &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.6. Null Object" href="../NullObject/README.html" />
+    <link rel="prev" title="3.4. Mediator" href="../Mediator/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../NullObject/README.html" title="3.6. Null Object"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Mediator/README.html" title="3.4. Mediator"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">3. Behavioral</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Command/README.html">3.2. Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.5. Memento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../State/README.html">3.9. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Strategy/README.html">3.10. Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TemplateMethod/README.html">3.11. Template Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">3. Behavioral</a></li>
+              
+              <li>3.5. Memento</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="memento">
+<h1>3.5. <a class="reference external" href="http://en.wikipedia.org/wiki/Memento_pattern">Memento</a><a class="headerlink" href="#memento" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>3.5.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>It provides the ability to restore an object to it’s previous state (undo
+via rollback) or to gain access to state of the object, without revealing
+it’s implementation (i.e., the object is not required to have a function
+to return the current state).</p>
+<p>The memento pattern is implemented with three objects: the Originator, a
+Caretaker and a Memento.</p>
+<p>Memento – an object that <em>contains a concrete unique snapshot of state</em> of
+any object or resource: string, number, array, an instance of class and so on.
+The uniqueness in this case does not imply the prohibition existence of similar
+states in different snapshots. That means the state can be extracted as
+the independent clone. Any object stored in the Memento should be
+<em>a full copy of the original object rather than a reference</em> to the original
+object. The Memento object is a “opaque object” (the object that no one can
+or should change).</p>
+<p>Originator – it is an object that contains the <em>actual state of an external
+object is strictly specified type</em>. Originator is able to create a unique
+copy of this state and return it wrapped in a Memento. The Originator does
+not know the history of changes. You can set a concrete state to Originator
+from the outside, which will be considered as actual. The Originator must
+make sure that given state corresponds the allowed type of object. Originator
+may (but not should) have any methods, but they <em>they can’t make changes to
+the saved object state</em>.</p>
+<p>Caretaker <em>controls the states history</em>. He may make changes to an object;
+take a decision to save the state of an external object in the Originator;
+ask from the Originator snapshot of the current state; or set the Originator
+state to equivalence with some snapshot from history.</p>
+</div>
+<div class="section" id="examples">
+<h2>3.5.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The seed of a pseudorandom number generator</li>
+<li>The state in a finite state machine</li>
+<li>Control for intermediate states of <a class="reference external" href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM Model</a> before saving</li>
+</ul>
+</div>
+<div class="section" id="uml-diagram">
+<h2>3.5.3. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="Alt Momento UML Diagram" class="align-center" src="../../_images/uml4.png" />
+</div>
+<div class="section" id="code">
+<h2>3.5.4. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/Behavioral/Memento">GitHub</a></p>
+<p>Memento.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Memento</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Memento</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var State</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$state</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param State $stateToSave</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">State</span> <span class="nv">$stateToSave</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">state</span> <span class="o">=</span> <span class="nv">$stateToSave</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return State</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getState</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">state</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>State.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Memento</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">State</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">STATE_CREATED</span> <span class="o">=</span> <span class="s1">&#39;created&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">STATE_OPENED</span> <span class="o">=</span> <span class="s1">&#39;opened&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">STATE_ASSIGNED</span> <span class="o">=</span> <span class="s1">&#39;assigned&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">STATE_CLOSED</span> <span class="o">=</span> <span class="s1">&#39;closed&#39;</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$state</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string[]</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="nv">$validStates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">STATE_CREATED</span><span class="p">,</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">STATE_OPENED</span><span class="p">,</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">STATE_ASSIGNED</span><span class="p">,</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">STATE_CLOSED</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param string $state</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$state</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">ensureIsValidState</span><span class="p">(</span><span class="nv">$state</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">state</span> <span class="o">=</span> <span class="nv">$state</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">ensureIsValidState</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$state</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$state</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$validStates</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\InvalidArgumentException</span><span class="p">(</span><span class="s1">&#39;Invalid state given&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">state</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Ticket.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Memento</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Ticket is the &quot;Originator&quot; in this implementation</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Ticket</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var State</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$currentState</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">State</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_CREATED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">open</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">State</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_OPENED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">assign</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">State</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_ASSIGNED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">close</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">State</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_CLOSED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveToMemento</span><span class="p">()</span><span class="o">:</span> <span class="nx">Memento</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Memento</span><span class="p">(</span><span class="k">clone</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">restoreFromMemento</span><span class="p">(</span><span class="nx">Memento</span> <span class="nv">$memento</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span> <span class="o">=</span> <span class="nv">$memento</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getState</span><span class="p">()</span><span class="o">:</span> <span class="nx">State</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentState</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>3.5.5. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/MementoTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Memento\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Memento\State</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Memento\Ticket</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MementoTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testOpenTicketAssignAndSetBackToOpen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$ticket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ticket</span><span class="p">();</span>
+
+        <span class="c1">// open the ticket</span>
+        <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">open</span><span class="p">();</span>
+        <span class="nv">$openedState</span> <span class="o">=</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_OPENED</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">());</span>
+
+        <span class="nv">$memento</span> <span class="o">=</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">saveToMemento</span><span class="p">();</span>
+
+        <span class="c1">// assign the ticket</span>
+        <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_ASSIGNED</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">());</span>
+
+        <span class="c1">// now restore to the opened state, but verify that the state object has been cloned for the memento</span>
+        <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">restoreFromMemento</span><span class="p">(</span><span class="nv">$memento</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nx">State</span><span class="o">::</span><span class="na">STATE_OPENED</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">());</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertNotSame</span><span class="p">(</span><span class="nv">$openedState</span><span class="p">,</span> <span class="nv">$ticket</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../Mediator/README.html" title="previous chapter (use the left arrow)">3.4. Mediator</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../NullObject/README.html" title="next chapter (use the right arrow)">3.6. Null Object</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../NullObject/README.html" title="3.6. Null Object"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Mediator/README.html" title="3.4. Mediator"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

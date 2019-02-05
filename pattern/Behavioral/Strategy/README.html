@@ -1,0 +1,507 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>3.10. Strategy &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.11. Template Method" href="../TemplateMethod/README.html" />
+    <link rel="prev" title="3.9. State" href="../State/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../TemplateMethod/README.html" title="3.11. Template Method"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../State/README.html" title="3.9. State"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">3. Behavioral</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Command/README.html">3.2. Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Memento/README.html">3.5. Memento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../State/README.html">3.9. State</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.10. Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TemplateMethod/README.html">3.11. Template Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">3. Behavioral</a></li>
+              
+              <li>3.10. Strategy</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="strategy">
+<h1>3.10. <a class="reference external" href="http://en.wikipedia.org/wiki/Strategy_pattern">Strategy</a><a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terminology">
+<h2>3.10.1. Terminology:<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Context</li>
+<li>Strategy</li>
+<li>Concrete Strategy</li>
+</ul>
+</div>
+<div class="section" id="purpose">
+<h2>3.10.2. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>To separate strategies and to enable fast switching between them. Also
+this pattern is a good alternative to inheritance (instead of having an
+abstract class that is extended).</p>
+</div>
+<div class="section" id="examples">
+<h2>3.10.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>sorting a list of objects, one strategy by date, the other by id</li>
+<li>simplify unit testing: e.g. switching between file and in-memory
+storage</li>
+</ul>
+</div>
+<div class="section" id="uml-diagram">
+<h2>3.10.4. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="Alt Strategy UML Diagram" class="align-center" src="../../_images/uml9.png" />
+</div>
+<div class="section" id="code">
+<h2>3.10.5. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/Behavioral/Strategy">GitHub</a></p>
+<p>Context.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Strategy</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Context</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var ComparatorInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$comparator</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ComparatorInterface</span> <span class="nv">$comparator</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">comparator</span> <span class="o">=</span> <span class="nv">$comparator</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">executeStrategy</span><span class="p">(</span><span class="k">array</span> <span class="nv">$elements</span><span class="p">)</span> <span class="o">:</span> <span class="k">array</span>
+    <span class="p">{</span>
+        <span class="nb">uasort</span><span class="p">(</span><span class="nv">$elements</span><span class="p">,</span> <span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">comparator</span><span class="p">,</span> <span class="s1">&#39;compare&#39;</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$elements</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>ComparatorInterface.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Strategy</span><span class="p">;</span>
+
+<span class="k">interface</span> <span class="nx">ComparatorInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param mixed $a</span>
+<span class="sd">     * @param mixed $b</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return int</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">compare</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span><span class="o">:</span> <span class="nx">int</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>DateComparator.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Strategy</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DateComparator</span> <span class="k">implements</span> <span class="nx">ComparatorInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param mixed $a</span>
+<span class="sd">     * @param mixed $b</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return int</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">compare</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span><span class="o">:</span> <span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="nv">$aDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]);</span>
+        <span class="nv">$bDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="nv">$b</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$aDate</span> <span class="o">&lt;=&gt;</span> <span class="nv">$bDate</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>IdComparator.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Strategy</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">IdComparator</span> <span class="k">implements</span> <span class="nx">ComparatorInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param mixed $a</span>
+<span class="sd">     * @param mixed $b</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return int</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">compare</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span><span class="o">:</span> <span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">&lt;=&gt;</span> <span class="nv">$b</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>3.10.6. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/StrategyTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Strategy\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Strategy\Context</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Strategy\DateComparator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Strategy\IdComparator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StrategyTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">provideIntegers</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="p">[[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">]],</span>
+                <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="p">[[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">],</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">provideDates</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="p">[[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2014-03-03&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2015-03-02&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2013-03-01&#39;</span><span class="p">]],</span>
+                <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2013-03-01&#39;</span><span class="p">],</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="p">[[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2014-02-03&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2013-02-01&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2015-02-02&#39;</span><span class="p">]],</span>
+                <span class="p">[</span><span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2013-02-01&#39;</span><span class="p">],</span>
+            <span class="p">],</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @dataProvider provideIntegers</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param array $collection</span>
+<span class="sd">     * @param array $expected</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testIdComparator</span><span class="p">(</span><span class="nv">$collection</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Context</span><span class="p">(</span><span class="k">new</span> <span class="nx">IdComparator</span><span class="p">());</span>
+        <span class="nv">$elements</span> <span class="o">=</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">executeStrategy</span><span class="p">(</span><span class="nv">$collection</span><span class="p">);</span>
+
+        <span class="nv">$firstElement</span> <span class="o">=</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$elements</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nv">$expected</span><span class="p">,</span> <span class="nv">$firstElement</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @dataProvider provideDates</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param array $collection</span>
+<span class="sd">     * @param array $expected</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testDateComparator</span><span class="p">(</span><span class="nv">$collection</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Context</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateComparator</span><span class="p">());</span>
+        <span class="nv">$elements</span> <span class="o">=</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">executeStrategy</span><span class="p">(</span><span class="nv">$collection</span><span class="p">);</span>
+
+        <span class="nv">$firstElement</span> <span class="o">=</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$elements</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="nv">$expected</span><span class="p">,</span> <span class="nv">$firstElement</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../State/README.html" title="previous chapter (use the left arrow)">3.9. State</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../TemplateMethod/README.html" title="next chapter (use the right arrow)">3.11. Template Method</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../TemplateMethod/README.html" title="3.11. Template Method"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../State/README.html" title="3.9. State"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

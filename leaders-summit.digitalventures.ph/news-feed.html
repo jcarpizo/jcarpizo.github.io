@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from leaderssummit.digitalventures.ph/docs/en/news-feed.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2017 01:54:34 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>News-feeds &mdash; LS Summit API Docs 1.0 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="LS Summit API Docs 1.0 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Notifications" href="notification.html"/>
+        <link rel="prev" title="Feedback" href="feedback.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LS Summit API Docs 1.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://leaderssummit.digitalventures.ph/docs/en/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feedback.html">Feedback</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">News-feeds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#topics">Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#all-topics-with-pagination-numbers">All topics with pagination numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-new-topic">Create new Topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-topic-details-by-id">Get topic details by Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-topic-details-by-id">Update topic details by Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-topic-by-id">Delete topic by Id</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#comments">Comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#all-comments-with-pagination-numbers">All comments with pagination numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-comment-with-topic-id">Create Comment with topic Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-comment-details-by-id">Get comment details by Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-comment-details-by-id">Update comment details by Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-comment-by-id">Delete comment by Id</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uploaded-files">Uploaded Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete-file-by-id">Delete file by Id</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="like.html">Likes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Participants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LS Summit API Docs 1.0</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>News-feeds</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="news-feeds">
+<h1>News-feeds<a class="headerlink" href="#news-feeds" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-topics-with-pagination-numbers">
+<h3>All topics with pagination numbers<a class="headerlink" href="#all-topics-with-pagination-numbers" title="Permalink to this headline">¶</a></h3>
+<dl class="get">
+<dt id="get--api-newsfeeds-topics-(int-offset)-(int-limit)">
+<code class="descname">GET </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>offset</em><span class="sig-paren">)</span><code class="descname">/</code><span class="sig-paren">(</span><em class="property">int: </em><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-newsfeeds-topics-(int-offset)-(int-limit)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response:</strong></p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;NewsFeed&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;74&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jasper Carpizo&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/repo/topic-files/topic/1/images/cb489d6c1d2ddb489064f3d3d9fd34ef.jpg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;dateCreated&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:01&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+              <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-16 00:00:00&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;asdsasdasd&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cris del Rosario&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Driver&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:02&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;e5d1f28c9690ae7f180f80129e18007ddcffd96c&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-new-topic">
+<h3>Create new Topic<a class="headerlink" href="#create-new-topic" title="Permalink to this headline">¶</a></h3>
+<dl class="post">
+<dt id="post--api-newsfeeds-topics-create">
+<code class="descname">POST </code><code class="descname">/api/newsfeeds/topics/create</code><a class="headerlink" href="#post--api-newsfeeds-topics-create" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; the topic name</li>
+<li><strong>created_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>uploaded_files</strong> (<em>array</em>) &#8211; the uploaded files - optional</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;NewsFeed&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;74&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jasper Carpizo&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/repo/topic-files/topic/1/images/cb489d6c1d2ddb489064f3d3d9fd34ef.jpg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;dateCreated&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:01&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+              <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-16 00:00:00&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;asdsasdasd&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cris del Rosario&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Driver&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:02&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;e5d1f28c9690ae7f180f80129e18007ddcffd96c&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-topic-details-by-id">
+<h3>Get topic details by Id<a class="headerlink" href="#get-topic-details-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="get">
+<dt id="get--api-newsfeeds-topics-(int-topic_id)-details">
+<code class="descname">GET </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>topic_id</em><span class="sig-paren">)</span><code class="descname">/details</code><a class="headerlink" href="#get--api-newsfeeds-topics-(int-topic_id)-details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;NewsFeed&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;74&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jasper Carpizo&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/repo/topic-files/topic/1/images/cb489d6c1d2ddb489064f3d3d9fd34ef.jpg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;dateCreated&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:01&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+               <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-16 00:00:00&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;asdsasdasd&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cris del Rosario&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Driver&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:02&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;e5d1f28c9690ae7f180f80129e18007ddcffd96c&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-topic-details-by-id">
+<h3>Update topic details by Id<a class="headerlink" href="#update-topic-details-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="put">
+<dt id="put--api-newsfeeds-topics-(int-topic_id)-update">
+<code class="descname">PUT </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>topic_id</em><span class="sig-paren">)</span><code class="descname">/update</code><a class="headerlink" href="#put--api-newsfeeds-topics-(int-topic_id)-update" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; the topic name</li>
+<li><strong>created_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>updated_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>uploaded_files</strong> (<em>array</em>) &#8211; the uploaded files - optional</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;NewsFeed&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;74&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jasper Carpizo&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ls-summit.dev/repo/topic-files/topic/1/images/cb489d6c1d2ddb489064f3d3d9fd34ef.jpg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;dateCreated&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:01&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+               <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-16 00:00:00&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;asdsasdasd&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cris del Rosario&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Driver&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-00-00 00:00:00&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 02:00:02&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;e5d1f28c9690ae7f180f80129e18007ddcffd96c&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-topic-by-id">
+<h3>Delete topic by Id<a class="headerlink" href="#delete-topic-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="delete">
+<dt id="delete--api-newsfeeds-topics-(int-topic_id)-delete">
+<code class="descname">DELETE </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>topic_id</em><span class="sig-paren">)</span><code class="descname">/delete</code><a class="headerlink" href="#delete--api-newsfeeds-topics-(int-topic_id)-delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+ <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deleted Topic Id: 1&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 07:51:21&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;bd5897d23449cb2be45a01286580d291bd6195c1&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;redirect_url&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Redirected&quot;</span>
+        <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-comments-with-pagination-numbers">
+<h3>All comments with pagination numbers<a class="headerlink" href="#all-comments-with-pagination-numbers" title="Permalink to this headline">¶</a></h3>
+<dl class="get">
+<dt id="get--api-newsfeeds-topics-(int-topic_id)-comments-(int-offset)-(int-limit)">
+<code class="descname">GET </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>topic_id</em><span class="sig-paren">)</span><code class="descname">/comments/</code><span class="sig-paren">(</span><em class="property">int: </em><em>offset</em><span class="sig-paren">)</span><code class="descname">/</code><span class="sig-paren">(</span><em class="property">int: </em><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#get--api-newsfeeds-topics-(int-topic_id)-comments-(int-offset)-(int-limit)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:19:01&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;cebc40ecbb8fba30e798429dc4f528dc0ff0a0b9&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-comment-with-topic-id">
+<h3>Create Comment with topic Id<a class="headerlink" href="#create-comment-with-topic-id" title="Permalink to this headline">¶</a></h3>
+<dl class="post">
+<dt id="post--api-newsfeeds-topics-(int-topic_id)-comments-create">
+<code class="descname">POST </code><code class="descname">/api/newsfeeds/topics/</code><span class="sig-paren">(</span><em class="property">int: </em><em>topic_id</em><span class="sig-paren">)</span><code class="descname">/comments/create</code><a class="headerlink" href="#post--api-newsfeeds-topics-(int-topic_id)-comments-create" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>comment</strong> (<em>string</em>) &#8211; the comment</li>
+<li><strong>created_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>uploaded_files</strong> (<em>array</em>) &#8211; the uploaded files - optional</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:19:01&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;cebc40ecbb8fba30e798429dc4f528dc0ff0a0b9&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-comment-details-by-id">
+<h3>Get comment details by Id<a class="headerlink" href="#get-comment-details-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="get">
+<dt id="get--api-newsfeeds-comments-(int-comment_id)-details">
+<code class="descname">GET </code><code class="descname">/api/newsfeeds/comments/</code><span class="sig-paren">(</span><em class="property">int: </em><em>comment_id</em><span class="sig-paren">)</span><code class="descname">/details</code><a class="headerlink" href="#get--api-newsfeeds-comments-(int-comment_id)-details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:19:01&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;cebc40ecbb8fba30e798429dc4f528dc0ff0a0b9&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-comment-details-by-id">
+<h3>Update comment details by Id<a class="headerlink" href="#update-comment-details-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="put">
+<dt id="put--api-newsfeeds-comments-(int-comment_id)-update">
+<code class="descname">PUT </code><code class="descname">/api/newsfeeds/comments/</code><span class="sig-paren">(</span><em class="property">int: </em><em>comment_id</em><span class="sig-paren">)</span><code class="descname">/update</code><a class="headerlink" href="#put--api-newsfeeds-comments-(int-comment_id)-update" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>comment</strong> (<em>string</em>) &#8211; the comment</li>
+<li><strong>created_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>updated_by</strong> (<em>integer</em>) &#8211; the participant Id</li>
+<li><strong>uploaded_files</strong> (<em>array</em>) &#8211; the uploaded files - optional</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;rwerwerwerwer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marc Darren Padilla&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;designation&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;photoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kingofwallpapers.com/tux/tux-001.jpg&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;uploaded_files&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:19:01&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;cebc40ecbb8fba30e798429dc4f528dc0ff0a0b9&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-comment-by-id">
+<h3>Delete comment by Id<a class="headerlink" href="#delete-comment-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="delete">
+<dt id="delete--api-newsfeeds-comments-(int-comment_id)-delete">
+<code class="descname">DELETE </code><code class="descname">/api/newsfeeds/comments/</code><span class="sig-paren">(</span><em class="property">int: </em><em>comment_id</em><span class="sig-paren">)</span><code class="descname">/delete</code><a class="headerlink" href="#delete--api-newsfeeds-comments-(int-comment_id)-delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deleted Comment Id: 57&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:31:14&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;095c946c9cff54cf10b7a34d15e794ef83671320&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;redirect_url&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Redirected&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="uploaded-files">
+<h2>Uploaded Files<a class="headerlink" href="#uploaded-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delete-file-by-id">
+<h3>Delete file by Id<a class="headerlink" href="#delete-file-by-id" title="Permalink to this headline">¶</a></h3>
+<dl class="delete">
+<dt id="delete--api-newsfeeds-files-(int-file_Id)-delete">
+<code class="descname">DELETE </code><code class="descname">/api/newsfeeds/files/</code><span class="sig-paren">(</span><em class="property">int: </em><em>file_Id</em><span class="sig-paren">)</span><code class="descname">/delete</code><a class="headerlink" href="#delete--api-newsfeeds-files-(int-file_Id)-delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=UTF-8</span>
+
+<span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;response_code&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deleted File Id: 55&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10 08:36:05&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;a058834cb7e123bef1ea0f2ff6776e325d30734e&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;redirect_url&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">,</span>
+          <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Redirected&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notification.html" class="btn btn-neutral float-right" title="Notifications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="feedback.html" class="btn btn-neutral" title="Feedback" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jasper Carpizo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+
+<!-- Mirrored from leaderssummit.digitalventures.ph/docs/en/news-feed.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2017 01:54:34 GMT -->
+</html>

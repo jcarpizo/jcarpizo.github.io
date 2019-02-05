@@ -1,0 +1,72 @@
+Unix / Linux File permissions
+=============================
+
+.. note::
+
+    | Use the chmod command to set file permissions.
+    | The chmod command uses a three-digit code as an argument.
+    | The three digits of the chmod code set permissions for these groups in this order:
+
+1. Owner (you)
+2. Group (a group of other users that you set up)
+3. World (anyone else browsing around on the file system)
+
+Each digit of this code sets permissions for one of these groups as follows. Read is 4. Write is 2. Execute is 1.
+
+The sums of these numbers give combinations of these permissions:
+
+* **0** = *no permissions whatsoever; this person cannot read, write, or execute the file*
+* **1** = *execute only*
+* **2** = *write only*
+* **3** = *write and execute* ``(1+2)``
+* **4** = *read only*
+* **5** = *read and execute* ``(4+1)``
+* **6** = *read and write* ``(4+2)``
+* **7** = *read and write and execute* ``(4+2+1)``
+
+Chmod commands on file apple.txt (use wildcards to include more files)
+
+.. raw:: html
+
+    <table class="table table-striped small" style="padding:10px">
+        <tr>
+            <th>Command</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>chmod 700 apple.txt</td>
+            <td>Only you can read, write to, or execute apple.txt</td>
+        </tr>
+        <tr>
+            <td>chmod 777 apple.txt</td>
+            <td>Everybody can read, write to, or execute apple.txt</td>
+        </tr>
+        <tr>
+            <td>chmod 744 apple.txt</td>
+            <td>Only you can read, write to, or execute apple.txt Everybody can read apple.txt</td>
+        </tr>
+        <tr>
+            <td> chmod 444 apple.txt </td>
+            <td>You can only read apple.txt, as everyone else.</td>
+        </tr>
+    </table>
+
+
+==========================
+Detecting File Permissions
+==========================
+
+You can use the ls command with the -l option to show the file permissions set. For example, for apple.txt, I can do this:
+
+::
+
+    $ ls -l apple.txt
+    -rwxr--r--   1 december december       81 Feb 12 12:45 apple.txt
+    $
+
+The sequence -rwxr--r-- tells the permissions set for the file apple.txt. The first - tells that apple.txt is a file. The next three letters, rwx, show that the owner has read, write, and execute permissions. Then the next three symbols, r--, show that the group permissions are read only. The final three symbols, r--, show that the world permissions are read only.
+
+.. meta::
+    :description: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :keywords: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :author: Jasper Carpizo

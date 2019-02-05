@@ -1,0 +1,100 @@
+*Dev Skills*
+============
+
+.. raw:: html
+
+      <ul style="font-size:15px;">
+      <li><strong>Symfony , Laravel, CakePHP and Phalcon</strong></li>
+      <li>PHP 7+ with PHPUnit Testing Framework</li>
+      <li>Build and create from the scratch cRESTful API in PHP</li>
+      <li>PHP_CodeSniffer for checking coding compliance and PSR-2 standard coding style</li>
+      <li>Docker Engine, Docker Hub</li>
+      <li>Guzzle, PHP HTTP Client</li>
+      <li>Auth0's API authorization</li>
+      <li>Leading Agile Projects with Atlassian Jira Software</li>
+      <li>Google API, Twilio API / Speech Recognition, Authorize.net API and Facebook API Integration</li>
+      <li>Google Duplex AI </li>
+      <li>Doctrine - Object Relational Mapper (ORM) and Database Abstraction Layer (DBAL)</li>
+      <li>JAVA Programming (J2SE)</li>
+      <li>Angular JS 1 / 2 with Protractor End to End Tesing for Angular</li>
+      <li>Joomla, Wordpress and Drupal ( Content Management System )</li>
+      <li>Adobe Flex PHP / Adobe ColdFusion</li>
+      <li>Unix Shell Scripting in Unix / Linux Environment</li>
+      <li>Twitter Bootstrap,  Zurb Foundation</li>
+      <li>Grunt: The JavaScript Task Runner</li>
+      <li>Qunit Javascript Unit Testing</li>
+      <li>Python 2.7.10</li>
+      <li>Highcharts JS</li>
+      <li>Node JS, React JS, Vue JS, JQuery, and Navtive Javascript</li>
+      <li>eJabberd XMPP Server</li>
+      <li>Bitbuket with Pipeline Build Integration</li>
+      <li>GitLab with Gitlab CI integration</li>
+      <li>Git with Git Flow Integration</li>
+      <li>MS SQL Enterprise</li>
+      <li>MySQL with MySql Workbench and Sequel Pro</li>
+      <li>Postgre SQL</li>
+      <li>Composer for PHP dependencies</li>
+      <li>WebPack Node JS for JavaScript and Css dependencies</li>
+      <li>Solaris 10, Ubuntu 16.04, Fedora 18, Backtrack and macOS High Sierra</li>
+      <li>Windows XP, Vista, 7 and 8</li>
+      <li>VMware Server, Virtual Box, Homestead</li>
+      <li>HTML5, CSS and SASS</li>
+      <li>
+         SPHINX - Python Documentation Generator
+            <ul>
+               <li>Sample API docs for mobile dev - <a href="leaders-summit.digitalventures.ph" target="__blank">Leaders Summit API Docs.</a></li>
+            </ul>
+      </li>
+      </ul>
+
+------------
+Symfony Flex
+------------
+
+
+.. raw:: html
+
+    <blockquote class="small">
+     <p class="text-primary">
+     "As a developer, I want to start small, without too many dependencies. But I also
+     want to be able to grow my application as I see fit. From a micro-framework style app
+     to a gigantic monolith. Your choice. The framework should not get in the way"
+     </p>
+     <footer><cite title="Fabien Potencier">Fabien Potencier</cite></footer>
+   </blockquote>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/o9N1nOYfAl4" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+   <br/>
+   <a href="http://symfony.com/blog/symfony-4-a-new-way-to-develop-applications">http://symfony.com/blog/symfony-4-a-new-way-to-develop-applications</a>
+
+.. toctree::
+       :caption: Dev Docs
+       :hidden:
+       :maxdepth: 2
+
+
+       lamp
+       mac-mysql
+       php-install
+       sphinx
+       install-node
+       mac-php
+       php-codesniffer
+       virtual-host
+       multiple-php
+       doctrine
+       solid
+       file-permission
+       mysql
+       docker
+       git
+       git-flow
+       adwords-api
+       ejabberd
+       php-storm
+       tao-of-programming
+       sync-gmail-inbox
+       repositories-doctrine
+       composite-pattern

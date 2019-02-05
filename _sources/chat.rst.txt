@@ -1,0 +1,3901 @@
+Chat History with Dolita
+========================
+
+December 4, 2018
+----------------
+
+.. code-block:: console
+
+        Jasper Carpizo [10:23 AM]
+        hi @dolita, ah yes, I will going to check the WMS-292 :wink: (edited)
+
+        dolita [11:18 AM]
+        jasper, if you havent heard (sorry it is abrupt), i will be here only until end of next week
+        so ~these 2 weeks~ this week can you try to set aside some time so i can show you as much as possible? ^^ (edited)
+        wait, shld be this week
+
+        Jasper Carpizo [11:21 AM]
+        :astonished:, I thought is until end of December.  Yes, I'll get to you tomorrow. :slightly_smiling_face: (edited)
+
+        dolita [11:22 AM]
+        yea management gave me another choice ytd, either 24 jan next year or 16 dec (my original plan). i cant stay so long, so 16 dec is my choice
+        can you set aside some time today, going to show you omss (got 1 ticket pending)
+
+        Jasper Carpizo [11:24 AM]
+        mhm, yeah sure after lunch today.
+
+        dolita [11:24 AM]
+        as per original plan of mine, since 1 dec, you will take over manning OMSS (WMS support board) ^^
+        okay
+
+        Jasper Carpizo [11:35 AM]
+        ah yes @dolita :slightly_smiling_face:
+
+        Jasper Carpizo [1:52 PM]
+        hi @dolita, let me know, if you are available :wink:
+
+        dolita [1:54 PM]
+        yep
+        let's start then?
+        i just added you to #wms_support channel. so when there is movement in OMSS, will get notification
+        right now got 1 pending task (as you see ald)
+        the background is like this
+        when wh finished pick and pack, they found out there are shortage
+        so we have to help them remove that from pick list
+        it is kind of unofficial SOP
+        and in new project like wing tai, we will not entertain that request
+
+        Jasper Carpizo [1:57 PM]
+        okay  got it
+
+        dolita [1:58 PM]
+        so the key is if got shortage & need to remove from pick list => we do
+        if they want to add item into picklist => reject, ask them create new SO or so
+        you understand the ticket?
+        what you think shld be done?
+
+        Jasper Carpizo [2:00 PM]
+        yep, remove the items in the pick ticket PI2018-004915 under courex id 17952?
+
+        dolita [2:00 PM]
+        i actually got a script to do that easily
+        coz it is not simply editing wms_picklist_item
+        firstly can you go to that pick ticket in wms ?
+        how you know which one nt picked?
+        nice
+        last time i removed pickpack_admin acl from your account (edited)
+        can you add it back?
+
+        Jasper Carpizo [2:04 PM]
+        ah yes
+
+        dolita [2:08 PM]
+        refresh the pick ticket again
+        dont have to update user ... coz yours not newly set
+        anyway back to pick ticket
+        thats refreshed?
+        can check your ACL?
+        is dev inside?
+        cross check mine, UID 2202
+        cross check with my ACL
+        set dev to yours
+        yep set your ACL, add dev ACL
+
+        dolita [2:18 PM]
+        backup wms_solist_item also
+        then back to pick list page, at each line that hasnt been picked fully, click 'special remove' link
+
+        Jasper Carpizo [2:21 PM]
+        okay :slightly_smiling_face:
+
+        dolita [2:21 PM]
+        lol, can you open that file?
+        in code
+        check what permission is required
+        got 2 solution for this
+        1st one add your uid in whitelist
+        2nd one remove that lines (and check acl instead)
+        just know that that page is for dev only
+        it is a series of queries
+        i added so i can just click and get the job done lol
+        which 1 you think better?
+
+        Jasper Carpizo [2:26 PM]
+        may I can use your account for temporary
+
+        dolita [2:26 PM]
+        maybe you want maintain 2 accounts
+        1st one jasper (set it as non pickpack_admin)
+        then 2nd one is for when you need do these things? (edited)
+        you can rename user.Username when im gone
+
+        Jasper Carpizo [2:27 PM]
+        No, hehe
+
+        dolita [2:27 PM]
+        it is ok, better rename
+        if not kind of funny to see my names "everywhere"
+        look around top there
+        you may want to add some kind of differentiator when accessing local-wms vs wms.courex next time (edited)
+        you see 'create packing list'
+        it means all items record picked successfully
+        if still got unpicked, it will nt show
+        there is only 1 issue with that special remove. that is if `wms_solist_item.list_itemqty` & `wms_solist_item.list_itemqtyout` not matching, it will go to error
+        can you go to specialremove.php and search for the `list_itemqty`?
+        if so_qty != so_qtyout
+        it is some bug..
+        so when you run special remove link, if you see that echo `!!!!...`
+        just update so_qtyout to be same as so_qty
+        (of course after you do some due diligence checks)
+
+        Jasper Carpizo [2:37 PM]
+        I noted, so I can review with this later
+
+        dolita [2:37 PM]
+        ok we are done with OMSS, see you tmr?
+        rem change the status & update the ticket that it is done
+        puah is the lady who sit beside me ytd
+        she is the head of warehouse
+        oh you know ald
+        thanks jasper
+        the red chair is at the table beside penn lol
+
+        Jasper Carpizo [2:40 PM]
+        your welcome :wink:
+        hehehe
+        thanks a lot @dolita
+
+        dolita [2:41 PM]
+        hehe. ganbatte
+
+        Jasper Carpizo [2:41 PM]
+        ah thank you :slightly_smiling_face:
+
+        dolita [2:54 PM]
+        btw you can change the status of OMSS-509 also
+        now shld be in progress
+
+        Jasper Carpizo [2:55 PM]
+        start progress?
+
+        dolita [2:55 PM]
+        yup
+        most of the support tasks are documented here over time: https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/14909441/WMS+Support+Tasks+for+Engineers (edited)
+        if unfortunately not in the list, you can search past OMSS/WMS or try to look in the code (edited)
+
+        Jasper Carpizo [2:58 PM]
+        great! have some references. yeah, no worries. I'll search in the code if ever.
+
+        dolita [2:58 PM]
+        :+1::woman-bowing:
+
+        Jasper Carpizo [2:58 PM]
+        hehe.. Thanks a lot :wink: (edited)
+
+        dolita [2:59 PM]
+        ping me if you want me to review the PRs
+
+        dolita [3:08 PM]
+        btw jasper, puah's jira account got issue such that she is unable to see comments in all tickets (including the one she created)
+        (thats why ytd i ask her find me)
+        i just told her abt OMSS-509 via hangout. she said it is good, we can close it (edited)
+
+        Jasper Carpizo [3:11 PM]
+        hehe.. okay. So I can click the `Mark as Done` to close the ticket? (edited)
+
+        dolita [3:12 PM]
+        yup
+
+        Jasper Carpizo [3:13 PM]
+        Done :slightly_smiling_face:
+
+        dolita [3:14 PM]
+        nice
+
+        dolita [4:29 PM]
+        look like we can schedule some PR for next wed deployments
+        (am i right?)
+        it gonna be my last deployment. i shld be showing you as well
+
+        Jasper Carpizo [4:31 PM]
+        mhm, btw, any feedback about this one https://bitbucket.org/courex/courex-wms/pull-requests/94
+
+        dolita [4:32 PM]
+        i would like to merge the script with the one autocompleting wms account
+        but then it is nt impt now. i wanted to _merge_ it myself but i think no more time. so just leave it alone. we can do other more critical tasks first (edited)
+        so i guess it is good to go
+
+        Jasper Carpizo [4:34 PM]
+        understood :slightly_smiling_face:,  we can go to critical one.
+
+        dolita [4:34 PM]
+        yep
+        so i think other than the dupe in pick list one, most of it are good. by tmr or day after tmr we will put in #wms list of PR to be scheduled for next wed deployment (edited)
+
+        Jasper Carpizo [4:39 PM]
+        ah yes.. :slightly_smiling_face:
+
+        dolita [4:39 PM]
+        :thumbsup:
+
+        Jasper Carpizo [5:48 PM]
+        hi @dolita, I have to go.
+
+        dolita [5:48 PM]
+        yep @Jasper Carpizo have good evening
+
+        Jasper Carpizo [5:48 PM]
+        you too @dolita, have a nice evening :slightly_smiling_face:
+
+December 5, 2018
+----------------
+
+.. code-block:: console
+
+        Jasper Carpizo [10:33 AM]
+        hi @dolita, good morning.
+        I have a question, on what page that I can find this issue `User can attempt to create duplicated receival from PO` ? (edited)
+
+        dolita [10:34 AM]
+        morning Jasper
+
+        Jasper Carpizo [10:34 AM]
+        :wink:
+
+        dolita [10:35 AM]
+        the PRs all settled? including duplicate pick ticket?
+
+        Jasper Carpizo [10:35 AM]
+        ah not yet :grimacing:
+
+        dolita [10:35 AM]
+        oh ok just asking
+        it is good time to show you inbound
+
+        Jasper Carpizo [10:37 AM]
+        ah yes.. upon checking the task that I assigned to me. I just look the inbound but after have idea for it. I just continue working some PR's :slightly_smiling_face:
+
+        dolita [10:37 AM]
+        yep no worries
+        lets talk abt inbound then?
+
+        Jasper Carpizo [10:37 AM]
+        ah yes :wink:
+
+        dolita [10:37 AM]
+        so inbound is what is under `Purchasing` tab
+        the main activity in inbound is `to receive`, so the main feature is `GR` (goods receiving)
+        and those receiving are listed under `GRN` (goods receiving note)
+        with GRN, we have 3 main ways.. 1) GRN with PO, 2) GRN w/o PO (list the items then select and do GRN), 3) GRN w/o PO scan (scan barcode directly)
+        shld i continue or it is easier for you to find out yourself?
+
+        Jasper Carpizo [10:41 AM]
+        ah yes, just continue, so I  have an idea
+
+        dolita [10:42 AM]
+        i feel like before i talk abt inbound, i need to talk about inventory first
+
+        Jasper Carpizo [10:43 AM]
+        ah okay, hehe.., sure we can discuss first the inventory
+
+        dolita [10:43 AM]
+        ok
+        what is the diff itemmaster vs inventory?
+
+        Jasper Carpizo [10:45 AM]
+        item master =  all the product list , inventory =  numbers of items / product are available. (edited)
+
+        dolita [10:45 AM]
+        ok
+        so inventory is the stock level ie how many units of that SKU _stored_ in warehouse
+        but there are some specifications in inventory
+        1) location, 2) expiry date, 3) serialised vs non-serialised items, 4) creation date, 5) last picked date
+        i think 1,2,4,5 are self-described (i.e. you see the words, you know what it is ald) (edited)
+        am i right?
+
+        Jasper Carpizo [10:48 AM]
+        ah yes
+
+        dolita [10:49 AM]
+        you want try explain to me?
+
+        Jasper Carpizo [10:51 AM]
+        on our warehouse, I saw the the label of SKU, so its the `location` right ? (edited)
+
+        dolita [10:51 AM]
+        label of SKU?
+
+        Jasper Carpizo [10:53 AM]
+        correct me I'm wrong, because saw in the warehouse, have some little label
+
+        dolita [10:54 AM]
+        label at where? the boxes?
+        or racks? what is the label like?
+
+        Jasper Carpizo [10:54 AM]
+        on the racks
+
+        dolita [10:54 AM]
+        the one i pointed?
+
+        Jasper Carpizo [10:54 AM]
+        yes
+
+        dolita [10:55 AM]
+        when we going inside?
+        yep that is _location_
+
+        Jasper Carpizo [10:55 AM]
+        yes, I remembered you said the SKU
+        hehehe
+
+        dolita [10:55 AM]
+        i can create location like `jasper` and it also is a _location_
+        hmmm
+        SKU is.. the itemmaster identification
+        pretty sure i wont refer to rack label as SKU
+
+        Jasper Carpizo [10:56 AM]
+        ah okay, maybe I wrong, hehe.. but its a location of an items (edited)
+
+        dolita [10:56 AM]
+        yep
+        location of a SKU also correct
+        but location != SKU
+        you want to continue 2, 4, 5?
+
+        Jasper Carpizo [10:57 AM]
+        ah yes, noted.
+        expiry date,  = item expiration date
+        serialised =  is the one we can scan, correct me if I am wrong ah
+
+        dolita [10:59 AM]
+        well
+
+        Jasper Carpizo [10:59 AM]
+        non-serialised =  we can pack directly
+
+        dolita [10:59 AM]
+        i think i only say 1,2,4,5 ^^
+
+        Jasper Carpizo [11:00 AM]
+        ops, hehehe
+        yep, the creation date of the items,  and datetime the last picked on an item
+
+        dolita [11:02 AM]
+        it is creation date of inventory
+        in this context, item is nt inventory
+        lets say on monday yanyan create SKU called `SKU-12345`. the creation date of this item = 3 dec 2018
+        then today the item come, so i do receival of `1 PIECE` into location `L2M`, what is the creation date of this item? it is still 3 dec 2018 (edited)
+        but what is the creation date of this _inventory_? it is today, 5 dec
+        when you are asked what is the inventory of `SKU-12345` now? the ans is there is `1 piece in L2M, creation date 5 dec 2018`
+
+        Jasper Carpizo [11:05 AM]
+        what is L2M?
+
+        dolita [11:05 AM]
+        location
+
+        Jasper Carpizo [11:06 AM]
+        its still  3 dec 2018
+
+        dolita [11:07 AM]
+        ?
+        you mean im wrong and the creation date of inventory is 3 dec 2018?
+
+        Jasper Carpizo [11:08 AM]
+        Nope, the creation date is dec 5, 2018
+        hehe
+
+        dolita [11:08 AM]
+        ok. you mean `creation date of item` is still 3 dec 2018?
+        anyway the database helps to visualise this
+        so no worries ^^
+
+        Jasper Carpizo [11:09 AM]
+        ah, okay, hehe..   Its dec 5,
+        because its a first creation of an inventory
+
+        dolita [11:10 AM]
+        yep
+        prolly more correct to say "creation date of that inventory record"
+        shall we continue, #3, serialised vs non-serialised items?
+
+        Jasper Carpizo [11:11 AM]
+        ah yes
+
+        dolita [11:11 AM]
+        some items have to be stored with their serial number
+        such as phone, washing machine
+        serial number is a very unique identifier for 1 single unit
+        which means if i have 10 phones, and i want it tracked in the serial number, there will be 10 lines of inventory record
+        because each quantity has different serial (in phone it is IMEI)
+
+        Jasper Carpizo [11:12 AM]
+        ah yes
+
+        dolita [11:13 AM]
+        but people can also opt to track the inventory as non-serial. so to apply non-serial example to the phone,
+        the inventory record will be 1 line of qty = 10
+
+        Jasper Carpizo [11:14 AM]
+        ah okay
+
+        dolita [11:14 AM]
+        how do we know if the item has to be tracked as serialised? check the `wms_itemmaster.item_snbound` flag
+        if it is 1 == manage this SKU's inventory as serialised items
+        and the serial number is stored in `wms_sn` table which is linked to `wms_inventory.serial_id`
+        ok so far?
+
+        Jasper Carpizo [11:16 AM]
+        ah yes, got it
+
+        dolita [11:17 AM]
+        ok, so lets go back to inbound
+        https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/22249473/WMS+Features
+        search for `Goods Receiving`
+        i have listed the 4 main methods of GR, the last one is `Goods Receiving without PO (serialised item)`
+        so note that.. serialised item has their own receiving page and they should nt be received using the regular non serialised GRN page
+        remember that day we go to warehouse
+        zaid was doing receival of headphones
+        ?
+
+        Jasper Carpizo [11:20 AM]
+        ah yes, the two headphones
+
+        dolita [11:20 AM]
+        yep. those headphones are tracked/managed/stored with their serial number
+        so he was using this page (note: this is staging version of the page he use): https://wms-stag.courex.com.sg/wms/manualreceivescan_customsn.php (edited)
+        i think you are lucky to come when they are processing serialised item
+        also note that when we do picking of serial items, what we scan is the serial number, not the item barcode
+
+        Jasper Carpizo [11:23 AM]
+        ah yes, this is noted.
+
+        dolita [11:23 AM]
+        nice
+
+        Jasper Carpizo [11:25 AM]
+        this I remembered,, they actually scan the serial number, have printed the serial number, after that she passed to the other person with printed serial to packed the item (edited)
+
+        dolita [11:25 AM]
+        what she print is the receiver address label actually
+        and connote of delivery
+
+        Jasper Carpizo [11:26 AM]
+        ah okay, got it. thanks for correct me :slightly_smiling_face:
+
+        dolita [11:26 AM]
+        :thumbsup:
+        you feel like having another trip to warehouse? lol
+        just asking..
+        so do you think you know WMS-300 ald or it is better if i talk about it?
+        (coz i think i nv talk about PO also)
+        sorry give me 5 mins break :blush:
+
+        Jasper Carpizo [11:30 AM]
+        ah sure :wink:  you already done to discussed the inventory.
+
+        dolita [11:30 AM]
+        yep
+
+        dolita [11:56 AM]
+        we continue about the PO after lunch?
+
+        Jasper Carpizo [11:56 AM]
+        ah yes :wink:
+
+        dolita [11:56 AM]
+        unless you dont need me to go through
+
+        Jasper Carpizo [11:56 AM]
+        after lunch, hehe
+
+        dolita [11:56 AM]
+        lol ok
+
+        Jasper Carpizo [12:29 PM]
+        lunch?
+
+        dolita [2:00 PM]
+        shall we talk abt PO now?
+
+        Jasper Carpizo [2:00 PM]
+        ah yes :slightly_smiling_face:
+
+        dolita [2:00 PM]
+        actually nt as long as earlier
+        but it is fine
+        i can show how to reproduce the duplicates
+        https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/222920746/WMS+Dictionary
+        show you what i wrote abt PO earlier lol
+        so people usually pair PO and SO
+        PO is the order we create when we want to bring goods into inventory
+        so for WMS-300, can you open wms-stag?
+        or your local-wms
+        then go to times
+        this also can
+        got 1 open PO
+        duplicated
+        well user dont normally do what we do just now
+        but when network bad, or laggy, they can also accidentally click twice
+        (you try click twice)
+        i nv able to reproduce the twice clicking prob
+        coz nv click fast enough
+        this is purchase order
+        when goods come, we click go to receiving to receive it
+        but got 1 more way to do so
+        that is the same form from where we click "go to goods receiving" (compare the URL)
+        both go to same page
+
+        Jasper Carpizo [2:10 PM]
+        ah yes
+
+        dolita [2:10 PM]
+        (from 'goods receiving' menu or from PO detail then click "go to goods receiving")
+        just fyi
+
+        Jasper Carpizo [2:10 PM]
+        noted
+
+        dolita [2:10 PM]
+        pls continue your testing hehe
+        btw when i left, you shld rename 2202 user.username and change the password (and maybe let nizam you changed ald) (edited)
+        coz if nt when nizam do clean up, he will list my account for cleaning lol
+        altho if he list my account for cleaning.. you can still put back the stuffs
+
+        Jasper Carpizo [2:14 PM]
+        yeah, noted @dolita :cry:
+
+        dolita [2:15 PM]
+        dun be sad
+
+        Jasper Carpizo [2:16 PM]
+        yep, hehe
+
+        Jasper Carpizo [3:34 PM]
+        hi @dolita, the `Reference DO#` = `list_Reference` , is the unique one right? (edited)
+
+        dolita [3:36 PM]
+        in GRN, it is nt unique
+        actually quite a lot GRN use same reference DO# (/ `list_Reference`)
+        :point_up_2: if im nt wrong
+        and actually in SO it is also not enforced. only when we do upload then enforced
+
+        Jasper Carpizo [3:38 PM]
+        ah because the `list_ReferenceMisc` is have some empty. mhm, I'll check the diagram :slightly_smiling_face:
+
+        dolita [3:41 PM]
+        ya `list_ReferenceMist` is optional
+        if you looking to stop duplicate, shld cross check PO
+        remember we cannot receive more than what is listed in PO
+        btw there is a support ticket OMSS-511
+        are you able to take care of it?
+        the requester is danielle
+        nikki talked to me, she said danielle has UF DP account (but she nv give us the account) :thinking_face:
+
+        Jasper Carpizo [3:43 PM]
+        ah yes I can take care (edited)
+
+        dolita [3:43 PM]
+        maybe you add nikki as participant
+        ask them to give
+
+        Jasper Carpizo [3:43 PM]
+        yep, I just wondering, because she needs to register to UF DP
+
+        dolita [3:44 PM]
+        danielle want full access, we will give her all WMS ACL except `wms_pickpack_admin` (nobody shld have that except warehouse/operation head like qiuling/ david) (edited)
+        btw nikki passed the account ald
+        tell her dont have that username, and tell her what usernames are there
+        actually shld reply in ticket
+        but up to you
+        there're 3 emails
+        eh wait
+        shld say "username" (edited)
+        `there're have 3 username` i thought shld be `there're 3 username`? (edited)
+
+        Jasper Carpizo [3:58 PM]
+        ahaha.. sorry
+
+        dolita [3:58 PM]
+        no worries
+        sometime on some day they will msgs and go pushy (edited)
+        you shld try to remain calm and dont get affected
+
+        Jasper Carpizo [3:59 PM]
+        ah yes.. hehe
+
+        dolita [3:59 PM]
+        those ppl ah..
+
+        Jasper Carpizo [3:59 PM]
+        actually, I have grammar error, hehee
+
+        dolita [3:59 PM]
+        everything also urgent.. but it is nt really urgent
+        still can edit
+        but email sent out ald
+        and if anyone ask you to do support directly (either hangout or slack or email)
+        ask them to create JIRA ticket in OMSS
+        tht is our SOP
+
+        Jasper Carpizo [4:00 PM]
+        yes, noted.
+
+        dolita [4:01 PM]
+        like ty said if they cant even take time to create JIRA, maybe their issue not worth our care?
+
+        Jasper Carpizo [4:01 PM]
+        just like De Silva, but I didn't notice, she have some message to me.
+
+        dolita [4:01 PM]
+        but there are real urgent cases that affect operations/ very critical
+        is she also philipino?
+        frm the name?
+        lol ok
+        another thing, dont need call us sir & madam
+
+        Jasper Carpizo [4:02 PM]
+        hahahah..
+        okay :wink:
+
+        dolita [4:03 PM]
+        see, they go pushy but once we replied, nobody reply
+        sian right..
+        lol
+
+        Jasper Carpizo [4:03 PM]
+        ahhaha
+
+        dolita [4:04 PM]
+        you know sian mean what?
+
+        Jasper Carpizo [4:04 PM]
+        no
+
+        dolita [4:04 PM]
+        oh ok
+        kind of mean 'tired and boring' in this case it is 'annoyed & tired'
+
+        Jasper Carpizo [4:05 PM]
+        yep, ahhaha
+
+        dolita [4:05 PM]
+        anyway i think while waiting you can create the CALL first?
+        then later add in the UID?
+        the CALL SP queries
+        btw also maybe we also need ping nikki to tell her abt the prob
+        `sian /sien, sɪɛn/ a. [Hk., bored, depressed, in low spirits; Mand. 闷 mèn]  1 Bored, fed-up, tired.` lol
+        http://www.singlishdictionary.com/
+        singlishdictionary.com
+        A Dictionary of Singlish and Singapore English
+        A Dictionary of Singlish and Singapore English
+        `all problem solver` got everything
+        that is _all_ access to WMS (edited)
+        look like i shld redo the table lol
+        problem solver also has picpack_admin acl
+        the next after it is the one we shld have given to most ppl
+        this is 'all' access
+        but most time users need tell us which account they want to clone
+
+        Jasper Carpizo [4:15 PM]
+        maybe I will asked first what user they follow.
+
+        dolita [4:15 PM]
+        yep normally need ask
+        but danielle here request for full access (edited)
+
+        Jasper Carpizo [4:16 PM]
+        so I can check the user ACL they followed
+        ah okay
+
+        dolita [4:16 PM]
+        so full access constitute what you noted down
+
+        Jasper Carpizo [4:17 PM]
+        except for `wms_pickpack_admin`
+
+        dolita [4:17 PM]
+        lol it is my stubborness
+        you can do what you deem right actually
+
+        dolita [4:27 PM]
+        sorry to disturb @Jasper Carpizo, i have updated the ACL notes. hopefully it is clearer now
+
+        Jasper Carpizo [4:29 PM]
+        ah thank you @dolita, very much helpful.
+
+        dolita [4:29 PM]
+        nice, thanks @Jasper Carpizo
+        btw i will be on leave on 10th
+
+        Jasper Carpizo [4:31 PM]
+        ah noted but you'll be here in Tuesday to Friday?
+
+        dolita [4:31 PM]
+        yup
+        dont worry feel free to disturb me on monday
+
+        Jasper Carpizo [4:31 PM]
+        :slightly_smiling_face:
+        hehehee
+
+        dolita [4:31 PM]
+        im likely going out but  can type on phone ^^ (edited)
+        tbh i think sat sun you also can msg me. since technically 16th is my last
+
+        Jasper Carpizo [4:33 PM]
+        ah sure, hehe
+
+        Jasper Carpizo [4:48 PM]
+        hi @dolita, I've got replied from nikki.
+        daniella using gmail account :wink:
+        I'm currently applying her access now
+
+        dolita [4:48 PM]
+        :thumbsup:
+        okay
+
+        Jasper Carpizo [5:00 PM]
+        @dolita, nikki, message me about resetting password for Daniella
+
+        dolita [5:00 PM]
+        ok
+
+        Jasper Carpizo [5:01 PM]
+        I think there's an option UF DB to reset the password right?
+
+        dolita [5:01 PM]
+        https://login.storeviva.com/
+        click forget password
+        then enter danielle email
+        and ask nikki to check with danielle if she receive any forget password email (edited)
+        actually
+        you shld ask nikki to reply in OMSS
+        cause our time have to be accounted
+        if you have to spend long time to do support, you need to at least show that
+        tell nikki that as well if you want. all BA shld know that (edited)
+
+        Jasper Carpizo [5:04 PM]
+        btw Raj, I have a question to me..
+
+        dolita [5:05 PM]
+        oh what is it?
+
+        Jasper Carpizo [5:06 PM]
+        he said, when an order created and pushed to TMS, we are required to have a delivery date?
+
+        dolita [5:06 PM]
+        we always give delivery date :slightly_smiling_face:
+
+        Jasper Carpizo [5:06 PM]
+        ah okay. :wink:
+
+        dolita [5:07 PM]
+        dont really understand the concern though
+        cause all the TMS order created from legacy got delivery date
+        WMS use legacy API to create and that one gt delivery date
+        oh ya btw
+        if we go to https://dp.urbanfox.asia/ and click login
+        dp.urbanfox.asia
+        Home
+        Home
+        that is the same link i pass you earlier: https://urbanfox-asia.slack.com/archives/DDVEYTZ1S/p1544000481115200 (edited)
+        WMS and TMS share same user base, so they can reset forgotten password there
+
+        Jasper Carpizo [5:17 PM]
+        noted @dolita
+        I'll try to confirm Raj question to me.
+
+        dolita [5:18 PM]
+        :thumbsup:
+
+        Jasper Carpizo [5:37 PM]
+        hi @dolita, I have to go. Its okay ? hehe
+
+        dolita [5:37 PM]
+        yep
+        have good evening @Jasper Carpizo
+
+        Jasper Carpizo [5:38 PM]
+        ah thank you :wink:
+
+        dolita [5:38 PM]
+        hehe
+
+        Jasper Carpizo [5:38 PM]
+        Thanks a lot, have a nice evening too :relaxed:
+
+        dolita [5:38 PM]
+        :thumbsup:
+
+December 6, 2018
+----------------
+
+.. code-block:: console
+
+        dolita [10:06 AM]
+        morning @Jasper Carpizo. have you seen OMSS-513?
+
+        Jasper Carpizo [10:08 AM]
+        ah yes, I'm currently replying because there's no username with the given username. I pushly they need to sign-up to this link https://dp.urbanfox.asia/delivery-person/signup before I setup the user acl. (edited)
+        dp.urbanfox.asia
+        Urbanfox DP Signup
+        Urbanfox DP Signup
+
+        dolita [10:08 AM]
+        yep nice :thumbsup:
+        btw i notice the danielle gmail account actually not signed up from that link
+        (i think i need to brief you about users account)
+        let me know when you are available :laughing:
+
+        Jasper Carpizo [10:10 AM]
+        ah yes, hehehe..
+
+        Jasper Carpizo [10:26 AM]
+        hi @dolita, can we create a dashboard that can search an username and then setup the User ACL, so we do not query directly to the mysql client. What do you think?
+
+        dolita [10:27 AM]
+        TMS is doing that dashboard
+        you try ask them whats the progress?
+        or rather
+        ask them if they doing that dashboard
+        wait ah
+        https://bitbucket.org/courex/storeviva-dp/pull-requests/1000/20181114-manage-user-acl-page/diff#comment-84109114
+
+        dolita [10:36 AM]
+        the item barcode not filled
+        they shld fill it
+        they want us to give them _admin acl because their products dont have barcode or what not (edited)
+        i feel like not so proper because whole warehouse are forced to enter barcode
+        what i just show you is how the pick ticket should be used
+        so you can show nikki with barcode, that is how pick ticket work
+        after it is scanned, we actually can edit the qty
+        refresh
+        scan barcode
+        if they are pickpack_admin doesnt need barcode, can just enter qty like my account
+        i actually removed that from myself for a while cause majority users are not pickpack_admin
+        there is a reason for having that constraint
+        it is to ensure correct picking of item
+        did she ask for the pickpack_admin acl?
+        ok then dont need tell her that hehe
+        coz nt fully picked yet
+        ya they cant scan. we just added the barcode (need show her that)
+        i mean just now no barcode right, we just added it
+        in item master
+        btw i wonder how she picked 4 units? if no barcode
+        i see wrong
+        nothing is picked
+        if you click `record pick` now, ltr cant show her how pick ticket work? (edited)
+
+        Jasper Carpizo [10:54 AM]
+        its okay lah, hehee
+
+        dolita [10:55 AM]
+        haha good good
+        did you guys talk about pickpack_admin?
+        shall i bring it up to #wms that most users will not get pickpack_admin?
+
+        Jasper Carpizo [10:58 AM]
+        nope, I discussed a regular user, how can they directly to packlist, but I mention its an option to fill-up the item sku in inventory, if she can't scan the barcode.
+
+        dolita [10:58 AM]
+        oh ok
+        when i introduce wms from beginning
+        i shld have shown that (lol)
+        but coz fellow dev, i just use the easy way to show
+        shown the having to scan barcode in pick ticket i mean
+        if im showing to regular user, that is what i will show (scan barcode first)
+
+        Jasper Carpizo [11:02 AM]
+        hehehe.. maybe I can mention to her later. about this one. btw, she asked what is `SO Remarks (for WMS only)` is for?
+
+        dolita [11:02 AM]
+        mention what to her?
+        so there are 3 Remarks boxes in WMS
+        `Remarks (Additional Shipping Instruction)` == the remarks that get carried forward to TMS
+        `SO Remarks (for WMS only)` == the remarks that will stay in WMS, eg "pack with bubble wrap"
+        both of them are visible to clients
+        `SO Admin Note (not visible to WMS Customers)`  == the remarks for internal ops usage
+
+        Jasper Carpizo [11:07 AM]
+        got it :wink:
+
+        dolita [11:07 AM]
+        the remarks are explained briefly in https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/222920746/WMS+Dictionary (edited)
+        you can pass this dictionary to nikki as well
+        i always pass it around lol
+        it is good for tech ppl (and nikki is part of tech)
+        btw what you going to mention to Nikki?
+
+        Jasper Carpizo [11:10 AM]
+        I mean, I'll mention, if she ask me about the pick pack admin. (edited)
+
+        dolita [11:11 AM]
+        oh
+        shall i bring it up at #wms ?
+
+        Jasper Carpizo [11:12 AM]
+        I think yes, if she have some question in WMS
+
+        dolita [11:13 AM]
+        ok
+
+        Jasper Carpizo [11:15 AM]
+        hehehe.. no update in https://urbanfox.atlassian.net/browse/OMSS-513
+
+        dolita [11:16 AM]
+        lol ya. i am also nt sure
+        hopefully the new wms engineer come in soon then someone will help to man the support board (edited)
+
+        Jasper Carpizo [11:18 AM]
+        have new request in wms
+        Screenshot from 2018-12-06 11-17-58.png
+
+
+        dolita [11:18 AM]
+        is it
+        what she mean?
+        she said chatted with me, but im not sure what she mean (lol)
+
+        Jasper Carpizo [11:19 AM]
+        ahhahha...
+        wait, I will ask
+
+        dolita [11:19 AM]
+        i think.. it is probable the settings
+        this setting, if you remember
+        Pasted image at 2018-12-06, 11:20 AM
+
+        but best to ask
+        btw jasper
+        if BA/ users ask for any new features
+        always consult ty
+        he is the WMS solution architect
+
+        Jasper Carpizo [11:21 AM]
+        ah yes, this is noted Its our master :wink: (edited)
+        hehehe
+
+        dolita [11:21 AM]
+        lol yup
+        i wanted to stay until master come back
+        but not my call
+        sorry for that
+        going to have to manage with master being remote for now (edited)
+
+        Jasper Carpizo [11:22 AM]
+        hehehe..  ah yes.
+        also you are master too.
+        hehehe
+
+        dolita [11:23 AM]
+        lol
+        just in wms
+        i need to show you more things :grimacing:
+
+        Jasper Carpizo [11:23 AM]
+        ah yes..
+        maybe we can discuss after lunch, what do you think?
+
+        dolita [11:24 AM]
+        yep it is good
+        btw do you want to select PRs for deployments?
+        thinking tues deployment
+
+        Jasper Carpizo [11:27 AM]
+        I'll review first, maybe tomorrow I can decide which PR are okay, ehhee.. its okay to you?
+
+        dolita [11:34 AM]
+        yup it is ok
+        if it helps, we will talk about the `things` tmr
+        btw sorry to interrupt. last night raj asked me about the delivery date
+        he asked you about it, but he realise he also need the pick up date
+
+        Jasper Carpizo [11:37 AM]
+        ah, okay, ehehe..
+        I think, he already okay now.
+
+        dolita [11:38 AM]
+        ```Raj [6:28 PM]
+        So I wanted know if the customers provide the pickup date when they create orders from WMS?
+        Actually Jasper asked you about the delivery date, but i needed both the delivery date as well as the pickup date.
+        dolita [6:30 PM]
+        usually no. but the goods are stored in warehouse, so what warehouse ops do is select today as pick up and select delivery as per agreement
+        i see
+        when TMS order created from WMS --> TMS, they always have delivery date
+        so i told him im nt sure whats the concern
+        if there is issue, maybe you let me know which OL/ML?
+        cause some customers have different processing
+        Raj [6:32 PM]
+        No, we don't have any issue.
+        We are building a new billing portal, hence we want to make sure we are capturing everything right.
+        dolita [6:32 PM]
+        ah ok
+        there are 2 ways WMS --> TMS can happen
+        1) via WMS interface, which I just described
+        2) via so-sync script, which is an automated script
+        (a moment please while i check)
+        Raj [6:34 PM]
+        Sure
+        dolita [6:36 PM]
+        so in the automated script, the pickup date default to the date the process initiated
+        delivery date is 1) if it is provided in SO, use it, 2) if not provided, it will be next working day```
+        (edited)
+        ya just want to update you what happening
+        hopefully the above is clear (that is wall of text)
+
+        Jasper Carpizo [11:41 AM]
+        yep, that's clear. :wink: Thank you @dolita (edited)
+
+        Jasper Carpizo [5:48 PM]
+        hi @dolita, I have to go, tomorrow I'll update the code for wms-300
+
+        dolita [5:49 PM]
+        yup have good evening
+
+        Jasper Carpizo [5:49 PM]
+        also discuss about the things of WMS tomorrow :slightly_smiling_face:
+
+        dolita [5:49 PM]
+        :thumbsup:
+
+        Jasper Carpizo [5:49 PM]
+        have a nice evening. Thanks a lot for today :relieved:
+
+        dolita [5:51 PM]
+        hehe. ganbatte
+
+        Jasper Carpizo [5:51 PM]
+        hahaha.. thank you. :wink:
+
+December 7, 2018
+----------------
+
+.. code-block:: console
+
+
+        dolita [9:39 AM]
+        morning @Jasper Carpizo
+        are you working on WMS-201?
+
+        Jasper Carpizo [9:40 AM]
+        hi yes, good morning..
+        ah yes, just checking the task only but I'm currently working on some PR's
+
+        dolita [9:40 AM]
+        oh ok
+
+        Jasper Carpizo [9:40 AM]
+        maybe we can discuss about wms-201 later (edited)
+
+        dolita [9:41 AM]
+        you can leave wms-201 to me and do others
+
+        Jasper Carpizo [9:41 AM]
+        ah yeah sure, but can you give some background later about the task :wink:
+        so I have an idea
+
+        dolita [9:42 AM]
+        this is what i have to brief you
+        - (briefed until TMS) SO - Pick - Pack - TMS/ Self-collect/ Others - RMA
+        - (briefed) RN w PO/ GRN without PO/ GRN without PO (scanning)
+        - (briefed) GRN for serialised items/ Picking for serialised items
+        - Adjustment/ Main adjustment
+        - (partly briefed) Item master - Inventory
+        - (briefed) Overview of specs of inventory: serialised and non-serialised items, location, expiry date, creation date, last picked date
+        - (briefed) User ACL
+        - Difference between wms and www.courex xml API
+
+        - portal.storeviva.com
+        - singhealth
+        - so-sync (also known as so-processor) nodejs script (edited)
+        wait.. lol
+
+        Jasper Carpizo [9:43 AM]
+        ah yes, noted. :wink:
+
+        dolita [9:43 AM]
+        there are still portal.storeviva.com
+        singhealth
+        the nodejs scripts (ty/ tms taking care of it temporarily but you shld know)
+        WMS-201 is about adjustment, so i will be touching that feature soon
+        although i probably will not talk about the task
+        but i want you to know that there are a lot to brief and i am not sure how you can take it
+        looking at your PO PR
+        i already said that is not correct. not sure why you still go on to do like that
+        your focus now should be knowing how WMS work
+        (and we still need to clear all your outstanding PRs...)
+
+        Jasper Carpizo [9:47 AM]
+        ah yes, I'm wrong with that. I actually pushing the reference id to be unique to fill-up the field.
+
+        dolita [9:47 AM]
+        you cant change that cause it is not supposed to be unique
+        once you push that change, consider what going to happen?
+        if people used to reuse the reference id for several GRN, then they suddenly cant do that, they will surely find you
+        anyway you see from my list, which one you ald confident?
+        i have briefed some of them..
+        this list.. https://urbanfox-asia.slack.com/archives/DDVEYTZ1S/p1544146944003800
+        dolita
+        this is what i have to brief you
+        - SO - Pick - Pack - TMS/ Self-collect/ Others
+        - RMAGRN w PO/ GRN without PO/ GRN without PO (scanning)
+        - GRN for serialised items/ Picking for serialised items
+        - Adjustment/ Main adjustment
+        - Item master - Inventory
+        - Overview of specs of inventory: serialised and non-serialised items, location, expiry date, creation date, last picked date
+        - User ACL
+        - Difference between wms and www.courex xml
+        Show less
+        Direct MessageDec 7thView conversation
+
+        Jasper Carpizo [9:55 AM]
+        hi @dolita, I think I'm not remember the `Difference between wms and www.courex xml`
+
+        dolita [9:56 AM]
+        coz i havent briefed
+        i said i briefed some only...
+        lol
+
+        Jasper Carpizo [9:56 AM]
+        hehehe
+
+        dolita [9:56 AM]
+        :woman-facepalming:
+
+        Jasper Carpizo [9:57 AM]
+        ah yes..
+        sorry :grimacing:
+
+        dolita [9:58 AM]
+        updated the list, see if you agree
+
+        Jasper Carpizo [9:59 AM]
+        regarding with your list
+
+        dolita [10:02 AM]
+        and i have to write some documents about some apps (where they are and brief description of the usage). will pass to you asap..
+        so do you think we still need to work on WMS-201?
+
+        Jasper Carpizo [10:04 AM]
+        I confident with the following list
+        - (briefed) Overview of specs of inventory: serialised and non-serialised items, location, expiry date, creation date, last picked date
+        - (briefed) User ACL
+        - (briefed) GRN for serialised items/ Picking for serialised items
+        - (briefed) RN w PO/ GRN without PO/ GRN without PO (scanning)
+        to be honest, I need some recap of the following
+        - (briefed until TMS) SO - Pick - Pack - TMS/ Self-collect/ Others - RMA
+        - (briefed) RN w PO/ GRN without PO/ GRN without PO (scanning)
+        - (partly briefed) Item master - Inventory
+        - Adjustment/ Main adjustment
+        its that okay for you? I just worried
+
+        dolita [10:06 AM]
+        yup
+        you should ask if still unclear
+        im also worried..
+        please dont think im holding back anything.. those apps need a new master...
+
+        Jasper Carpizo [10:08 AM]
+        ah yes, I know that.  Sorry its a double work for you to recap of things.
+
+        dolita [10:09 AM]
+        nah i dont mind if that helps
+        im more worried you keep quiet and decide things yourself..
+        you should bug me while im still here too
+        and should complete the PRs
+        if i talk too much, stop me
+        ask qns actively
+        so normally sat sun we shldnt work, but if this weekend and nxt weekend you want find me, feel free (lol)
+        i will be surrendering laptop on fri. nt sure when they going to disable the slack
+
+        Jasper Carpizo [10:14 AM]
+        Sorry, I'm not to worried you again today and nextweek.  I'll be online this weekend.  I need to review all things this weekend. (edited)
+
+        dolita [10:16 AM]
+        not to worried me?
+        today?
+        today we should talk about the ones you want rebrief?
+
+        Jasper Carpizo [10:17 AM]
+        okay :slightly_smiling_face:
+
+        dolita [10:18 AM]
+        hopefully you understand now jasper
+        btw there is OMSS-515. you want talk about it now?
+        or i can leave msg internally on what you shld do (edited)
+        OMSS-516 if you are ald confident and feel they are eating up your time.. feel free to pass to me..
+
+        Jasper Carpizo [10:23 AM]
+        I think you can leave a msg internally, its okay ?
+
+        dolita [10:23 AM]
+        yup it is
+
+        Jasper Carpizo [10:23 AM]
+        thank you so much @dolita
+
+        dolita [10:24 AM]
+        thanks jasper
+        i guess you will take care OMSS-516? :grimacing:
+
+        Jasper Carpizo [10:25 AM]
+        ah yes :slightly_smiling_face:
+
+        dolita [10:29 AM]
+        you notice puah nv give account she want to clone (ACL) for the 3 new users? (edited)
+
+        Jasper Carpizo [10:31 AM]
+        ah yes, I need to check the pual  acl and applied same acl with 3 new users.
+
+        dolita [10:32 AM]
+        no
+        puah shld say the 3 need to follow who
+
+        Jasper Carpizo [10:35 AM]
+        ah okay, I will ask puah, what user should be follow,
+
+        Jasper Carpizo [10:40 AM]
+        hi @dolita, nizam asked me about the production server, this the name of our prod server right wms.courex.com.sg also he request me about the public key ? Do we have?
+
+        dolita [10:42 AM]
+        i think he mean you need to access production server and he asking you for your public key
+        our access to (legacy) servers are regulated using SSH public private key
+        you need to generate your own key and pass nizam the public one
+        keep the private one yourself
+
+        Jasper Carpizo [10:44 AM]
+        the one that I generated in my butbucket?
+
+        dolita [10:45 AM]
+        and nope, that is not access to wms.courex.com.sg ... after you settled these, i will be able to show you where to login to access some other apps
+        like this one is it https://bitbucket.org/account/user/<your account>/ssh-keys/ ?
+        https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+        i think yes
+        but im nt sure if it is alright to reuse that same key pair
+        you shld have SSH set in your machine i think
+
+        Jasper Carpizo [10:47 AM]
+        how about this one
+        ```how abt ec2?
+        i means servers?```
+        he asked me about this things?
+        name of our production server that we used.
+
+        dolita [10:49 AM]
+        oh
+        you need access to...
+        ```sv-production-bastion
+        sv-production-app-storeviva
+        sv-production-app-internal```
+
+        Jasper Carpizo [10:52 AM]
+        this is our servers?
+
+        dolita [10:52 AM]
+        actually i think only need to set your key at sv-production-bastion
+        it is servers for legacy stuffs...
+        wms itself is in beanstalk
+
+        Jasper Carpizo [10:54 AM]
+        so I'll told to nizam this servers,
+
+        sv-production-bastion
+        sv-production-app-storeviva
+        sv-production-app-internal
+
+        and say, I have no ssh access for this servers? (edited)
+
+        dolita [10:56 AM]
+        i actually not sure what is the original qn?
+
+        Jasper Carpizo [10:57 AM]
+        Screenshot from 2018-12-07 10-57-05.png
+
+
+        dolita [10:58 AM]
+        ok tell him that 3
+
+        Jasper Carpizo [10:59 AM]
+        okay, thanks because I'm unsure.
+
+        dolita [10:59 AM]
+        + beanstalk of courex-wms? (edited)
+
+        Jasper Carpizo [10:59 AM]
+        ??
+
+        dolita [11:00 AM]
+        his qn is which servers in production you will access
+        we have legacies EC2 that is managed via SSH inside
+        ```sv-production-app-storeviva
+        sv-production-app-internal```
+        and to access those 2, must go via `sv-production-bastion`
+        and we have wms.courex.com.sg which is in beanstalk
+        im not sure if his qn also mean the beanstalks
+
+        Jasper Carpizo [11:04 AM]
+        ah okay, got it.
+
+        dolita [11:17 AM]
+        i think i need to show you the user-staffs db.. -.-
+
+        Jasper Carpizo [11:18 AM]
+        ah yeah sure
+
+        dolita [11:19 AM]
+        nah it is ok
+        i will pass you some query first
+
+        dolita [11:24 AM]
+        ```SELECT user.*, staffs.StaffID, staffs.courex_uid FROM user LEFT JOIN staffs ON staffs.courex_uid = user.UID WHERE staffs.StaffID = 724916```
+        (edited)
+        is it clear?
+        but i notice puah gave 3 ppl ID. 1st one she gave the staffID, 2nd & 3rd one is the user.UID
+
+        Jasper Carpizo [11:31 AM]
+        ah okay, got it. the missing username is on the staffs table (edited)
+        but why?
+
+        dolita [11:32 AM]
+        username is in user table
+
+        Jasper Carpizo [11:33 AM]
+        yeah, i mean have separated table?
+
+        dolita [11:35 AM]
+        when we register from https://dp.urbanfox.asia/delivery-person/signup 3 records are created in 3 tables, ie `user`, `staffs`, `mobiledevice`
+        dp.urbanfox.asia
+        Urbanfox DP Signup
+        Urbanfox DP Signup
+        user & staffs are linked like my query
+        so in the past we always refer to staffs users by their staffs.StaffID (edited)
+        but over time, we only use `user` table primarily (edited)
+        so there are 2 things you can do
+        1) is standardise. eg if people give you staffID, ask for their UID / username instead (edited)
+        or 2) you try search the info yourself
+
+        Jasper Carpizo [11:43 AM]
+        okay, got it. :slightly_smiling_face:
+
+        dolita [11:44 AM]
+        not sure if you remember but i mentioned danielle `user` does not have `staffs` counterpart
+        hmm ok nvm im wrong
+
+        Jasper Carpizo [11:46 AM]
+        ah okay, I'm checking the https://urbanfox.atlassian.net/browse/OMSS-511
+
+        dolita [11:47 AM]
+        yep
+        i search the username and found the UID
+        then do `SELECT staffs.StaffID, staffs.courex_uid, staffs.Email FROM user LEFT JOIN staffs ON staffs.courex_uid = user.UID WHERE user.UID = 16199`
+        i thought i will see null, but actually got correct entries there
+        so i was wrong lol
+
+        Jasper Carpizo [11:49 AM]
+        btw, can you help me, what nizam referring , is he needs my private ssh that I created in my bitbucket account or the ssh key in our server.
+        Screenshot from 2018-12-07 11-48-22.png
+
+
+        dolita [11:50 AM]
+        he need your public key
+        you shld nv give ppl your private key
+
+        Jasper Carpizo [11:50 AM]
+        yeah my ssh public key
+
+        dolita [11:50 AM]
+        just give him your public key will do
+        he will add your key to bastion
+
+        Jasper Carpizo [11:52 AM]
+        I think we can't reuse the ssh public key.
+
+        dolita [11:53 AM]
+        then you got to create new one
+        and manage 2 keys in your machine
+        can i talk abt this in the channel with @ty ? (edited)
+
+        Jasper Carpizo [11:55 AM]
+        ah sure.. to our lord master lol.. (edited)
+
+        dolita [11:55 AM]
+        lol
+        yep
+
+        Jasper Carpizo [12:20 PM]
+        hi @dolita, may I know, what uses the config_functions.php, can I add custom function here?
+
+        dolita [12:21 PM]
+        `wms/includes/config_functions.php`?
+
+        Jasper Carpizo [12:21 PM]
+        ah yes :slightly_smiling_face:
+        lunch? :grimacing:
+
+        dolita [12:24 PM]
+        ah ok. wait a bit more coz nizam asking me to add his public key to storeviva server
+
+        Jasper Carpizo [12:25 PM]
+        ah sure.. :slightly_smiling_face:
+
+        dolita [12:28 PM]
+        ok lets go? unless we call pizza in? lol
+
+        Jasper Carpizo [12:28 PM]
+        hehehe.. maybe we can wait for @ty for a pizza treat, hehee
+
+        dolita [12:29 PM]
+        hehe
+        cant wait unless i order in when nt around (which im ok actually)
+        maybe you help me arrange in jan? :wink:
+
+        Jasper Carpizo [12:30 PM]
+        ah sure :slightly_smiling_face:
+
+        dolita [12:30 PM]
+        i got your hp ald Jasper - 93920293
+
+        Jasper Carpizo [12:30 PM]
+        ahahha
+
+        dolita [1:39 PM]
+        :wave:
+        havent replied you the config_functions
+        i created it to be used side by side with `config.php`
+        if you have functions that shld apply whole wms, feel free to add in
+
+        Jasper Carpizo [1:40 PM]
+        I got his replied now.
+
+        dolita [1:40 PM]
+        it is ald included in https://bitbucket.org/courex/courex-wms/src/731d6433b12c8b78095f015588e74b59d33148bc/wms/includes/config.php#lines-16
+        whose reply?
+        oh my reply on config_functions?
+
+        Jasper Carpizo [1:41 PM]
+        ah sorry, ahahha..
+
+        dolita [1:41 PM]
+        haha i just typed
+
+        Jasper Carpizo [1:42 PM]
+        I mean about .ssh/config nizam replied
+        hahahha
+
+        dolita [1:42 PM]
+        oh lol
+        ok ok
+
+        dolita [2:05 PM]
+        you want to talk about anything or busy doing something at the moment? :grimacing:
+
+        Jasper Carpizo [2:07 PM]
+        ah sure.. I just testing the ssh connection to our server
+        its already working now
+
+        dolita [2:07 PM]
+        good good
+        what do you want to talk about first?
+        both new OMSS from this morn settled? (edited)
+
+        Jasper Carpizo [2:08 PM]
+        ah yes
+        btw, I need to clarify https://urbanfox.atlassian.net/browse/OMSS-516 so i need to set the user ACL now?
+
+        dolita [2:12 PM]
+        oh yea she hasnt replied
+        then wait first i think
+
+        Jasper Carpizo [2:13 PM]
+        okay :wink:
+
+        dolita [2:13 PM]
+        altho normally if puah staff, we will follow zaid/ xinyun ACL (edited)
+
+        Jasper Carpizo [2:14 PM]
+        noted this
+
+        dolita [2:14 PM]
+        :thumbsup:
+
+        Jasper Carpizo [2:20 PM]
+        hahahhaa
+
+        dolita [2:20 PM]
+        hehehe
+
+        dolita [2:48 PM]
+        jasper, do take note: https://urbanfox-asia.slack.com/archives/CBUDFHJ86/p1544165082207700
+        dolita
+        if that is WMS-->TMS, they need to enable the `Enable External Tracking
+        (from SO reference)` (in WMS settings, link at bottom right)
+        Posted in #tmsDec 7thView message
+        i think this is a feature i talk until my mouth foaming but nobody _know_ abt it lol
+        altho i told ops side once and they nv ask me abt it again
+
+        Jasper Carpizo [2:49 PM]
+        hi @dolita, can we create a model folder for using table queries for now we have different queries in the different files, so we can manage the queries.. or do you have some suggestion or separated file? (edited)
+
+        dolita [2:50 PM]
+        that time master talked abt it
+        wait ah
+        https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/55312442/Roadmap+WMS
+        2018-Q4-2
+        basically we will create a folder + files for queries
+        i ald started
+        `wms/data_access/outbound_query.php`
+        (is that what u mean?)
+
+        Jasper Carpizo [2:52 PM]
+        ah yes, :slightly_smiling_face:
+
+        dolita [2:52 PM]
+        so my thinking is, `outbound_query`, `inbound_query`, `inventory_query`
+
+        Jasper Carpizo [2:53 PM]
+        so we can call the function only instead directly on the php files.
+
+        dolita [2:53 PM]
+        yup
+        and over time the data_access will be replaced with wms api
+        meaning inside the functions, instead of direct queries, it will be API call (edited)
+        we wont need to change the code, just the functions
+        lol that is frm aug/ sept
+        and until now i only managed to add that (and forgot about it ald :disappointed: )
+        but im kinda sure the data_access is 1 of the way, moving forward. do talk to ty abt it when he is back (edited)
+
+        Jasper Carpizo [2:57 PM]
+        ah yes, just like MVC framework.
+
+        dolita [2:58 PM]
+        yup
+
+        Jasper Carpizo [2:58 PM]
+        also all logical function should be on controller and separated to the model queries.
+
+        dolita [2:59 PM]
+        do it step by step ^^
+        before you change anything, make sure you know how everything works first
+
+        Jasper Carpizo [3:01 PM]
+        I can create one today, I just rewriting the queries report_transhistory.php because I noticed when fetch all the records with jquerys, its a kinda a laggy to search the user.
+
+        dolita [3:02 PM]
+        ok
+        add jira task for that?
+        lets talk to ty abt the controller?
+
+        Jasper Carpizo [3:02 PM]
+        ah yes
+        btw, I just improving the https://bitbucket.org/courex/courex-wms/pull-requests/94
+        I just tested so I notice that
+
+        dolita [3:03 PM]
+        coz need to ensure the changes fit the big picture
+        oh lol
+        do note though as you add these, set aside some time to listen to my boring talks abt WMS & cronies :laughing:
+
+        Jasper Carpizo [3:07 PM]
+        ah what do you mean cronies, my vocabulary is limited, ahahaha
+
+        dolita [3:08 PM]
+        hahaha
+        sometime i use verb i got from somewhere
+
+        Jasper Carpizo [3:08 PM]
+        ahahhha..
+
+        dolita [3:08 PM]
+        https://www.urbandictionary.com/define.php?term=Cronies :grimacing:
+        Urban Dictionary
+        Urban Dictionary: Cronies
+        A Group. People of a common interest doing something together.
+
+        Jasper Carpizo [3:09 PM]
+        ah yes
+        hahaha
+
+        dolita [3:09 PM]
+        wms & friends i guess
+        the other day i said `cheryl & co` and gisha thought i mean a company
+        when it is actually cheryl & friends. the `co` here is like donald & co
+        from disney. but seems like nt popular term :grimacing:
+
+        Jasper Carpizo [3:13 PM]
+        ahhaha.. got it
+
+        dolita [3:13 PM]
+        jasper, the `Enable External Tracking` is disabled by default
+        people need to enable it, eg if they create new account (edited)
+        you know right?
+
+        Jasper Carpizo [3:13 PM]
+        ah yes
+
+        dolita [3:14 PM]
+        you understand what it is for?
+
+        Jasper Carpizo [3:15 PM]
+        nope.
+        did you already discussed or I forgot?
+
+        dolita [3:16 PM]
+        i discussed
+        ok
+        so if it is enabled, when user create TMS order from packing list, the `SO Reference` will be used as TMS external tracking
+        if nt enabled, then no external tracking
+
+        Jasper Carpizo [3:18 PM]
+        can you show me, how its works? Can I seat beside you?
+
+        dolita [3:18 PM]
+        yup
+        come
+
+        dolita [3:25 PM]
+        that is hold stock feature
+        i picked from L4-RM4 so after record pick, qty deducted by 1, and hold stock removed
+
+        Jasper Carpizo [3:28 PM]
+        this weekend, I need to revire all of things so we can discussed and create a list of question. So we can discuss by Tuesday
+
+        dolita [3:28 PM]
+        you mean sat sun mon you revise?
+
+        Jasper Carpizo [3:29 PM]
+        I mean review all things you brief to me
+        and just create a list of question. so I'm ready to have question for you bt tueday
+        for now, I just working the PR's
+
+        dolita [3:30 PM]
+        haven show you that enable thing
+
+        Jasper Carpizo [3:30 PM]
+        tracking number
+
+        dolita [3:30 PM]
+        lol
+
+        Jasper Carpizo [3:35 PM]
+        the first discussion ahahah
+
+        dolita [3:35 PM]
+        ya, xinyun also got do that
+        in wh trip
+        nt sure if you got access to dp-stag.urbanfox.asia
+        if not, either copy the acl yrself (it is same field) or ask tms folks help
+
+        Jasper Carpizo [3:40 PM]
+        let me check again the diffrence the tracking number givem
+
+        dolita [3:41 PM]
+        i created when the option is enabled then the SO ref got carried forward
+        then i disabled that settings and create another one, this time my SO ref got ignored
+
+        Jasper Carpizo [3:43 PM]
+        got it :wink:
+
+        dolita [3:43 PM]
+        it is settings that only work at WMS
+        if people use the so-processor-script (so-sync) the SO reference always carried to TMS as external tracking
+        so-sync is automated script
+        im checking for new open SO then create pmq for it
+        pmq is our message broker
+        MQ?
+        message queue?
+        SO-sync (SO-processor) poll the pmq for orders to be processed
+
+        Jasper Carpizo [3:47 PM]
+        the one you worked in beanstalk
+
+        dolita [3:47 PM]
+        i just managed to put it up in beanstalk
+        yup
+        im creating the PMQ now
+        anyway dont worry abt so-sync for now
+        it is nodejs
+        but the process is same, create pick, pack then tms order
+
+        Jasper Carpizo [3:51 PM]
+        I'll back to you on Tuesday
+
+        Jasper Carpizo [4:29 PM]
+        hi @dolita, what do you think with this one http://php.net/manual/en/book.pdo.php
+
+        dolita [4:33 PM]
+        https://www.yudiz.com/mysql-vs-mysqli-vs-pdo/
+        mysqli supports procedural (easier to transition frm `mysql`) and also support async..
+        we have chosen `mysqli` so there is no need to think about switching to PDO at this moment
+
+        Jasper Carpizo [4:34 PM]
+        no, I just reading with this
+        no plan for swicthing to PDO :grin:
+        I just browsing php function and look at this one
+
+        dolita [4:36 PM]
+        we will not be rewriting WMS at leisure pace (new things will keep coming in), so it is not going to be easy to rewrite (in fact refactoring & reusing existing service (eg the AWS API gateway) favoured)
+
+        Jasper Carpizo [4:36 PM]
+        hehehe
+
+        dolita [4:36 PM]
+        hehe ok
+        i had the same qn 3 yrs ago (PDO or mysqli)
+        asked senior back then
+        anyway if using wms-api, the queries will be handled in typescript
+
+        Jasper Carpizo [4:38 PM]
+        ah yes, you already mention, all API's calls.
+
+        dolita [4:38 PM]
+        but to me the biggest win is `mysqli_` & `mysql_` are similar, so it is easier to write new query without sacrificing too much time
+        ya
+        so if you notice, in wms we ald use both mysql_ and mysqli_ (edited)
+
+        Jasper Carpizo [4:41 PM]
+        yep,, I just wondering at first, why two. but I already got your point with this.
+        hehehe
+
+        dolita [4:41 PM]
+        hehe
+        so if you write any new query now, do use mysqli_
+        you got use PDO before?
+
+        Jasper Carpizo [4:42 PM]
+        ah not yet..
+
+        dolita [4:42 PM]
+        ic ic
+
+        Jasper Carpizo [4:44 PM]
+        yep, hehehe
+
+        dolita [4:44 PM]
+        btw gentle reminder to reply the OMSS-516 (edited)
+
+        Jasper Carpizo [4:45 PM]
+        ah yes, thank you
+
+        dolita [4:45 PM]
+        in general if ops got support request, theirs usually quite urgent coz they need to fulfil orders quickly
+        basically if it is abt completing real time job, we need to put more attention to it
+        while if it is abt setting up for testing etc, they can afford a bit lag
+        and ops usually dont set up for testing
+
+        Jasper Carpizo [4:47 PM]
+        yeah, correct. I'm currently setup his access now.
+
+        dolita [4:47 PM]
+        ah but puah havent said follow who right?
+        i think got some miscomm :grimacing:
+        anyway when the new engineer come in you guys can rotate the support :blush:
+
+        Jasper Carpizo [4:49 PM]
+        ah yes.. do you have any updates ?
+
+        dolita [4:50 PM]
+        nope i dont. lets ask ty?
+        i think got 1 guy come in nxt week for tms
+
+        Jasper Carpizo [4:51 PM]
+        ah yeah.. this coming Monday
+
+        dolita [4:52 PM]
+        but it does look like the next wms engineer will not come in before 16
+        so you will have to train him/her :grimacing:
+
+        Jasper Carpizo [4:53 PM]
+        ah yes, I expected for that happen.
+
+        dolita [4:53 PM]
+        i have the intro slide if that helps (shared with you on your first week)
+
+        Jasper Carpizo [4:53 PM]
+        ah yes..
+
+        dolita [4:53 PM]
+        also noted down some things in confluence ald
+        the rests are in the code
+        do you think i shld put up some guide like what i show you so far?
+
+        Jasper Carpizo [5:03 PM]
+        ah sure, its helps me a lot, so I can back read, when I forgot something. Its that okay for you or double work?
+        Sorry for this one. :grimacing:
+
+        dolita [5:04 PM]
+        nt really double work, more like nt sure if got time :grimacing:
+        oh ok
+        you going to review right
+
+        Jasper Carpizo [5:05 PM]
+        ah yes, I going to review tomorrow
+
+        dolita [5:05 PM]
+        why not at same time you try start the guide first?
+        it can be google doc or google slide (whichever easier)
+        dont worry abt the grammar/ clarity, i can add on later
+        add as much screenshots as you can :grin:
+
+        Jasper Carpizo [5:07 PM]
+        ah thank you :grimacing:
+
+        dolita [5:07 PM]
+        hehe
+        no prob. thanks
+        btw jasper, have you set codeception test suites?
+        i think i will spend some time with vishal on that nxt week cause we have some test scripts in wms that will help testing
+        you also need that set up?
+
+        Jasper Carpizo [5:13 PM]
+        ah not yet .. because I install php 5.6 and need to install php7 and switch php cli to php 7
+        ah okay, noted that
+
+        dolita [5:14 PM]
+        the tests suites shld be php 5.6 i think
+
+        Jasper Carpizo [5:14 PM]
+        ah yeah, they have, hehe
+
+        dolita [5:15 PM]
+        yea. anyway dont worry abt the codecept first i guess.. i will see if can settle with vishal
+
+        Jasper Carpizo [5:16 PM]
+        yeah, hehehe
+
+        dolita [5:16 PM]
+        btw are you able to onboard the new engineer ald?
+        got any plan/ idea to do that?
+
+        Jasper Carpizo [5:18 PM]
+        what do you mean? WMS engineer?
+
+        dolita [5:18 PM]
+        ya the WMS engineer
+        asked ty. if nt wrong claris coming on 17th
+
+        Jasper Carpizo [5:19 PM]
+        :astonished:, ah okay. I'm not ready. I'll do a plan for her.
+
+        dolita [5:20 PM]
+        remember the onboarding spreadsheet?
+        use that
+
+        Jasper Carpizo [5:20 PM]
+        ah yes..
+
+        dolita [5:20 PM]
+        at least first sheet is good
+        that is your nxt week food for thought :grinning:
+
+        Jasper Carpizo [5:23 PM]
+        ahhaha okay, hehe.. btw, how about the x-ray guy eyes, ahhaha (edited)
+
+        dolita [5:23 PM]
+        haha nt sure abt that
+        but still can hope i guess :thinking_face:
+
+        Jasper Carpizo [5:25 PM]
+        ah yeah.. I hope we can got that guy.
+        hehe
+
+        dolita [5:25 PM]
+        hehe
+
+        Jasper Carpizo [5:34 PM]
+        question, can I create a class on data_access folder? (edited)
+
+        dolita [5:34 PM]
+        yep
+        can
+
+        Jasper Carpizo [5:35 PM]
+        its that okay?
+        thank you :wink:
+
+        dolita [5:35 PM]
+        i think class also favoured hehe
+        (judging by my recent PR, after being reviewed, i tend to end up creating class nowadays) (edited)
+
+        Jasper Carpizo [5:36 PM]
+        but we need to autload in composer.json
+        ```{
+            "autoload": {
+                "psr-4": {"Acme\\": "src/"}
+            }
+        }```
+
+        dolita [5:36 PM]
+        ok
+        if you add that, just got to make sure the wms & the main functions nt affected
+        so need to do some general testing (eg create SO and process it)
+
+        Jasper Carpizo [5:37 PM]
+        ah yeah, its  autoload the class only..
+        in the  directory.. (edited)
+
+        dolita [5:38 PM]
+        ok ok
+
+        Jasper Carpizo [5:39 PM]
+        ah thank you, but before I applied, I'll show you first. :wink:
+
+        dolita [5:39 PM]
+        yep thanks
+        or you can just push PR then we shall test
+
+        Jasper Carpizo [5:40 PM]
+        ah yes.. :wink:
+
+        dolita [5:42 PM]
+        btw for planning onboarding for claris, is it ok if we plan that nxt week, maybe thur/fri?
+        or you plan, then pass me and we go thru together
+        after that we will pass to ty for final :eyes:
+
+        Jasper Carpizo [5:47 PM]
+        ah yes, we can plan by Friday
+
+        dolita [5:47 PM]
+        yep
+
+        Jasper Carpizo [5:47 PM]
+        @dolita, I have to go.
+
+        dolita [5:48 PM]
+        bye
+        lol
+
+        Jasper Carpizo [5:48 PM]
+        hehe
+
+        dolita [5:48 PM]
+        have gd evening
+
+        Jasper Carpizo [5:48 PM]
+        yeah, have a nice evening too , have a great weekend :slightly_smiling_face:
+
+        dolita [5:48 PM]
+        yep
+        you too
+
+        Jasper Carpizo [5:49 PM]
+        thanks, I just relax this evening. Tomorrow, I review the WMS :wink:
+        ehehhe
+
+        dolita [5:50 PM]
+        hehe yep you should (edited)
+
+December 10, 2018
+-----------------
+
+.. code-block:: console
+
+        Jasper Carpizo [11:56 AM]
+        hi @dolita, frederick tan asked me what's your plan for your last day. I mention you have planning to have a pizza treat this month but I'm not sure is when, hehe.. Sorry :grin:.
+
+        dolita [12:04 PM]
+        oh lol. i dont have plan actually. also no pizza treat cause things change. last day prolly come, wrap up, surrender stuffs and leave
+        the pizza treat also confusing. i thought yanyan will organise last week since gisha and nizam going on leave. but she didnt. so i also dont take action. likely no pizza
+        originally wanted to have it on 31st coz ty would be back by then. now even lesser ppl... like no point..
+
+
+December 11, 2018
+-----------------
+
+.. code-block:: console
+
+        dolita [10:35 AM]
+        morning @Jasper Carpizo... want to leave a note.. do monitor OMSS and act on WMS issues (im not monitoring it closely)
+
+        Jasper Carpizo [10:39 AM]
+        hi good morning. Yes, this is noted @dolita
+
+        Jasper Carpizo [10:51 AM]
+        hi @dolita, I just want to confirm, this zaid `zaid.alsree@gmail.com` username right?
+
+        dolita [10:52 AM]
+        yup
+        only 1 zaid with WMS user_acl
+
+        Jasper Carpizo [10:53 AM]
+        ah okay, :grin:
+
+        dolita [10:53 AM]
+        hehe
+        oh ya if puah request for her staff, i guess we can note that always follow zaid (unless she said otherwise)
+
+        Jasper Carpizo [11:09 AM]
+        noted @dolita :slightly_smiling_face:
+
+        dolita [11:21 AM]
+        sorry @Jasper Carpizo, Qiuling needs your help for OMSS-519
+
+        Jasper Carpizo [11:22 AM]
+        yeah, I just looked at this :slightly_smiling_face:
+        thanks for this, hehe https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/172425217/Generate+transaction+history+report
+
+        dolita [11:27 AM]
+        lol. i dont remember i wrote it. im glad at least i did. thanks @Jasper Carpizo
+
+        Jasper Carpizo [11:28 AM]
+        heheh..
+
+        dolita [11:29 AM]
+        ^^
+
+        dolita [11:58 AM]
+        jasper.. im going out, not going to join lunch today :grimacing:
+
+        Jasper Carpizo [12:02 PM]
+        ah, okay :slightly_smiling_face: (edited)
+
+        Jasper Carpizo [3:15 PM]
+        hi @dolita, can you assist me to solve this issue because I'm unsure about this one
+        https://urbanfox.atlassian.net/browse/OMSS-521
+
+        dolita [3:20 PM]
+        what you understand about this ticket?
+        OMSS-521
+
+        dolita [3:27 PM]
+        dont worry abt correctness.. i just need to know what u think/ understand
+
+        Jasper Carpizo [3:27 PM]
+        under Just Nile (SEA) Pte Ltd - 17952, she needs to remove 9780230756052 as item
+        under SO 20181205RMJNS
+
+        dolita [3:27 PM]
+        true
+        under SO 20181205RMJNS
+        they have shortage, where 9780230756052 not available
+        and need to remove it
+        do you remember `special remove`?
+
+        Jasper Carpizo [3:31 PM]
+        ah yes, I remembered it but I have no `special remove` in your account, hehe
+
+        dolita [3:31 PM]
+        my account
+        ?
+
+        Jasper Carpizo [3:31 PM]
+        ah yes
+        https://wms.courex.com.sg/wms/manageso.php?listid=SO2018-005128
+
+        dolita [3:32 PM]
+        are you logged in with my account?
+
+        Jasper Carpizo [3:32 PM]
+        ah yes @dolita
+
+        dolita [3:32 PM]
+        if yes, in that link you just paste here, go to the pick ticket
+        it is SO - pick - pack, there are 3 sections
+        `special remove` is only in pick
+
+        Jasper Carpizo [3:33 PM]
+        ah yes
+        https://wms.courex.com.sg/wms/managepick.php?listid=PI2018-005286
+
+        dolita [3:34 PM]
+        yup
+        saw the item?
+
+        Jasper Carpizo [3:34 PM]
+        ah yes
+
+        dolita [3:34 PM]
+        it is unpicked right
+
+        Jasper Carpizo [3:34 PM]
+        saw the item
+        click the `special remove` right
+        hehe
+
+        dolita [3:35 PM]
+        yup
+
+        Jasper Carpizo [3:35 PM]
+        Done :slightly_smiling_face:
+
+        dolita [3:35 PM]
+        nice
+
+        Jasper Carpizo [3:56 PM]
+        hi @dolita, nikki asked me again about the  `Enable External Tracking` I told her when enabled we used the TMS tracker right?
+        btw, also asked if WMS have a connected fields that have connected to TMS, something soft of., so I mention `Enable External Tracking` right ?
+
+        dolita [4:04 PM]
+        the `Enable External Tracking` is so that we can create TMS order with tracking that is taken from the SO reference
+        as for connected fields.. you should take a look at managepack and see what fields we sent to TMS via the XML API payload.. (edited)
+
+        Jasper Carpizo [4:09 PM]
+        ah okay. maybe we can discuss to Nikki because have something changes in WMS and also I'n sure about the functionality. She walk through yesterday but I have no idea some connected fields in TMS. (edited)
+
+        dolita [4:10 PM]
+        lol
+
+        Jasper Carpizo [4:10 PM]
+        hehehe
+
+        dolita [4:10 PM]
+        actually rather than "connected" fields
+        more correct to say "which fields got sent to TMS"
+        we dont connect to TMS directly (or try not to) (edited)
+
+        Jasper Carpizo [4:11 PM]
+        ah okay, eheh..
+
+        dolita [4:12 PM]
+        my lol is more on what the people here actually expect?
+
+        Jasper Carpizo [4:14 PM]
+        ah what do you mean? :grimacing:
+
+        dolita [4:15 PM]
+        they shld give you time to learn the stuffs
+
+        Jasper Carpizo [4:17 PM]
+        ah yes.
+
+        dolita [4:32 PM]
+        OMSS-521 actually easy
+        but OMSS-520 .. you saw?
+
+        Jasper Carpizo [4:33 PM]
+        ah not yet.. wait :grimacing:
+
+        dolita [4:33 PM]
+        haha ok
+        im leaving you with OMSS :slightly_smiling_face:
+
+        Jasper Carpizo [4:35 PM]
+        I don't get it `PI2018-002367 : Unable to close order as item is in float"` so she enabled/ click to record picked but doesn't  effect? (edited)
+
+        dolita [4:36 PM]
+        nope
+        https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/11043148/How+to+Put+Back+Quantity+of+a+Serialised+SN+UI+-+Unique+Identifier+Item
+
+        Jasper Carpizo [4:56 PM]
+        hi @dolita, in the example, where did you  get the `0307001987` as sn_sn?
+
+        dolita [4:56 PM]
+        it was provided
+        but here puah nv provide
+        you got 2 choice
+
+        Jasper Carpizo [4:57 PM]
+        what is it?
+
+        dolita [4:57 PM]
+        1 is check yourself. there should be a wms_picklist_item_draft row if you search for that pick ticket
+        2 (better), get puah to screenshot/ provide the serial number
+
+        Jasper Carpizo [5:04 PM]
+        ah yeah, the second one.. I need to ask a screenshot with serial number but I'll try the first one, so I can check
+
+        dolita [5:06 PM]
+        yup
+        i was thinking
+        there shld be a record in pick draft with that uid & list_id
+        and we can just delete
+        but then
+        i realise it is not good to act like that (assuming things and settle ourselves without checking with the other party) (edited)
+
+        Jasper Carpizo [5:09 PM]
+        ah yes, yes.. :wink:
+
+        dolita [5:09 PM]
+        they shld have encountered error, so it is better for them to show us the error exactly
+        haha
+
+        Jasper Carpizo [5:09 PM]
+        yep, hehehe
+
+        Jasper Carpizo [6:16 PM]
+        hi @dolita, I have to go
+        Have a nice evening :slightly_smiling_face:
+
+        dolita [6:16 PM]
+        yup
+        have nice evening
+
+
+December 12, 2018
+-----------------
+
+.. code-block:: console
+
+        Jasper Carpizo [10:14 AM]
+        hi @dolita, good morning :slightly_smiling_face:
+
+        dolita [10:15 AM]
+        good morning @Jasper Carpizo
+
+        Jasper Carpizo [10:18 AM]
+        I have got question from nikki `so is the SO ref number send to TMS field external tracking number?` I'm not sure with this,
+
+        dolita [10:18 AM]
+        if the setting is enabled, then yes. if not enabled, then no
+
+        Jasper Carpizo [10:19 AM]
+        ah yes, I would like to answer `yes` is enabled but I'm unsure so I need to check with you, hehehe..
+        thanks @dolita :slightly_smiling_face: (edited)
+
+        dolita [10:20 AM]
+        np @Jasper Carpizo ^^
+
+        Jasper Carpizo [10:22 AM]
+        btw, I have a list of PR, that I already checked. You can review and approve if you are okay :slightly_smiling_face:
+        1. WMS-276
+        2. WMS-296
+        3. WMS-287
+        4. WMS-302
+
+        dolita [10:22 AM]
+        okay :thumbsup:
+
+        Jasper Carpizo [10:24 AM]
+        hi @dolita do you know this one `ok what is the exact field for SO ref?` I'm still checking what are the fields e. (edited)
+        got qn from nikki.
+
+        dolita [10:25 AM]
+        ummm
+        isnt it in the SO detail page? (i went thru with you last week) (edited)
+
+        Jasper Carpizo [10:33 AM]
+        its a `reference no` ?
+
+        dolita [10:34 AM]
+        try screenshot and show me?
+
+        Jasper Carpizo [10:35 AM]
+        Screenshot from 2018-12-12 10-35-24.png
+
+
+        dolita [10:36 AM]
+        which field?
+
+        Jasper Carpizo [10:36 AM]
+        Screenshot from 2018-12-12 10-36-17.png
+
+        this one, the highlighted in orange
+
+        dolita [10:36 AM]
+        yep looks correct
+
+        Jasper Carpizo [10:37 AM]
+        yeah, I not remembered but I looked at the code, hehehe (edited)
+
+        dolita [10:37 AM]
+        hehe ok
+
+        Jasper Carpizo [10:52 AM]
+        I have a qn from nikki, eheh `for now mostly they store SM.... number is it?`, I mention the field name `list_SOReference` in the `wms_solist` table.
+
+        dolita [10:53 AM]
+        that qn... not our business...
+        lol...
+        ask her to discuss in # group channel, either WMS or IMS
+        or tell her wms doesnt control what people put in `list_SOReference`
+
+        Jasper Carpizo [10:55 AM]
+        okay, thanks @dolita, I'll noted that.
+
+        dolita [10:55 AM]
+        i mean how we know what people wan to store in WMS when it is the user's SOP (standard operating procedure)? (edited)
+        unless we are involved in the discussion? (edited)
+        i would just say 'im unsure, it is decided by user' (smth along that line)
+
+        Jasper Carpizo [10:58 AM]
+        ah yes, :slightly_smiling_face:
+
+        Jasper Carpizo [1:31 PM]
+        hi @dolita, about the https://urbanfox.atlassian.net/browse/OMSS-520, I have already queried but I can't delete directly to mysql client.
+
+        dolita [1:32 PM]
+        what command you running?
+        as in whats the query
+
+        Jasper Carpizo [1:32 PM]
+        ```DELETE FROM wms_picklist_item_draft WHERE list_itemsnid IN (
+          280604
+        );```
+
+
+        dolita [1:32 PM]
+        production right
+
+        Jasper Carpizo [1:32 PM]
+        also tried this
+        ```DELETE FROM wms_picklist_item_draft WHERE list_itemsnid = 280604;```
+        yes
+
+        dolita [1:33 PM]
+        what is the error you get?
+
+        dolita [1:40 PM]
+        btw im done reviewing the PR. 2 ok, 2 need more works
+        we need to involve QC right
+
+        Jasper Carpizo [1:40 PM]
+        wait, I'll try to another mysql client :slightly_smiling_face:
+
+        dolita [1:40 PM]
+        can finish? lol
+        ok
+
+        Jasper Carpizo [1:40 PM]
+        ah yes, I can finish :wink: (edited)
+
+        dolita [1:41 PM]
+        it is just 2 more days
+        i think got that 2 more PR on duplicate
+        and i haven finish briefing ^^
+
+        Jasper Carpizo [1:49 PM]
+        its already working now, about the query one :slightly_smiling_face:
+
+        dolita [1:50 PM]
+        okay
+        btw be careful when you do `delete`
+        we generally dont delete wms_ records too
+        this is _draft, thats why
+
+        Jasper Carpizo [1:51 PM]
+        ah yes, I already backup this one.
+
+        Jasper Carpizo [2:09 PM]
+        hi @dolita, I got qn from nikki, do you know about this `can i check what is the field info that wms send to TMS dst_contact fields` ?
+        `dst_contact fields`?
+
+        dolita [2:12 PM]
+        `dst_contact_fields` i think is the recipient phone (double check with TMS team) (edited)
+        or... test it?
+
+        Jasper Carpizo [3:06 PM]
+        hi @dolita , I'm not sure about this `another question for existing Kao account we wi not need to enable external tracking. Am I right?` qn from nikki, I remembered Kao account is more BOM items.
+
+        dolita [3:15 PM]
+        what is the uid account of existing kao account?
+        (cause kao got a lot, just want to be sure..)
+        BOM items not related to SO ref -> tms tracking
+
+        Jasper Carpizo [3:18 PM]
+        ah okay :grimacing:
+        this one `15938` , she saw the enable external tracking is disabled.
+
+        dolita [3:20 PM]
+        check the user_acl
+        and this https://bitbucket.org/courex/courex-wms/pull-requests/84/wms-284-part-1-de-hardcode-configs-in-pack/diff
+
+        Jasper Carpizo [3:56 PM]
+        yeah, its depends on the wms ops right if they enabled or disabled the wms_config_so_reference_to_external_tracking right? Correct me if I'm wrong
+
+        dolita [3:57 PM]
+        hmm no
+        right now only engineers set user acl
+        and in this case, it is a wms_config... so not really an ACL (edited)
+        you checked user_acl of `15938`?
+        what you see?
+
+        Jasper Carpizo [3:59 PM]
+
+        ```{"client": true, "client_ops": true, "wms_client": true, "svc_gql_api": true, "svc_tx_info": true, "svc_tx_create": true, "svc_tx_search": true, "svc_ctrl_report": true, "svc_legacy_upload": true, "svc_backlog_report": true, "svc_generic_upload": true}```
+
+        this one
+
+        dolita [4:00 PM]
+        ~`call courex_user_add_acl(15683, 'wms_config_so_reference_to_external_tracking');`~ (edited)
+        eh wait
+        ok `15938` nv enable..
+        i got it mixed with `15310`
+        so if nikki want `15938` TMS order to take external tracking from SO ref, then go and enable that option for 15938...
+
+        Jasper Carpizo [4:01 PM]
+        mhm, because we have external tracking enabled / disabled in our UI.
+        ah yep,
+
+        dolita [4:01 PM]
+        we dont go and decide for clients...
+        yep
+        (now i dont know what is the qn for lol)
+        coz if they want this: https://urbanfox-asia.slack.com/archives/DDVEYTZ1S/p1544601700038900 just enable it. if they dont want, then leave it disabled (it is not up to wms engineers to decide)
+        dolita
+        so if nikki want `15938` TMS order to take external tracking from SO ref, then go and enable that option for 15938...
+        Direct MessageDec 12thView conversation
+
+        Jasper Carpizo [4:03 PM]
+        She just wondering why Kao account is disabled the external tracking in our UI
+        ah yes..
+        hehhe
+
+        dolita [4:03 PM]
+        oh
+        i think coz a lot people dont know got this feature
+        (it is new)
+        and it is not that obvious
+        and a lot of people dont even know we can do that (cause we have influx of a lot lot new people)
+        in this team alone.. only TY, gisha and hendra are older staffs
+        the rest all new
+
+        Jasper Carpizo [4:10 PM]
+        So its depends on the ops, if they enable the external tracking right? (edited)
+
+        dolita [4:11 PM]
+        i think shld depend on client
+        in this case 15938
+
+        Jasper Carpizo [4:12 PM]
+        ah okay, got it :slightly_smiling_face:
+
+        Jasper Carpizo [4:38 PM]
+        hi @dolita, I just checking this one https://urbanfox.atlassian.net/browse/OMSS-523, how can I remove 1 quantity of 8809485536323? (edited)
+
+        dolita [4:39 PM]
+        you just did similar fix yesterday :wink: (edited)
+
+        Jasper Carpizo [4:41 PM]
+        yesterday is an item, but its a quantity today? :thinking_face:
+
+        dolita [4:43 PM]
+        the phrase is slightly different today but they are same problem
+        what you removed yesterday is quantity of an item in pick ticket by the way ^^
+
+        Jasper Carpizo [4:47 PM]
+        hehe.. got it. this is noted. :slightly_smiling_face:
+
+        Jasper Carpizo [5:46 PM]
+        hi @dolita, I have to go.  Tomorrow, we will discuss about ``Difference between wms and www.courex xml`` :slightly_smiling_face: (edited)
+
+        dolita [5:47 PM]
+        yup sure
+        the rest you ok already is it?
+
+        Jasper Carpizo [5:47 PM]
+        ah yes :wink:
+
+        dolita [5:47 PM]
+        okay nice
+
+        Jasper Carpizo [5:51 PM]
+        also, needs to know what are needs to be consider to deploying in our staging / production , maybe have a demo tomorrow.
+
+        dolita [5:52 PM]
+        ok
+
+        Jasper Carpizo [5:53 PM]
+        have a nice evening :wink:
+
+        dolita [5:53 PM]
+        thanks. you too
+
+
+December 13, 2018
+-----------------
+
+.. code-block:: console
+
+
+        dolita [10:42 AM]
+        morning jasper
+        i think you will be busy in the afternoon
+        want to do some talking now?
+
+        Jasper Carpizo [10:42 AM]
+        ah yes,.. :slightly_smiling_face:
+        its about `Difference between wms and www.courex xml`
+
+        dolita [10:43 AM]
+        lets sync our list first
+
+        Jasper Carpizo [10:43 AM]
+        okay :wink:
+
+        dolita [10:46 AM]
+        - how to manage WMS tech dev board
+        - how to deploy WMS
+        - SO - Pick - Pack - TMS/ Self-collect/ Others - RMA
+        - GRN w PO/ GRN without PO/ GRN without PO (scanning)
+        - GRN for serialised items/ Picking for serialised items
+        - Adjustment/ Main adjustment
+        - Item master - Inventory
+        - Overview of specs of inventory: serialised and non-serialised items, location, expiry date, creation date, last picked date
+        - User ACL
+        - Difference between wms and www.courex xml
+        - portal.storeviva.com (just to brief where it is and what it is about)
+        - singhealth.storeviva.com (just to brief where it is and what it is about)
+        - JML upload (maybe)
+        - monthly update of fuel surcharge
+        - onboarding claris
+        update/ point out which points you want briefing?
+
+        Jasper Carpizo [10:48 AM]
+        i think this one first `how to manage WMS tech dev board`
+
+        dolita [10:48 AM]
+        ok
+        we use sprint / scrum...
+
+        Jasper Carpizo [10:48 AM]
+        wait, can I seat beside you
+
+        dolita [10:48 AM]
+        yep
+        the last one i set it to 3 weeks
+        from 29nov-20 dec
+        take a look at the date left
+        so every end of sprint, you need to click "complete sprint"
+        and start new one from backlog
+        you want try with this one?
+        since today is thursday
+
+        Jasper Carpizo [10:50 AM]
+        ah yes
+
+        dolita [10:50 AM]
+        (official end on thurs)
+
+        Jasper Carpizo [10:51 AM]
+        complete the sprint?
+
+        dolita [10:51 AM]
+        check if the cards all ok?
+        if yes then complete it
+
+        Jasper Carpizo [10:51 AM]
+        so its okay to move to next sprint.
+
+        dolita [10:51 AM]
+        it will auto move
+        ideally we create restrospective
+        but not much things to note, so i dont do that
+
+        Jasper Carpizo [10:53 AM]
+        what is Retrospective time first?
+
+        dolita [10:53 AM]
+        it is noting down what happen during that sprint
+        what can be improved
+        and what good thing happened (edited)
+
+        Jasper Carpizo [10:54 AM]
+        okay got it :slightly_smiling_face:
+        how can I set the date?
+
+        dolita [10:55 AM]
+        go to backlog
+
+        Jasper Carpizo [10:55 AM]
+        or what is next?
+
+        dolita [10:56 AM]
+        you want 2 or 3 weeks?
+
+        Jasper Carpizo [10:56 AM]
+        2 weeks
+        nice, got it :wink:
+
+        dolita [10:57 AM]
+        remember to do that every 2 weeks
+        so..
+        if you working on a task, set the sprint & label
+        for label, we refer to roadmap
+        label is TY requirement
+        so must add label (edited)
+        can you open a task you doing now?
+        can you open WMS roadmap?
+        so if got new task, add the 2018-Qx-x thing to label and shift it to active sprint
+        otherwise it limit the tasks visibility
+
+        Jasper Carpizo [11:00 AM]
+        okay, got it :slightly_smiling_face:
+
+        dolita [11:00 AM]
+        the procedure to move columns you know ald right
+        ok done with board
+        sorry i forgot 11am got exit interview :grimacing:
+
+        Jasper Carpizo [11:01 AM]
+        so we continue later?
+
+        dolita [11:01 AM]
+        we just talk first since frederick havent ping lol
+
+        Jasper Carpizo [11:02 AM]
+        maybe we can talk after benefits meeting with the HR?
+        i think 4pm
+
+        dolita [11:02 AM]
+        that meeting is 3pm right
+        until 4pm
+        so left abt 2 hrs
+        are you sure enough time?
+
+        Jasper Carpizo [11:02 AM]
+        yeah sure, we have tomorrow.
+
+        dolita [11:06 AM]
+        i will try to go through backlog and update..
+        for issues we freeze, where/ how do you want to set them to?
+        right now it is in sprint 999
+
+        Jasper Carpizo [11:13 AM]
+        I think, just retain this one, I'll edit if I have correct name for that, hehe..
+
+        dolita [11:13 AM]
+        we cant edit the sprint name, thats why it is in 999
+
+        Jasper Carpizo [11:19 AM]
+        mhm, maybe just retain this one.
+
+        dolita [11:19 AM]
+        ok
+
+        dolita [11:43 AM]
+        frederick said move interview to 5pm
+        so you want continue?
+
+        Jasper Carpizo [11:44 AM]
+        yeah sure :slightly_smiling_face:
+        how to deploy WMS
+
+        dolita [11:45 AM]
+        ok
+        i got write smth abt it ytd
+        https://bitbucket.org/courex/courex-wms/src/master/ (edited)
+        in the readme
+        we go through this together when deploying your PRs?
+        but do we need to involve QC?
+
+        Jasper Carpizo [11:47 AM]
+        ah yes,
+
+        dolita [11:47 AM]
+        if involve qc, they need do fast check
+
+        Jasper Carpizo [11:47 AM]
+        thanks for this
+        i think, this aready an instruction, so no worries
+
+        dolita [11:47 AM]
+        yep i added
+
+        Jasper Carpizo [11:47 AM]
+        okay lah
+        JML upload (maybe)
+
+        dolita [11:48 AM]
+        okay
+        can you open ytd write up?
+        got pdf inside
+        that is the interface. we need login to JML portal to see
+        and need JML documents to try
+        so normally the upload part dont have isssue
+        they cannot reupload if the SO reference ald used
+        and normally the error msg is quite clear in the upload side
+        so after upload, jml need to submit job to be processed
+        why we do that?
+        it is coz JML dont realy use wms for pick and pack
+        they just want to upload orders, generate their documents and have those orders go to TMS
+        and that is why we have so-sync script
+        which ty and me working on now
+        ty will not know much abt the portal.storeviva part
+        so that part you take
+
+        Jasper Carpizo [11:54 AM]
+        so after upload and processed it will sync the order to tms?
+
+        dolita [11:54 AM]
+        after upload & submit to process, so-sync does this
+        `create pick` -> `create pack` ->  `send request to TMS`
+        and so TMS order created
+
+        Jasper Carpizo [11:55 AM]
+        got it :wink:
+
+        dolita [11:55 AM]
+        the purpose of so-sync is for this kind scenario
+        where clients dont use wms for (physical) pick pack but need the integration to TMS (edited)
+        most time JML got issue is coz of the script anyway
+        oh btw got 1 thing to take note
+        can you open the pdf?
+        you try login portal-stag.storeviva using JML credential
+        http://portal-stag.storeviva.com/
+        i happened to change their password in staging db
+        try this `jmldirect` and `1429178791`
+        it only works for this week though lol
+        that is their 3 documents
+        that page content is that screenshot
+        that is list of "active" orders
+        the orders will stay there until all 3 documents downloaded
+        after the so-sync finished
+        that page will show download button
+        they need to click to download
+        and all 3 need to be downloaded then the page will clear up
+        that is the history
+
+        Jasper Carpizo [12:03 PM]
+        so, already done with this?
+
+        dolita [12:03 PM]
+        yup
+        got qn?
+
+        Jasper Carpizo [12:04 PM]
+        why they used JML to upload order? because we have on WMS right?
+
+        dolita [12:04 PM]
+        WMS is UF internal apps
+        so only UF staffs can use it
+        (got exception with Ryca but that is all)
+        every other clients use portal.storeviva.com
+        JML is one of the client and they use portal.storeviva to upload orders
+        the grand plan is portal.storeviva.com will be replaced with actual proper IMS (edited)
+        so dont worry too much abt it
+        just take note abt it
+
+        Jasper Carpizo [12:06 PM]
+        okay :slightly_smiling_face:
+
+        dolita [12:06 PM]
+        you want talk abt portal.storeviva.com now?
+        JML one a bit diff (coz got custom uploader) (edited)
+        but most of the rest are the same
+        it is a copy of WMS
+        (and legacy TMS)
+        so it is an interface for clients to check their orders
+        the repo is at https://bitbucket.org/courex/storeviva-portal/src
+        apps is beanstalked
+        "symlink"
+        only WMS part linked like that
+
+        Jasper Carpizo [12:09 PM]
+        singhealth.storeviva.com
+
+        dolita [12:09 PM]
+        ok so singhealth.. is another customisation
+        but it is legacy TMS
+        you try login
+        with jasper
+        similar to portal.sv?
+        but chopped until only delivery part is there
+        it is legacy tms
+        and most time we dont need do anything
+        just for you to note
+
+        Jasper Carpizo [12:11 PM]
+        okay, got it
+
+        dolita [12:11 PM]
+        https://bitbucket.org/courex/mini-storeviva-portal/
+        it is sadly nt beanstalked
+        it is in EC2
+        you try SSH sv-production-app-storeviva (edited)
+        okay sorry rem wrong lol
+        cd apps
+        or rather
+        ls apps
+        git status
+        check the git origin source
+        git remote -v
+        that is where the singhealth apps located
+
+        Jasper Carpizo [12:15 PM]
+        in our wms app
+        where is located?
+
+        dolita [12:15 PM]
+        beanstalk
+        cant ssh like that
+        lol
+
+        Jasper Carpizo [12:16 PM]
+        how we can command line when we have some chnages?
+
+        dolita [12:16 PM]
+        we dont need to
+        coz the scripts take care of it
+        so just do smth like `make deploy/stag`
+        then it will use bitbucket-pipeline to deploy to beanstalk
+        (a lot integrations)
+
+        Jasper Carpizo [12:17 PM]
+        also have additonal line in composer.json ?
+
+        dolita [12:17 PM]
+        oh ya you will need to update bitbucket-pipeline.yml
+        we have deploy/stag, so can test it out
+
+        Jasper Carpizo [12:18 PM]
+        because we need to run composer dumpautoload if we have autload class,
+        ah okay :slightly_smiling_face:
+
+        dolita [12:18 PM]
+        yup i just remembered
+
+        Jasper Carpizo [12:18 PM]
+        Difference between wms and www.courex xml
+
+        dolita [12:18 PM]
+        so we got 2 version of legacy tms XML API
+        the one in www.courex is what we distribute to clients
+        the one in wms is strictly for UF internal usage
+        (eg our WMS)
+        and we got legacy documentation on the xml api
+        https://storeviva.github.io/
+        oh lunch time ald?
+        we dont want people to use xml api so just keep this doc to yourself
+        and fellow engineers
+
+        Jasper Carpizo [12:21 PM]
+        okay.. so will continue after lunch
+        lunch lah
+
+        dolita [1:30 PM]
+        we didnt touch on this just now, but to create new sprint, click this `Create sprint` button (at right side there). (i ald created up to 27)
+        Pasted image at 2018-12-13, 1:30 PM
+
+
+        Jasper Carpizo [1:39 PM]
+        thank you @dolita, noted that.
+
+        dolita [1:40 PM]
+        :thumbsup:
+        shall we push a couple of PRs?
+        need to get qc to help check
+
+        Jasper Carpizo [1:44 PM]
+        ah sure, so I can check, how  we can deploy :slightly_smiling_face: (edited)
+
+        dolita [1:45 PM]
+        yup we can deploy tgt and ideally clear all existing PRs before i go (edited)
+
+        Jasper Carpizo [1:45 PM]
+        ah yes :slightly_smiling_face:
+
+        Jasper Carpizo [1:55 PM]
+        hi @dolita, I just mapping the table Outbound table for `Outbound Order - Cancel`  like we did in `Outbound Order - Create` (edited)
+
+        dolita [1:56 PM]
+        ok
+        mapping table, then?
+
+        Jasper Carpizo [1:56 PM]
+        I think is a new table for `cancel` (edited)
+        ```{
+          order_id: aRequiredString,
+          cancel_reason: {                  // (*)
+            code: aRequiredString,
+            description: aOptionalString
+          }
+        }```
+
+        also with `return` (edited)
+        ```{
+          order_id: aRequiredString,
+          return_reason: {                   // (*)
+            code: aRequiredString,
+            description: aOptionalString,
+          }
+        }```
+
+        dolita [1:57 PM]
+        there is (*) what is stated?
+
+        Jasper Carpizo [1:58 PM]
+        (*) needs new custom fields table
+
+        dolita [1:58 PM]
+        (sorry cause my memory also hazy, but sounds like you are right. except new table is not called `cancel`)
+        i think there is some custom table..
+
+        Jasper Carpizo [2:02 PM]
+        ```What about the cancel and return logic in the WMS UI ?
+
+        what does it do ?```
+        from akash
+
+        dolita [2:09 PM]
+        cancel, return, maybe need to discuss with ty about it? as in you, akash & ty
+
+        dolita [3:28 PM]
+        Jasper, can I push PR# 92, 93, 72, 73, to QC? I want to push #94 too but need update the yml
+
+        Jasper Carpizo [3:30 PM]
+        yeah sure @dolita :wink:
+        yes, we need to update yml
+
+        dolita [3:31 PM]
+        are you able to update quickly or leave it for later?
+
+        Jasper Carpizo [3:35 PM]
+        opps, how can I update the yml? yml in the root folder?
+
+        dolita [3:38 PM]
+        i think you need update 3 files
+        `docker/dev/Dockerfile`, `docker/prod/Dockerfile`, `docker/stag/Dockerfile`
+
+        Jasper Carpizo [4:23 PM]
+        ah yes @dolita.
+        hi @dolita do you have any idea for this one https://urbanfox.atlassian.net/browse/OMSS-524, sorry :grimacing:
+
+        dolita [4:24 PM]
+        lol. ok ok
+        so you see she tried to send the request
+
+        Jasper Carpizo [4:24 PM]
+        ah yes
+
+        dolita [4:25 PM]
+        in managepack, there is section that send payload via xml api right
+
+        Jasper Carpizo [4:25 PM]
+        yep
+
+        dolita [4:25 PM]
+        on 2nd screen you see got feedback
+
+        Jasper Carpizo [4:25 PM]
+        error message (edited)
+
+        dolita [4:25 PM]
+        meaning the sending part is ok
+        and the api server also receive it
+        validate it
+        and reject
+        the hairy prob is that... the api server nv tell us why
+        and by "api server", i mean this: https://bitbucket.org/courex/courex-wms/src/master/wms/xml/
+        (notice endpoint of curl in managepack.php is to this "page") (edited)
+
+        Jasper Carpizo [4:29 PM]
+        `curl_setopt($ch, CURLOPT_URL, get_server_url()."/wms/xml/"); // https`
+        this one right?
+
+        dolita [4:29 PM]
+        so it is smth need to be fixed (as in give us proper error feedback..)
+        yup
+
+        Jasper Carpizo [4:31 PM]
+        ah yes.. for now we don't have to catch error.
+
+        dolita [4:31 PM]
+        yup
+
+        Jasper Carpizo [4:31 PM]
+        so its api issue?
+
+        dolita [4:31 PM]
+        nope
+
+        Jasper Carpizo [4:33 PM]
+        in the order tracking no is empty? (edited)
+
+        dolita [4:34 PM]
+        yes it is empty. but got a reason why it is empty
+        and it is nt api fault
+
+        Jasper Carpizo [4:34 PM]
+        okay, ehhe
+
+        dolita [4:35 PM]
+        :slightly_smiling_face:
+
+        Jasper Carpizo [4:38 PM]
+        there's no tracking number with xml
+        Untitled
+        $reqxml = "<RequestCall>
+               <AppType>Order</AppType>
+               <RequestSource>wms-form</RequestSource>
+               <CourexUID>".$uid."</CourexUID>
+               <CourexToken>c!o!u!r!e!x!Singapore</CourexToken>
+               <Parameters>
+               <OrderType>".htmlspecialchars(trim($shipOrderType))."</OrderType>
+               <SenderName>".htmlspecialchars(trim($_POST["SenderName"]))."</SenderName>
+               <SenderCompany>".htmlspecialchars(trim($_POST["SenderCompany"]))."</SenderCompany>
+               <SenderContact>".htmlspecialchars(trim($_POST["SenderContact"]))."</SenderContact>
+               <SenderAddress>".htmlspecialchars(trim($_POST["SenderAdd"]))."</SenderAddress>
+               <SenderAddress2>".htmlspecialchars(trim($_POST["SenderAdd2"]))."</SenderAddress2>
+               <SenderUnit>".htmlspecialchars(trim($_POST["SenderUnit"]))."</SenderUnit>
+               <SenderCity>NA</SenderCity>
+               <SenderState>NA</SenderState>
+               <SenderPostalCode>".htmlspecialchars(trim($_POST["SenderPostalCode"]))."</SenderPostalCode>
+               <SenderCountry>Singapore</SenderCountry>
+               <RecipientName>".htmlspecialchars(trim($_POST["RecipientName"]))."</RecipientName>
+               <RecipientCompany>".htmlspecialchars(trim($_POST["RecipientCompany"]))."</RecipientCompany>
+               <RecipientContact>".htmlspecialchars(trim($_POST["RecipientContact"]))."</RecipientContact>
+               <RecipientAddress>".htmlspecialchars(trim($_POST["RecipientAdd"]))."</RecipientAddress>
+               <RecipientAddress2>".htmlspecialchars(trim($_POST["RecipientAdd2"]))."</RecipientAddress2>
+               <RecipientUnit>".htmlspecialchars(trim($_POST["RecipientUnit"]))."</RecipientUnit>
+               <RecipientCity>NA</RecipientCity>
+               <RecipientState>NA</RecipientState>
+               <RecipientPostalCode>".trim($_POST["RecipientPostalCode"])."</RecipientPostalCode>
+               <RecipientCountry>".htmlspecialchars(trim($_POST["RecipientCountry"]))."</RecipientCountry>
+               <ContentDesc>Parcel</ContentDesc>
+               <DeclaredValue>1</DeclaredValue>
+               <Weight>".htmlspecialchars(trim($_POST["valueShipWeight"]))."</Weight>
+               <ShipMethod>".htmlspecialchars(trim($_POST["valueMethod"]))."</ShipMethod>
+               <ShipType>".htmlspecialchars(trim($_POST["valueType"]))."</ShipType>
+               <PickupDate>".htmlspecialchars(trim($_POST["valuePickDate"]))."</PickupDate>
+               <PickupTime>".htmlspecialchars(trim($_POST["valuePickup"]))."</PickupTime>
+               <DeliverDate>".htmlspecialchars(trim($_POST["valueDeliverDate"]))."</DeliverDate>
+               <DeliverTime>".htmlspecialchars(trim($_POST["valueDeliver"]))."</DeliverTime>
+               <VolL>".htmlspecialchars(trim($_POST["valueShipLength"]))."</VolL>
+               <VolW>".htmlspecialchars(trim($_POST["valueShipWidth"]))."</VolW>
+               <VolH>".htmlspecialchars(trim($_POST["valueShipHeight"]))."</VolH>
+               <Instruction>".htmlspecialchars(trim($_POST["valueInstruction"]))."</Instruction>
+               <PaymentMethod>".htmlspecialchars(trim($paymentMethod))."</PaymentMethod>
+               <PaymentParty>1</PaymentParty>
+               <NotificationEmail>".htmlspecialchars(trim($_POST["ShipEmail"]))."</NotificationEmail>
+               <CustomerSORef>".htmlspecialchars(trim($etrackformat))."</CustomerSORef>
+               <CashCollection>".htmlspecialchars(trim($cashcollect))."</CashCollection>
+               </Parameters>
+               </RequestCall>";
+        Collapse
+
+        dolita [4:39 PM]
+        `CustomerSORef` that is the external tracking number
+
+        Jasper Carpizo [4:39 PM]
+        ah okay..
+
+        dolita [4:39 PM]
+        we dont generate TMS internal tracking
+
+        Jasper Carpizo [4:42 PM]
+        this one
+        ```if ($so_reference_is_external_tracking === true && isset($_POST['valueCustomerSORef'])) {
+                                    $etrackformat = $_POST['valueCustomerSORef'];
+                                } elseif ($so_number_is_external_tracking === true) {
+                                    $etrackformat = $_POST['valueSONumber'];
+                                } else {
+                                    $etrackformat = '';
+                                }```
+
+        dolita [4:42 PM]
+        well
+        there is no issue with that part
+        it is issue with data validation
+        and the validation is at "api server"
+        (you looking at wrong place)
+
+        Jasper Carpizo [4:52 PM]
+        mhmh.
+        https://bitbucket.org/courex/courex-wms/src/master/wms/xml/webservice_api.php
+        Source file in UrbanFox / courex-wms
+        wms/xml/webservice_api.php
+        Lines
+        2006
+        Size
+        91.8 kB
+        ```1  <?php
+        2  /*****************************************************************************
+        3  *                                                                           *
+        4  * Courex Portal                                                             *
+        5  ...```
+        courex-wmsAdded by Bitbucket Cloud
+        ?
+
+        dolita [4:53 PM]
+        yes
+        From the XML payload, got 1 parameter `<AppType>Order</AppType>` (edited)
+        and in the webservice_api.php got this `$xmlrpc_methods['Order'] = createOrder;` (edited)
+        and finally https://bitbucket.org/courex/courex-wms/src/3b2fd778e63abc396aecc2c95803d6bd7397e322/wms/xml/webservice_api.php#lines-250 (edited)
+        do these 3 make sense?
+
+        Jasper Carpizo [4:55 PM]
+        ah yes :slightly_smiling_face:
+        so, the issue are the data validation.  Can I solve issue without editing the api data validation? (edited)
+        there's a way to fix it?
+
+        dolita [5:09 PM]
+        the issue is the data failed validation
+        so why do we edit the api?
+        it is the data that got issue
+
+        Jasper Carpizo [5:09 PM]
+        no edit, hehe
+
+        dolita [5:10 PM]
+        need to edit the data
+
+        Jasper Carpizo [5:20 PM]
+        so they to edit the data in SO page right?
+
+        dolita [5:21 PM]
+        yup but which data fail validation?
+        found out ald?
+
+        Jasper Carpizo [5:22 PM]
+        I'm not sure `Customer PO No.` field.
+
+        dolita [5:22 PM]
+        nope nt that one
+
+        Jasper Carpizo [5:25 PM]
+        the `Customer Reference Info` but on the screenshot given have a value
+
+        dolita [5:26 PM]
+        nope nt that
+
+        dolita [5:33 PM]
+        what do you think? https://bitbucket.org/courex/courex-wms/src/3b2fd778e63abc396aecc2c95803d6bd7397e322/wms/xml/webservice_api.php#lines-574:578
+
+        Jasper Carpizo [5:34 PM]
+        ahahhahaha.. yes the email is N/A
+
+        dolita [5:34 PM]
+        you saw the `checkEmail` function?
+
+        Jasper Carpizo [5:35 PM]
+        ah yes
+        so they to edit the email in the SO page
+        for now, they input as a `NA`
+
+        dolita [5:37 PM]
+        yup
+        it is `NA` so just leave it blank
+        i mean edit and remove the NA, let it blank
+        the weird thing is if phone is NA we accept that (lol)
+        i think that email validation part need to be updated to accept `NA` (edited)
+        i can update if you want
+
+        Jasper Carpizo [5:44 PM]
+        ah sure, if you have time. Sorry :grimacing:
+
+        dolita [5:45 PM]
+        i mean i will update the code to accept NA
+        hehe
+
+        Jasper Carpizo [5:45 PM]
+        yeah, hehe
+
+        dolita [5:45 PM]
+        but you can tell de silva to remove the NA for now
+        in her request
+
+        Jasper Carpizo [5:45 PM]
+        ah yes :wink:
+
+        dolita [5:46 PM]
+        looks like i will deploy the 4 PR tonight
+
+        Jasper Carpizo [5:46 PM]
+        thanks @dolita, to helping me with this.
+
+        dolita [5:46 PM]
+        np jasper
+        it is a common issue, shld fix long ago (sorry for that)
+
+        Jasper Carpizo [5:47 PM]
+        ah no worries. Its okay :slightly_smiling_face:
+
+        dolita [5:47 PM]
+        as usual, a lot things come in so didnt get to fix (trying to defend myself) (edited)
+        ^^
+
+        Jasper Carpizo [5:49 PM]
+        billing email and shipping email this two right? (edited)
+        hehehe
+
+        dolita [5:50 PM]
+        yup
+
+        Jasper Carpizo [6:03 PM]
+        hi @dolita, I have to go :slightly_smiling_face:
+
+        dolita [6:03 PM]
+        yup
+
+        Jasper Carpizo [6:03 PM]
+        Have a nice evening :slightly_smiling_face:
+
+        dolita [6:03 PM]
+        have nice evening
+        tmr we plan claris onboarding ^^
+
+        Jasper Carpizo [6:03 PM]
+        ah yes :slightly_smiling_face:
+
+        dolita [6:04 PM]
+        hehe
+
+December 14, 2018
+-----------------
+
+.. code-block:: console
+
+        dolita [10:31 AM]
+        morning jasper
+
+        Jasper Carpizo [10:31 AM]
+        hi @dolita, good morning :slightly_smiling_face:
+
+        dolita [10:31 AM]
+        so ah
+        on OMSS-525
+        how do you delete it?
+        i got 2 comments here
+        can say? lol
+
+        Jasper Carpizo [10:32 AM]
+        just update the list active to 0
+        that's the correct way?
+
+        dolita [10:32 AM]
+        you mean item_active?
+
+        Jasper Carpizo [10:33 AM]
+        yes
+
+        dolita [10:33 AM]
+        it is
+        but
+        1. user has ability to do that themselves (it is kind of hairy for them though)
+        2. dont act on all their requests. sometime the requests are not valid
+        case where it can be invalid, 1) user can do it themselves, 2) it is "illegal" procedure
+        anyway just a comment, since you done ald, nvm ald
+        there is a counter script for BOM btw
+
+        Jasper Carpizo [10:35 AM]
+        no its important to me..  can you show me that user have ability to delete the item.
+        so next time have a request again, I'm referring this
+        wait i'll check
+
+        dolita [10:37 AM]
+        user can deactivate if item stock is 0
+
+        dolita [10:37 AM]
+        the thing about BOM is they cannot control the stock directly. BOM stock is derived from components
+
+        dolita [10:42 AM]
+        btw keep this link too: https://urbanfox.atlassian.net/wiki/spaces/OMS/pages/248053799/Current+Apps+Services+-+as+at+2018+Dec+15
+        jumping to next topic: do you have plan for claris ald? shall i clone out the onboarding spreadsheet?
+
+        Jasper Carpizo [10:44 AM]
+        thank you so much @dolita
+        ah yes,  the same with us on the spreadsheet one
+
+        dolita [10:46 AM]
+        yup
+        i will share the template
+        also shared folder of csv upload templates
+        https://drive.google.com/drive/folders/0BxsKK8c_d8bGMEVMQjY5bUwyUm8?ogsrc=32
+
+        Jasper Carpizo [10:47 AM]
+        btw, its sure claris on board on Monday because have no email regarding new staff.
+
+        dolita [10:47 AM]
+        the itemmaster upload template ald downloadable in WMS. but the SO upload template still passed manually
+        ya shld be pretty confirmed
+        frederick told me ytd
+        maybe notification late
+
+        Jasper Carpizo [10:48 AM]
+        ah nice nice :wink:
+
+        dolita [10:48 AM]
+        yep yep
+
+        Jasper Carpizo [10:49 AM]
+        btw can we refresh the
+        - GRN w PO/ GRN without PO/ GRN without PO (scanning)
+        - GRN for serialised items/ Picking for serialised items
+        - Adjustment/ Main adjustment
+        - monthly update of fuel surcharge (edited)
+
+        dolita [10:49 AM]
+        yup
+
+        Jasper Carpizo [10:50 AM]
+        maybe after lunch, its okay ?
+
+        dolita [10:51 AM]
+        ya shld be okay
+        i think i will be "chased out" early though. maybe like 4pm
+        :sweat_smile:
+
+        Jasper Carpizo [10:52 AM]
+        heheheh
+        1pm we can start, yep after lunch, hehee
+
+        dolita [10:56 AM]
+        hehe ok :thumbsup:
+
+        dolita [11:03 AM]
+        im done with claris sheet: https://docs.google.com/spreadsheets/d/1DK1FwdCpnAs_5oEcJTCsE4Lr4N0hnk3lxEy3tu-PCv4/edit#gid=0
+        got 2 docs there. the template and the one customised for her
+        you can add on tasks you want her to try
+
+        Jasper Carpizo [11:06 AM]
+        ah yes, thank you so much @dolita, I do my best to pass the knowledge in WMS to her as you do to me.
+
+        Jasper Carpizo [12:20 PM]
+        hi @dolita, what is RMA means? :grimacing:
+        return merchandise auth?
+
+        dolita [12:21 PM]
+        yep
+        https://en.wikipedia.org/wiki/Return_merchandise_authorization
+        Wikipedia
+        Return merchandise authorization
+        A return merchandise authorization (RMA), return authorization (RA) or return goods authorization (RGA) is a part of the process of returning a product to receive a refund, replacement, or repair during the product's warranty period. The purchaser of the product must contact the manufacturer (or distributor or retailer) to obtain authorization to return the product. The resulting RMA or RGA number must be displayed on or included in the returned product's packaging;Return to vendor (RTV) refers to the process where goods are returned to the original vendor as opposed to the distributor.
+
+        Jasper Carpizo [12:21 PM]
+        ah, yes hehe.. thank you :slightly_smiling_face:
+
+        Jasper Carpizo [12:45 PM]
+        hi @dolita, just message me, if you are available, ehehe..
+
+        dolita [12:45 PM]
+        hehe ok gimme abt 10 mins (edited)
+
+        Jasper Carpizo [12:46 PM]
+        ah yes take your time :slightly_smiling_face: (edited)
+
+        dolita [12:51 PM]
+        ok. lets start?
+
+        Jasper Carpizo [12:55 PM]
+        we can start with this one , hehe
+        GRN w PO/ GRN without PO/ GRN without PO (scanning)
+
+        dolita [12:55 PM]
+        ok
+        so for inbound we can do either with PO or without PO
+        if with PO, only 1 way to receive
+        use times
+        that 1 page got 2 ways to access
+        actually proper way is to scan
+
+        Jasper Carpizo [12:59 PM]
+        if we have no scan, should we do the item
+        search to the iventory
+
+        dolita [1:00 PM]
+        if im nt wrong this page doesnt restrict like pick ticket
+        so everyone can just enter qty
+        optional
+        coz it is GRN of a PO, cannot receive more than what is in PO
+        must be exact
+        then a PO can have multiple GRN
+        eg if got 2 items, then item A received first
+        ppl can come back and receive item B
+        but in total, the whole GRN summed up cannot exceed PO
+        (i think WMS might not be bug free here)
+        the PO must be same as GRN (total)
+        it is one of the task you doing now
+        that one select item first
+        then create GRN right away
+        no PO one
+
+        Jasper Carpizo [1:05 PM]
+        i'm okay with PO received
+        how about the without PO
+        either of 3 tabls without PO
+
+        dolita [1:05 PM]
+        practically almost all other GRN is no PO
+        the one at bottom specialy for serial items
+        zaid used it
+        nt sure if you remember?
+        he was scanning a lot times
+        1 box 2 times
+
+        Jasper Carpizo [1:06 PM]
+        on the warehouse
+
+        dolita [1:06 PM]
+        yep warehouse
+
+        Jasper Carpizo [1:07 PM]
+        the first we saw
+
+        dolita [1:07 PM]
+        first scan barcode of item
+        then scan barcode of serial
+        that is how system register the relationship of item-serial
+
+        Jasper Carpizo [1:08 PM]
+        what is this for Goods Receive w/o PO (Scan)
+
+        dolita [1:08 PM]
+        that one as long as you got item with barcode can receive right away
+        let me demo?
+        this page got modified
+        can receive without name address
+        they want fast receiving you see
+        as long as got DO# can refer back
+        you try
+        either select frm drop down
+        or scan it
+
+        Jasper Carpizo [1:12 PM]
+        got it :slightly_smiling_face:
+        GRN for serialised items/ Picking for serialised item
+
+        dolita [1:13 PM]
+        times dont have serial item
+        use sennheiser
+        need to select item with "Item UI" yes
+        UI here stands for unique identifier
+        sorry nt select
+        click go in
+        need get barcode
+        serial number is "free"
+        can you do it again?
+        just now abcde is input text
+        but now it is just text
+        forget why
+        nvm it is ok
+        ltr i go thru 1 bug with u + 1 special customer (ryca) (edited)
+
+        Jasper Carpizo [1:18 PM]
+        ah yes
+
+        dolita [1:18 PM]
+        after yours finish i mean
+
+        Jasper Carpizo [1:19 PM]
+        so we done with this one?
+        Adjustment/ Main adjustment
+
+        dolita [1:19 PM]
+        ok
+        2 ways to adjust
+        adjustment is to add/deduct qty or transfer item to another location
+        for eg when they do stock take and realise got disrepancy
+        it is kind of "grey" area actually
+        but let us go and see the feature
+
+        Jasper Carpizo [1:21 PM]
+        so we can add a stock on another location that have an dsirepancy?
+        transfer
+
+        dolita [1:21 PM]
+        transfer is not grey as in we can move stocks to another location
+        it is the add or deduct that is grey
+        coz inbound - outbound = inventory
+        if always do correctly shld be correct
+        no need adjust qty
+        but somehow this is needed
+        maybe got times items come in but not for inbounding
+        ?
+        i guess
+        it is nt used often
+        but it is still 1 of the impt feature
+        need pagination there
+        the option clear?
+        stock adjust is if want to add or deduct
+        this page clear?
+        that page cannot adjust UI (serialised) item (edited)
+        got a script that auto fetch qty of the exiting location
+        (just want show u that)
+
+        Jasper Carpizo [1:28 PM]
+        okay :slightly_smiling_face:
+        add a quantiyy?
+
+        dolita [1:29 PM]
+        got 2 sku
+        nv add the top one?
+        any loc
+        that shld be clear? you can try transfer?
+
+        Jasper Carpizo [1:30 PM]
+        yep, I'll try agaib
+        we cannot add
+
+        dolita [1:32 PM]
+        the inventory for serial number is like 1 serial 1 line. the traditional adjustment doesnt work with it
+        that is why i exclude them frm the item list
+        it will mess up data
+        so serial items dont have adjustment
+        if wh ask for it next time, can do
+        if not, i guess they can live without it for now (edited)
+        main adjustment
+        this page very "powerful"
+        u see it?
+        typo
+        can add hundreds of items with just a typo
+        so very powerful page lol
+
+        Jasper Carpizo [1:36 PM]
+        ahahha
+        yes
+
+        dolita [1:36 PM]
+        dangerous
+
+        Jasper Carpizo [1:36 PM]
+        it is
+
+        dolita [1:36 PM]
+        but got adjustment note
+        in wms we try to record everything
+
+        Jasper Carpizo [1:38 PM]
+        got it :slightly_smiling_face:
+        btw, can we discuss about return and cancel, so I can discuss to akash and ty later
+
+        dolita [1:40 PM]
+        we only gt return btw
+        dont have cancel
+        so that will be new thing
+        can only return frm completed SO
+        is that test db?
+        i think someone doing testing
+        all the SO qty deactivated
+        (maybe u ask akash ltr)
+        change to stag db (edited)
+        up to u?
+        tick what u want to return (edited)
+        sometime returned is damaged
+        so need select accordingly
+        but i think normally ppl dont do RMA-> gRN right away
+        coz usually RMA created by cust
+        GRN done by ops
+        i show u?
+
+        Jasper Carpizo [1:47 PM]
+        ah yes
+
+        dolita [1:48 PM]
+        rma created
+        then ops go there to do receiving
+        seems like complicated is it
+
+        Jasper Carpizo [1:49 PM]
+        ah first, hehehe
+
+        dolita [1:49 PM]
+        yep. after u used to it everything "make sense"
+
+        Jasper Carpizo [1:49 PM]
+        ah yes
+
+        dolita [1:50 PM]
+        got a way to create return nt from SO
+        but it is not often used
+        i think some users also dont know got such thing
+        u want to see?
+
+        Jasper Carpizo [1:51 PM]
+        the shortcut one
+
+        dolita [1:51 PM]
+        but from thr no record which SO
+        so we always encourage return via SO
+
+        Jasper Carpizo [1:51 PM]
+        okay :slightly_smiling_face:
+
+        dolita [1:52 PM]
+        ok
+        that one
+        when u do GRN scanning ones
+        got temporary & immediate right
+        the temporary is if they want to receive into an area first
+        but not open for usage
+        meaning whatever received cannot be used yet
+        so the inventory record created
+        qty is in temp_qty
+        try 4448
+        nowadays nt used much though
+        cause the feature not completed
+        they are the one who use temporary a lot
+
+        Jasper Carpizo [1:54 PM]
+        got it :slightly_smiling_face:
+
+        dolita [1:55 PM]
+        btw for serial items right, serial numbers can be from factory (like sennheiser)
+        or it can be from us (if the products usually dont have serial but cust want it)
+        nowadays nobody use that anymore though
+
+        Jasper Carpizo [1:56 PM]
+        btw, how about the support issue that I did
+
+        dolita [1:56 PM]
+        u try locate same item
+        in stag shld still be there
+        the same item mentioned in support
+        u ald deactivated
+        but in stag shld be still active
+        try open it
+        that is not BOM?
+        oh look like they created this week after stag copied
+        u see the other items
+        qty 0
+        can deactivate
+        u try create new BOM
+        but once they add component
+        the component qty will be counted into BOM
+        (there is a cron script that do the calculation)
+        so if BOM gt qty cant deactivate
+        u try kao
+        and try remove component
+
+        Jasper Carpizo [2:03 PM]
+        so i deleted the component right?
+
+        dolita [2:03 PM]
+        nope
+        i was trying to show it is difficult
+
+        Jasper Carpizo [2:03 PM]
+        ah okay
+
+        dolita [2:03 PM]
+        we need to remove components qty first
+        then wait for cron to update BOM qty to 0
+        then can deactivate
+        if we simply remove component, the cron cannot update the BOM qty
+        cause component data lost liao
+        (thats a bug btw)
+        so it doesnt make sense if we must 0 off components then can deactivate BOM
+
+        Jasper Carpizo [2:05 PM]
+        that makes sense for now.
+
+        dolita [2:05 PM]
+        i think u help them delete is nt bad
+
+        Jasper Carpizo [2:06 PM]
+        i mean, we need to wait the sync one to zero components quantity
+
+        dolita [2:06 PM]
+        sync will zero BOM qty
+
+        Jasper Carpizo [2:06 PM]
+        but in the case that I did, I think its an urgent one
+        right?
+
+        dolita [2:06 PM]
+        nt very sure
+        got once i got request to remove bom
+        https://urbanfox.atlassian.net/browse/OMSS-493
+        u can experiment
+
+        Jasper Carpizo [2:12 PM]
+        I just noted down, ehhe
+        ah sure
+
+        dolita [2:14 PM]
+        hehe
+        you got keep this link? https://urbanfox.atlassian.net/wiki/spaces/OMS/pages/248053799/Current+Apps+Services+-+as+at+2018+Dec+15
+        got mention bom script inside
+
+        Jasper Carpizo [2:16 PM]
+        ah yes, thank you @dolita :slightly_smiling_face:
+
+        dolita [2:18 PM]
+        i think hard to try in test/ stag cause the script doesnt run in test db
+        but u can download and execute it locally
+        lol
+
+        Jasper Carpizo [2:19 PM]
+        hahaha
+
+        dolita [2:19 PM]
+        need learn how to "hack" stuffs around
+
+        Jasper Carpizo [2:19 PM]
+        yes yes ahahha
+        okay lah., hahaha..
+
+        dolita [2:19 PM]
+        are we good ald?
+        oh the monthly thing (edited)
+
+        Jasper Carpizo [2:20 PM]
+        yes, :wink:
+        yes, 1 month
+
+        dolita [2:20 PM]
+        no i mean the monthly update thing hehe
+        https://urbanfox.atlassian.net/wiki/spaces/WMS/pages/249102446/Monthly+update+of+Fuel+Surcharge
+        need do this every 1st of month
+        sorry i fail to automate this part
+        but we are just holding until new international system up
+
+        Jasper Carpizo [2:21 PM]
+        what is this for?
+
+        dolita [2:21 PM]
+        it is to update fuel surcharge in database (edited)
+        in international delivery, the fuel charge change every mth
+        so just need to go to this page, get the rate, then run the  update
+        got 2, DHL & DHL-D
+
+        Jasper Carpizo [2:22 PM]
+        so per month, eg ( Jan 1)
+
+        dolita [2:23 PM]
+        next one
+        WMS-201
+        i didnt manage to trace down the bug
+        i think i will jus note down in the ticket ok
+
+        Jasper Carpizo [2:25 PM]
+        ah yes
+
+        dolita [2:25 PM]
+        then next one
+        WMS-326
+        i just did this
+        but the point is we have a user (jumaidi) who use WMS but he is not UF staff
+        he is ryca staff
+        and only 1 such scenario
+        so when jumaidi login, he only see ryca's account
+        mmm ok i forgot to update staging
+        but when he click controller, he see access denied
+        just note down got such arrangement
+
+        Jasper Carpizo [4:03 PM]
+        its correct, we have an array items
+        ?
+
+        dolita [4:03 PM]
+        sounds correct but nt sure abt the table
+
+        Jasper Carpizo [4:04 PM]
+        ah yes
+
+        dolita [4:04 PM]
+        shld be `wms_rma_list` and list item i think (edited)
+
+        Jasper Carpizo [4:06 PM]
+        ah yes, youre right :slightly_smiling_face:
+
+        dolita [4:06 PM]
+        lol ok
+
+        Jasper Carpizo [4:07 PM]
+        because I'm confuse,  first when you create an return, 1st query, make a rms record right
+        then 2nd query, items to be selected `wms_solist_item_rma`
+        right? (edited)
+
+        dolita [4:08 PM]
+        ah yes
+        the 2nd query is to get the rma items to be inserted into grn
+        so for api, shld be `wms_rmalist` and `wms_rmalist_item`
+
+        Jasper Carpizo [4:09 PM]
+        yep
+        the `wms_rmalist_item` is the items to be selected right
+        so we need the items in the request body? (edited)
+
+        dolita [4:12 PM]
+        we sure need items
+
+        dolita [4:22 PM]
+        need give both tables one
+
+        Jasper Carpizo [4:23 PM]
+        `cos not all items in SO going to be returned ?` definitely yes ?
+
+        dolita [4:23 PM]
+        yea
+
+        Jasper Carpizo [4:27 PM]
+        `need give both tables one` ?
+
+        dolita [4:27 PM]
+        yea
+        wms_rmalist cannot exist alone
+        it always come with wms_rmalist_item
+
+        Jasper Carpizo [4:28 PM]
+        ah yes @dolita
+
+        dolita [4:33 PM]
+        you nv update #wms ah?
+        or i understand wrongly?
+        `wms_rma_list` != `wms_rmalist` is it? (edited)
+
+        Jasper Carpizo [4:34 PM]
+        ah I forgot, ehhe.. sorry
+        I updated now
+
+        dolita [4:40 PM]
+        sorry jasper, u updated where?
+
+        Jasper Carpizo [4:40 PM]
+        https://urbanfox-asia.slack.com/archives/C8D7D4Z2L/p1544774419053800
+        Jasper Carpizo
+        hi @Akash @ty, upon checking the docs, on the return SO, we need to select the items to be return, that be inserted to `wms_rmalist` , so we have an array items with the following fields (`item_sku`, `item_name`, `quantity`  and `condition` in the request body.  @dolita, correct me if I'm wrong.
+        Posted in #wmsDec 14thView message
+
+        dolita [4:41 PM]
+        hmm i see still `wms_rmalist`
+        ok sorry
+        it is updated lol
+
+        Jasper Carpizo [4:42 PM]
+        hehehe
+
+        dolita [4:42 PM]
+        but shld be `wms_rmalist` + `wms_rmalist_item` is it?
+
+        Jasper Carpizo [4:43 PM]
+        yeah, I updated again, hehe
+
+        dolita [4:43 PM]
+        hehe
+        look good
+        :thumbsup:
+
+        Jasper Carpizo [4:43 PM]
+        thanks @dolita, I did'nt notice, hehehe
+
+        dolita [4:44 PM]
+        hehe np
+        my brain also nt very fresh now
+
+        Jasper Carpizo [4:44 PM]
+        ehehehe.. yeah, I'm feeling you, hehe
+
+        dolita [4:44 PM]
+        hehe
+        sleep well over weekend
+
+        Jasper Carpizo [4:45 PM]
+        yep, I'll do, ahahah
+
+        dolita [4:45 PM]
+        hehe
+
+        Jasper Carpizo [4:46 PM]
+        I felt sleepy today but just walking around, hehe..
+        to avoid sleep to work, ehhehe
+
+        dolita [4:47 PM]
+        :laughing:
+
+        Jasper Carpizo [4:47 PM]
+        hehehe
+
+        dolita [4:47 PM]
+        tgif right
+
+        Jasper Carpizo [4:47 PM]
+        yes, hehehe
+
+        Jasper Carpizo [5:47 PM]
+        hi @dolita, I have to go
+
+        dolita [5:47 PM]
+        yup
+        all the best @Jasper Carpizo
+
+        Jasper Carpizo [5:48 PM]
+        thank you so much that you have done for me.. I glad to meet you :man-bowing:
+
+        dolita [5:49 PM]
+        thank you. im glad to meet you too :woman-bowing:
+        going to take my time reading ur github next week hehe
+
+        Jasper Carpizo [5:49 PM]
+        I never forgot all things that I've done together :slightly_smiling_face:
+        ahahhaa
+
+        dolita [5:49 PM]
+        :grin:
+
+        Jasper Carpizo [5:49 PM]
+        yeah yeah, hehehe
+
+        dolita [5:50 PM]
+        good luck
+
+        Jasper Carpizo [5:50 PM]
+        can I take a picture with you, hehe
+
+        dolita [5:51 PM]
+        end of day face shiny. lol
+
+        Jasper Carpizo [5:51 PM]
+        hehehe

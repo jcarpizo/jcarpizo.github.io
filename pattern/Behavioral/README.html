@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>3. Behavioral &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.1. Chain Of Responsibilities" href="ChainOfResponsibilities/README.html" />
+    <link rel="prev" title="2.11. Registry" href="../Structural/Registry/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ChainOfResponsibilities/README.html" title="3.1. Chain Of Responsibilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Structural/Registry/README.html" title="2.11. Registry"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Behavioral</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command/README.html">3.2. Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memento/README.html">3.5. Memento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="State/README.html">3.9. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Strategy/README.html">3.10. Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TemplateMethod/README.html">3.11. Template Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../README.html">Docs</a></li>
+              
+              <li>3. Behavioral</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="behavioral">
+<h1>3. <a class="reference external" href="http://en.wikipedia.org/wiki/Behavioral_pattern">Behavioral</a><a class="headerlink" href="#behavioral" title="Permalink to this headline">¶</a></h1>
+<p>In software engineering, behavioral design patterns are design patterns
+that identify common communication patterns between objects and realize
+these patterns. By doing so, these patterns increase flexibility in
+carrying out this communication.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Command/README.html">3.2. Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Memento/README.html">3.5. Memento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="State/README.html">3.9. State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Strategy/README.html">3.10. Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TemplateMethod/README.html">3.11. Template Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../Structural/Registry/README.html" title="previous chapter (use the left arrow)">2.11. Registry</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="ChainOfResponsibilities/README.html" title="next chapter (use the right arrow)">3.1. Chain Of Responsibilities</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ChainOfResponsibilities/README.html" title="3.1. Chain Of Responsibilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Structural/Registry/README.html" title="2.11. Registry"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

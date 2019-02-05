@@ -1,0 +1,397 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/framework-conventions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>FW-Basic-Conventions &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="FW-Controllers" href="framework-controllers.html" />
+    <link rel="prev" title="Front-End-Dependencies" href="front-end-dependencies.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="framework-controllers.html" title="FW-Controllers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="front-end-dependencies.html" title="Front-End-Dependencies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FW-Basic-Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-inclusion">1. File inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-methods">2. Static-Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#password-hashing">3. Password hashing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-string">4. Random string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-defined-functions">5. User-defined functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date">6. Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#superglobals">7. Superglobals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-termination">8. Script termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparison-operators">9. Comparison Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">10. Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-instantiation">11. Class instantiation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>FW-Basic-Conventions</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="fw-basic-conventions">
+<h1>FW-Basic-Conventions<a class="headerlink" href="#fw-basic-conventions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-inclusion">
+<h2>1. File inclusion<a class="headerlink" href="#file-inclusion" title="Permalink to this headline">¶</a></h2>
+<p>The PHP-Functions <em>include</em> and <em>require</em> MUST NOT be used to include PHP files.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Require statments are allowed in the application bootstrap file
+(only there), to load other configuration files.</p>
+</div>
+</div>
+<div class="section" id="static-methods">
+<h2>2. Static-Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
+<p>Are NOT RECOMMENDED.</p>
+</div>
+<div class="section" id="password-hashing">
+<h2>3. Password hashing<a class="headerlink" href="#password-hashing" title="Permalink to this headline">¶</a></h2>
+<p>For PHP version 5.5 and above the internal Password Hashing Functions
+MUST be used.</p>
+<p>password_hash
+password_verify</p>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$hashedPassword</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span> <span class="p">,</span><span class="nx">PASSWORD_BCRYPT</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cost&#39;</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Verification:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">password_verify</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span> <span class="p">,</span> <span class="nx">hashedPassword</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&quot;Wrong password&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">PHP versions below 5.5 MUST use the &quot;ircmaxell/password-compat&quot; library</p>
+</div>
+</div>
+<div class="section" id="random-string">
+<h2>4. Random string<a class="headerlink" href="#random-string" title="Permalink to this headline">¶</a></h2>
+<p>Cryptographically strong pseudo-random strings SHOULD be generated with the
+the library &quot;ircmaxell/random-lib&quot;</p>
+</div>
+<div class="section" id="user-defined-functions">
+<h2>5. User-defined functions<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h2>
+<p>SHOULD NOT be defined. Only methods of classes SHOULD be used</p>
+</div>
+<div class="section" id="date">
+<h2>6. Date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h2>
+<p>PHP provides the DateTime class. This SHOULD be used in any case where a Date
+or Time is used.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Date functions <strong>MUST NOT</strong> be used!</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<div class="last line-block">
+<div class="line">The default time zone MUST be set in the bootstrap file to <strong>UTC</strong>!</div>
+<div class="line">date_default_timezone_set(&quot;UTC&quot;);</div>
+<div class="line">ini_set('default_timezone', 'UTC');</div>
+<div class="line"><strong>OR</strong> in the php.ini</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">DateTime-Class documentation:
+<a class="reference external" href="http://php.net/manual/en/class.datetime.php">http://php.net/manual/en/class.datetime.php</a></p>
+</div>
+<p>Date functions blacklist:</p>
+<div class="highlight-python"><div class="highlight"><pre>checkdate
+date_*
+date
+getdate
+gettimeofday
+gmdate
+gmmktime
+gmstrftime
+idate
+localtime
+microtime
+mktime
+strftime
+strptime
+strtotime
+time
+timezone_abbreviations_list
+timezone_identifiers_list
+timezone_location_get
+timezone_name_from_abbr
+timezone_name_get
+timezone_offset_get
+timezone_open
+timezone_transitions_get
+timezone_version_get
+</pre></div>
+</div>
+</div>
+<div class="section" id="superglobals">
+<h2>7. Superglobals<a class="headerlink" href="#superglobals" title="Permalink to this headline">¶</a></h2>
+<p>MUST NOT be used in any context of the application!
+All &quot;globals&quot; should be retrieved from the Request object</p>
+<div class="highlight-python"><div class="highlight"><pre>Symfony\Component\HttpFoundation\Request
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// $_GET</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// $_POST</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// $_SERVER</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">server</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// $_COOKIES</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// $_FILES</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">files</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// headers</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// $_SESSION</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="script-termination">
+<h2>8. Script termination<a class="headerlink" href="#script-termination" title="Permalink to this headline">¶</a></h2>
+<p>Script termination functions like <em>die</em> or <em>exit</em> MUST NOT be used! They MAY be
+used only for debugging! Exceptions MUST be used instead of termination
+functions!</p>
+</div>
+<div class="section" id="comparison-operators">
+<h2>9. Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h2>
+<p>For boolean and null values the <cite>Identical</cite> operator must be used!</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The is_null function MUST NOT be used!</p>
+</div>
+<p>For example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// true</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// false</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">!==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// false</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// null</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// not null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h2>10. Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Generic exceptions must neither be <strong>thrown</strong> nor be <strong>caught</strong>!</li>
+<li>Empty catch blocks are not allowed! At least a comment must be provided, which explains why the block is empty!</li>
+</ul>
+</div>
+<div class="section" id="class-instantiation">
+<h2>11. Class instantiation<a class="headerlink" href="#class-instantiation" title="Permalink to this headline">¶</a></h2>
+<p>In general all classes SHOULD be passed as a parameter.
+In some cases a manual instantiation is allowed:</p>
+<table class="table table-bordered">
+<colgroup>
+<col width="21%" />
+<col width="46%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Context</th>
+<th class="head">Allowed classes</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><cite>\</cite></td>
+<td><cite>\</cite></td>
+<td>All native PHP-Classes in all contexts</td>
+</tr>
+<tr class="row-odd"><td>app\service\</td>
+<td>hsapiclient\</td>
+<td>Models of the HS API-Client</td>
+</tr>
+<tr class="row-even"><td>app\service\</td>
+<td>app\model\</td>
+<td>Domain models</td>
+</tr>
+<tr class="row-odd"><td>app\service\</td>
+<td>Doctrine\Common\Collections\</td>
+<td>Doctrine Collections</td>
+</tr>
+<tr class="row-even"><td>app\controller\</td>
+<td>Symfony\Component\HttpFoundation\[
+Response,RedirectResponse,JsonResponse]</td>
+<td>Response objects</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="front-end-dependencies.html" title="previous chapter (use the left arrow)">Front-End-Dependencies</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="framework-controllers.html" title="next chapter (use the right arrow)">FW-Controllers</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="framework-controllers.html" title="FW-Controllers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="front-end-dependencies.html" title="Front-End-Dependencies"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/framework-conventions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

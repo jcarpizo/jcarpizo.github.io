@@ -1,0 +1,532 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>3.2. Command &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3. Iterator" href="../Iterator/README.html" />
+    <link rel="prev" title="3.1. Chain Of Responsibilities" href="../ChainOfResponsibilities/README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Iterator/README.html" title="3.3. Iterator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ChainOfResponsibilities/README.html" title="3.1. Chain Of Responsibilities"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" accesskey="U">3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Creational/README.html">1. Creational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">3. Behavioral</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ChainOfResponsibilities/README.html">3.1. Chain Of Responsibilities</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Iterator/README.html">3.3. Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mediator/README.html">3.4. Mediator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Memento/README.html">3.5. Memento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NullObject/README.html">3.6. Null Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Observer/README.html">3.7. Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Specification/README.html">3.8. Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../State/README.html">3.9. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Strategy/README.html">3.10. Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TemplateMethod/README.html">3.11. Template Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Visitor/README.html">3.12. Visitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../README.html">Docs</a></li>
+              
+                <li><a href="../README.html">3. Behavioral</a></li>
+              
+              <li>3.2. Command</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="command">
+<h1>3.2. <a class="reference external" href="http://en.wikipedia.org/wiki/Command_pattern">Command</a><a class="headerlink" href="#command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>3.2.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>To encapsulate invocation and decoupling.</p>
+<p>We have an Invoker and a Receiver. This pattern uses a “Command” to
+delegate the method call against the Receiver and presents the same
+method “execute”. Therefore, the Invoker just knows to call “execute” to
+process the Command of the client. The Receiver is decoupled from the
+Invoker.</p>
+<p>The second aspect of this pattern is the undo(), which undoes the method
+execute(). Command can also be aggregated to combine more complex
+commands with minimum copy-paste and relying on composition over
+inheritance.</p>
+</div>
+<div class="section" id="examples">
+<h2>3.2.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A text editor : all events are Command which can be undone, stacked
+and saved.</li>
+<li>Symfony2: SF2 Commands that can be run from the CLI are built with
+just the Command pattern in mind</li>
+<li>big CLI tools use subcommands to distribute various tasks and pack
+them in “modules”, each of these can be implemented with the Command
+pattern (e.g. vagrant)</li>
+</ul>
+</div>
+<div class="section" id="uml-diagram">
+<h2>3.2.3. UML Diagram<a class="headerlink" href="#uml-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="Alt Command UML Diagram" class="align-center" src="../../_images/uml1.png" />
+</div>
+<div class="section" id="code">
+<h2>3.2.4. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>You can also find this code on <a class="reference external" href="https://github.com/domnikl/DesignPatternsPHP/tree/master/Behavioral/Command">GitHub</a></p>
+<p>CommandInterface.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Command</span><span class="p">;</span>
+
+<span class="k">interface</span> <span class="nx">CommandInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * this is the most important method in the Command pattern,</span>
+<span class="sd">     * The Receiver goes in the constructor.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>HelloCommand.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Command</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * This concrete command calls &quot;print&quot; on the Receiver, but an external</span>
+<span class="sd"> * invoker just knows that it can call &quot;execute&quot;</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">HelloCommand</span> <span class="k">implements</span> <span class="nx">CommandInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var Receiver</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Each concrete command is built with different receivers.</span>
+<span class="sd">     * There can be one, many or completely no receivers, but there can be other commands in the parameters</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param Receiver $console</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Receiver</span> <span class="nv">$console</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$console</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * execute and output &quot;Hello World&quot;.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// sometimes, there is no receiver and this is the command which does all the work</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Receiver.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Command</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Receiver is specific service with its own contract and can be only concrete.</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Receiver</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var bool</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$enableDate</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string[]</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$output</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param string $str</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">write</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$str</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enableDate</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$str</span> <span class="o">.=</span> <span class="s1">&#39; [&#39;</span><span class="o">.</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;]&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$str</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOutput</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Enable receiver to display message date</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">enableDate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enableDate</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Disable receiver to display message date</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">disableDate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enableDate</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Invoker.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Command</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Invoker is using the command given to it.</span>
+<span class="sd"> * Example : an Application in SF2.</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Invoker</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var CommandInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$command</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * in the invoker we find this kind of method for subscribing the command</span>
+<span class="sd">     * There can be also a stack, a list, a fixed set ...</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param CommandInterface $cmd</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCommand</span><span class="p">(</span><span class="nx">CommandInterface</span> <span class="nv">$cmd</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">command</span> <span class="o">=</span> <span class="nv">$cmd</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * executes the command; the invoker is the same whatever is the command</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">command</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="test">
+<h2>3.2.5. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests/CommandTest.php</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">DesignPatterns\Behavioral\Command\Tests</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Command\HelloCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Command\Invoker</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">DesignPatterns\Behavioral\Command\Receiver</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CommandTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testInvocation</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$invoker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Invoker</span><span class="p">();</span>
+        <span class="nv">$receiver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Receiver</span><span class="p">();</span>
+
+        <span class="nv">$invoker</span><span class="o">-&gt;</span><span class="na">setCommand</span><span class="p">(</span><span class="k">new</span> <span class="nx">HelloCommand</span><span class="p">(</span><span class="nv">$receiver</span><span class="p">));</span>
+        <span class="nv">$invoker</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="nv">$receiver</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../ChainOfResponsibilities/README.html" title="previous chapter (use the left arrow)">3.1. Chain Of Responsibilities</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../Iterator/README.html" title="next chapter (use the right arrow)">3.3. Iterator</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Iterator/README.html" title="3.3. Iterator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ChainOfResponsibilities/README.html" title="3.1. Chain Of Responsibilities"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../README.html" >3. Behavioral</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

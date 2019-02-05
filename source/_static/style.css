@@ -1,0 +1,20 @@
+body {
+    font-size: 14px;
+}
+
+code, pre, tt {
+    font-size: 12px; !important;
+}
+
+#left-column {
+    width: 400px; !important;
+}
+
+#right-column {
+    max-width: 100% !important;
+    margin-left: 400px;
+}
+
+.text-logo {
+    background-color: #2079b7; !important;
+}

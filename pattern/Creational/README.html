@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>1. Creational &#8212; DesignPatternsPHP 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.1. Abstract Factory" href="AbstractFactory/README.html" />
+    <link rel="prev" title="DesignPatternsPHP" href="../README.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="AbstractFactory/README.html" title="1.1. Abstract Factory"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../README.html" title="DesignPatternsPHP"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../README.html" class="text-logo">DesignPatternsPHP</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Creational</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AbstractFactory/README.html">1.1. Abstract Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Builder/README.html">1.2. Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FactoryMethod/README.html">1.3. Factory Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Multiton/README.html">1.4. Multiton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pool/README.html">1.5. Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Prototype/README.html">1.6. Prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SimpleFactory/README.html">1.7. Simple Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Singleton/README.html">1.8. Singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StaticFactory/README.html">1.9. Static Factory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Structural/README.html">2. Structural</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Behavioral/README.html">3. Behavioral</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../More/README.html">4. More</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../README.html">Docs</a></li>
+              
+              <li>1. Creational</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="creational">
+<h1>1. <a class="reference external" href="http://en.wikipedia.org/wiki/Creational_pattern">Creational</a><a class="headerlink" href="#creational" title="Permalink to this headline">¶</a></h1>
+<p>In software engineering, creational design patterns are design patterns
+that deal with object creation mechanisms, trying to create objects in a
+manner suitable to the situation. The basic form of object creation
+could result in design problems or added complexity to the design.
+Creational design patterns solve this problem by somehow controlling
+this object creation.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AbstractFactory/README.html">1.1. Abstract Factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Builder/README.html">1.2. Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FactoryMethod/README.html">1.3. Factory Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multiton/README.html">1.4. Multiton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pool/README.html">1.5. Pool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prototype/README.html">1.6. Prototype</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimpleFactory/README.html">1.7. Simple Factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Singleton/README.html">1.8. Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StaticFactory/README.html">1.9. Static Factory</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../README.html" title="previous chapter (use the left arrow)">DesignPatternsPHP</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="AbstractFactory/README.html" title="next chapter (use the right arrow)">1.1. Abstract Factory</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="AbstractFactory/README.html" title="1.1. Abstract Factory"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../README.html" title="DesignPatternsPHP"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../README.html">DesignPatternsPHP 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, Dominik Liebler and contributors. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

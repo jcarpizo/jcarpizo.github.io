@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting All Bus with Route Information &mdash; Bus Service Locator API Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Bus Service Locator API Docs 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Welcome to Bus Service Locator API documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Bus Service Locator API Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting All Bus with Route Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#create-bus-service-location">Create Bus Service Location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#update-bus-service-location">Update Bus Service Location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#delete-bus-service-location">Delete Bus Service Location</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bus Service Locator API Docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting All Bus with Route Information</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-all-bus-with-route-information">
+<h1>Getting All Bus with Route Information<a class="headerlink" href="#getting-all-bus-with-route-information" title="Permalink to this headline">¶</a></h1>
+<dl class="get">
+<dt id="get--api-bus-">
+<code class="descname">GET </code><code class="descname">/api/bus/</code><a class="headerlink" href="#get--api-bus-" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/bus/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">localhost</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json, text/javascript</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/javascript</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;455a85e4-eb90-42db-b306-d5d70d298706&quot;</span>
+    <span class="s2">&quot;arrival&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;class&quot;</span><span class="o">:</span> <span class="s2">&quot;Hilux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;departure&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;Makati&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fare&quot;</span><span class="o">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Solid North&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="s2">&quot;Davao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span><span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deleted_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;455a85e4-eb90-42db-b306-d5d70d298706&quot;</span>
+    <span class="s2">&quot;arrival&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;class&quot;</span><span class="o">:</span> <span class="s2">&quot;Hilux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;departure&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;Makati&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fare&quot;</span><span class="o">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Solid North&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="s2">&quot;Davao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span><span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deleted_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – optional OAuth token to authenticate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em> of request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – there’s record</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="create-bus-service-location">
+<h1>Create Bus Service Location<a class="headerlink" href="#create-bus-service-location" title="Permalink to this headline">¶</a></h1>
+<dl class="post">
+<dt id="post--api-bus-create">
+<code class="descname">POST </code><code class="descname">/api/bus/create</code><a class="headerlink" href="#post--api-bus-create" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/bus/create</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">localhost</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json, text/javascript</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/javascript</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;455a85e4-eb90-42db-b306-d5d70d298706&quot;</span>
+    <span class="s2">&quot;arrival&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;class&quot;</span><span class="o">:</span> <span class="s2">&quot;Hilux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;departure&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;Makati&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fare&quot;</span><span class="o">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Solid North&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="s2">&quot;Davao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span><span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deleted_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – the name of the bus</li>
+<li><strong>departure</strong> (<em>datetime</em>) – the departure arrival of the bus</li>
+<li><strong>arrival</strong> (<em>datetime</em>) – the datetime arrival of the bus</li>
+<li><strong>class</strong> (<em>string</em>) – the type of bus</li>
+<li><strong>fare</strong> (<em>number</em>) – the bus fare</li>
+<li><strong>origin</strong> (<em>string</em>) – the bus origin route</li>
+<li><strong>destination</strong> (<em>string</em>) – the destination route</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – optional OAuth token to authenticate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em> of request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – there’s no record</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="update-bus-service-location">
+<h1>Update Bus Service Location<a class="headerlink" href="#update-bus-service-location" title="Permalink to this headline">¶</a></h1>
+<dl class="put">
+<dt id="put--api-bus-update-(string-id)">
+<code class="descname">PUT </code><code class="descname">/api/bus/update/</code><span class="sig-paren">(</span><em class="property">string: </em><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#put--api-bus-update-(string-id)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bus (<cite>id</cite>) is a Uuid string.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/api/bus/update/(string:id)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">localhost</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json, text/javascript</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/javascript</span>
+
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;455a85e4-eb90-42db-b306-d5d70d298706&quot;</span>
+    <span class="s2">&quot;arrival&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;class&quot;</span><span class="o">:</span> <span class="s2">&quot;Hilux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;departure&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-12-01 00:00:0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;Makati&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fare&quot;</span><span class="o">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Solid North&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="s2">&quot;Davao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span><span class="s2">&quot;2018-06-24 14:31:32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deleted_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – the name of the bus</li>
+<li><strong>departure</strong> (<em>datetime</em>) – the departure arrival of the bus</li>
+<li><strong>arrival</strong> (<em>datetime</em>) – the datetime arrival of the bus</li>
+<li><strong>class</strong> (<em>string</em>) – the type of bus</li>
+<li><strong>fare</strong> (<em>number</em>) – the bus fare</li>
+<li><strong>origin</strong> (<em>string</em>) – the bus origin route</li>
+<li><strong>destination</strong> (<em>string</em>) – the destination route</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – optional OAuth token to authenticate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em> of request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – there’s no record</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="delete-bus-service-location">
+<h1>Delete Bus Service Location<a class="headerlink" href="#delete-bus-service-location" title="Permalink to this headline">¶</a></h1>
+<dl class="delete">
+<dt id="delete--api-bus-delete-(string-id)">
+<code class="descname">DELETE </code><code class="descname">/api/bus/delete/</code><span class="sig-paren">(</span><em class="property">string: </em><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--api-bus-delete-(string-id)" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>The bus (<cite>id</cite>) is a Uuid string.</div></blockquote>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/api/bus/delete/(string:id)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">localhost</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json, text/javascript</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – optional OAuth token to authenticate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em> of request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – there’s no record</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Bus Service Locator API documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Jasper Carpizo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

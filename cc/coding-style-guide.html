@@ -1,0 +1,670 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/coding-style-guide.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Coding Style Guide &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="PHP-Doc-Comments" href="php-doc.html" />
+    <link rel="prev" title="Basic Coding Standard" href="coding-standards.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="php-doc.html" title="PHP-Doc-Comments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="coding-standards.html" title="Basic Coding Standard"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coding Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-psr-2">1. General <code class="docutils literal"><span class="pre">[PSR-2]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#namespace-and-use-declarations-psr-2">2. Namespace and Use Declarations <code class="docutils literal"><span class="pre">[PSR-2]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-properties-and-methods-psr-2">3. Classes, Properties, and Methods <code class="docutils literal"><span class="pre">[PSR-2]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-structures-psr-2">4. Control Structures <code class="docutils literal"><span class="pre">[PSR-2]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closures-psr-2">5. Closures <code class="docutils literal"><span class="pre">[PSR-2]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Coding Style Guide</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="coding-style-guide">
+<h1>Coding Style Guide<a class="headerlink" href="#coding-style-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-psr-2">
+<h2>1. General <a class="reference internal" href="#psr-2" id="id1">[PSR-2]</a><a class="headerlink" href="#general-psr-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-coding-standard">
+<h3>1.1. Basic Coding Standard<a class="headerlink" href="#basic-coding-standard" title="Permalink to this headline">¶</a></h3>
+<p>Code MUST follow all rules outlined in [Basic Coding Standard].</p>
+</div>
+<div class="section" id="files">
+<h3>1.2. Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>All PHP files MUST use the Unix LF (linefeed) line ending.</li>
+<li>All PHP files MUST end with a single blank line.</li>
+<li>The closing <cite>?&gt;</cite> tag MUST be omitted from files containing only PHP.</li>
+</ul>
+</div>
+<div class="section" id="lines">
+<h3>1.3. Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>There MUST NOT be a hard limit on line length.</li>
+<li>The soft limit on line length MUST be 120 characters; automated style checkers
+MUST warn but MUST NOT error at the soft limit.</li>
+<li>Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD
+be split into multiple subsequent lines of no more than 80 characters each.</li>
+<li>There MUST NOT be trailing whitespace at the end of non-blank lines.</li>
+<li>Blank lines MAY be added to improve readability and to indicate related
+blocks of code.</li>
+<li>There MUST NOT be more than one statement per line.</li>
+</ul>
+</div>
+<div class="section" id="indenting">
+<h3>1.4. Indenting<a class="headerlink" href="#indenting" title="Permalink to this headline">¶</a></h3>
+<p>Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting.</p>
+<div class="highlight-python"><div class="highlight"><pre>N.b.: Using only spaces, and not mixing spaces with tabs, helps to avoid
+problems with diffs, patches, history, and annotations. The use of spaces
+also makes it easy to insert fine-grained sub-indentation for inter-line
+alignment.
+</pre></div>
+</div>
+</div>
+<div class="section" id="keywords-and-true-false-null">
+<h3>1.5. Keywords and True/False/Null<a class="headerlink" href="#keywords-and-true-false-null" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>PHP <a class="reference internal" href="#keywords" id="id2">[keywords]</a> MUST be in lower case.</li>
+<li>The PHP constants <cite>true</cite>, <cite>false</cite>, and <cite>null</cite> MUST be in lower case.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="namespace-and-use-declarations-psr-2">
+<h2>2. Namespace and Use Declarations <a class="reference internal" href="#psr-2" id="id3">[PSR-2]</a><a class="headerlink" href="#namespace-and-use-declarations-psr-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>When present, there MUST be one blank line after the <cite>namespace</cite> declaration.</li>
+<li>When present, all <cite>use</cite> declarations MUST go after the <cite>namespace</cite>
+declaration.</li>
+<li>There MUST be one <cite>use</cite> keyword per declaration.</li>
+<li>There MUST be one blank line after the <cite>use</cite> block.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">FooClass</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BarClass</span> <span class="k">as</span> <span class="nx">Bar</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">OtherVendor\OtherPackage\BazClass</span><span class="p">;</span>
+
+<span class="c1">// ... additional PHP code ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="classes-properties-and-methods-psr-2">
+<h2>3. Classes, Properties, and Methods <a class="reference internal" href="#psr-2" id="id4">[PSR-2]</a><a class="headerlink" href="#classes-properties-and-methods-psr-2" title="Permalink to this headline">¶</a></h2>
+<p>The term &quot;class&quot; refers to all classes, interfaces, and traits.</p>
+<div class="section" id="extends-and-implements">
+<h3>3.1. Extends and Implements<a class="headerlink" href="#extends-and-implements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <cite>extends</cite> and <cite>implements</cite> keywords MUST be declared on the same line as
+the class name.</li>
+<li>The opening brace for the class MUST be on the same line with no space before
+<a class="reference internal" href="#modification-1" id="id5">[Modification-1]</a>.;
+the closing brace
+for the class MUST go on the next line after the body</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">FooClass</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BarClass</span> <span class="k">as</span> <span class="nx">Bar</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">OtherVendor\OtherPackage\BazClass</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span> <span class="k">extends</span> <span class="nx">ParentClass</span> <span class="k">implements</span> <span class="nx">\ArrayAccess</span><span class="p">,</span> <span class="nx">\Countable</span><span class="p">{</span>
+    <span class="c1">// constants, properties, methods</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lists of <cite>implements</cite> MAY be split across multiple lines, where each
+subsequent line is indented once. When doing so, the first item in the list
+MUST be on the next line, and there MUST be only one interface per line.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">FooClass</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BarClass</span> <span class="k">as</span> <span class="nx">Bar</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">OtherVendor\OtherPackage\BazClass</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span> <span class="k">extends</span> <span class="nx">ParentClass</span> <span class="k">implements</span>
+    <span class="nx">\ArrayAccess</span><span class="p">,</span>
+    <span class="nx">\Countable</span><span class="p">,</span>
+    <span class="nx">\Serializable</span><span class="p">{</span>
+    <span class="c1">// constants, properties, methods</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties">
+<h3>3.2. Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Visibility MUST be declared on all properties.</li>
+<li>The <cite>var</cite> keyword MUST NOT be used to declare a property.</li>
+<li>There MUST NOT be more than one property declared per statement.</li>
+<li>Property names SHOULD NOT be prefixed with a single underscore to indicate
+protected or private visibility.</li>
+</ul>
+<p>A property declaration looks like the following.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$foo</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h3>4.3. Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Visibility MUST be declared on all methods.</li>
+<li>Method names SHOULD NOT be prefixed with a single underscore to indicate
+protected or private visibility.</li>
+<li>Method names MUST NOT be declared with a space after the method name. The
+opening brace MUST be on the same line <a class="reference internal" href="#modification-2" id="id6">[Modification-2]</a>, and the closing
+brace MUST go on the next line following the body. There MUST NOT be a space
+after the opening parenthesis, and there MUST NOT be a space before the
+closing parenthesis.</li>
+</ul>
+<p>A method declaration looks like the following. Note the placement of
+parentheses, commas, spaces, and braces:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">fooBarBaz</span><span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$arg2</span><span class="p">,</span> <span class="nv">$arg3</span> <span class="o">=</span> <span class="p">[]){</span>
+        <span class="c1">// method body</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="method-arguments">
+<h3>3.4. Method Arguments<a class="headerlink" href="#method-arguments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In the argument list, there MUST NOT be a space before each comma, and there
+MUST be one space after each comma.</li>
+<li>Method arguments with default values MUST go at the end of the argument
+list.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$arg2</span><span class="p">,</span> <span class="nv">$arg3</span> <span class="o">=</span> <span class="p">[]){</span>
+        <span class="c1">// method body</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Argument lists MAY be split across multiple lines, where each subsequent line
+is indented once. When doing so, the first item in the list MUST be on the
+next line, and there MUST be only one argument per line.</p>
+<p>When the argument list is split across multiple lines, the closing parenthesis
+and opening brace MUST be placed together on their own line with one space
+between them.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">aVeryLongMethodName</span><span class="p">(</span>
+        <span class="nx">ClassTypeHint</span> <span class="nv">$arg1</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="nv">$arg2</span><span class="p">,</span>
+        <span class="k">array</span> <span class="nv">$arg3</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// method body</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="abstract-final-and-static">
+<h3>3.5. <cite>abstract</cite>, <cite>final</cite>, and <cite>static</cite><a class="headerlink" href="#abstract-final-and-static" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>When present, the <cite>abstract</cite> and <cite>final</cite> declarations MUST precede the
+visibility declaration.</li>
+<li>When present, the <cite>static</cite> declaration MUST come after the visibility
+declaration.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">vendor\package</span><span class="p">;</span>
+
+<span class="k">abstract</span> <span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+
+    <span class="k">protected</span> <span class="k">static</span> <span class="nv">$foo</span><span class="p">;</span>
+
+    <span class="k">abstract</span> <span class="k">protected</span> <span class="k">function</span> <span class="nf">zim</span><span class="p">();</span>
+
+    <span class="k">final</span> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">bar</span><span class="p">(){</span>
+        <span class="c1">// method body</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="method-and-function-calls">
+<h3>3.6. Method and Function Calls<a class="headerlink" href="#method-and-function-calls" title="Permalink to this headline">¶</a></h3>
+<p>When making a method or function call, there MUST NOT be a space between the
+method or function name and the opening parenthesis, there MUST NOT be a space
+after the opening parenthesis, and there MUST NOT be a space before the
+closing parenthesis. In the argument list, there MUST NOT be a space before
+each comma, and there MUST be one space after each comma.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nx">bar</span><span class="p">();</span>
+<span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">(</span><span class="nv">$arg1</span><span class="p">);</span>
+<span class="nx">Foo</span><span class="o">::</span><span class="na">bar</span><span class="p">(</span><span class="nv">$arg2</span><span class="p">,</span> <span class="nv">$arg3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Argument lists MAY be split across multiple lines, where each subsequent line
+is indented once. When doing so, the first item in the list MUST be on the
+next line, and there MUST be only one argument per line.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">(</span>
+    <span class="nv">$longArgument</span><span class="p">,</span>
+    <span class="nv">$longerArgument</span><span class="p">,</span>
+    <span class="nv">$muchLongerArgument</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="control-structures-psr-2">
+<h2>4. Control Structures <a class="reference internal" href="#psr-2" id="id7">[PSR-2]</a><a class="headerlink" href="#control-structures-psr-2" title="Permalink to this headline">¶</a></h2>
+<p>The general style rules for control structures are as follows:</p>
+<ul class="simple">
+<li>There MUST be one space after the control structure keyword</li>
+<li>There MUST NOT be a space after the opening parenthesis</li>
+<li>There MUST NOT be a space before the closing parenthesis</li>
+<li>There MUST be one space between the closing parenthesis and the opening
+brace</li>
+<li>The structure body MUST be indented once</li>
+<li>The closing brace MUST be on the next line after the body</li>
+</ul>
+<p>The body of each structure MUST be enclosed by braces. This standardizes how
+the structures look, and reduces the likelihood of introducing errors as new
+lines get added to the body.</p>
+<div class="section" id="if-elseif-else">
+<h3>4.1. <cite>if</cite>, <cite>elseif</cite>, <cite>else</cite><a class="headerlink" href="#if-elseif-else" title="Permalink to this headline">¶</a></h3>
+<p>An <cite>if</cite> structure looks like the following. Note the placement of parentheses,
+spaces, and braces; and that <cite>else</cite> and <cite>elseif</cite> are on the same line as the
+closing brace from the earlier body.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$expr1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// if body</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$expr2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// elseif body</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// else body;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The keyword <cite>elseif</cite> SHOULD be used instead of <cite>else if</cite> so that all control
+keywords look like single words.</p>
+</div>
+<div class="section" id="switch-case">
+<h3>4.2. <cite>switch</cite>, <cite>case</cite><a class="headerlink" href="#switch-case" title="Permalink to this headline">¶</a></h3>
+<p>A <cite>switch</cite> structure looks like the following. Note the placement of
+parentheses, spaces, and braces. The <cite>case</cite> statement MUST be indented once
+from <cite>switch</cite>, and the <cite>break</cite> keyword (or other terminating keyword) MUST be
+indented at the same level as the <cite>case</cite> body. There MUST be a comment such as
+<cite>// no break</cite> when fall-through is intentional in a non-empty <cite>case</cite> body.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">switch</span> <span class="p">(</span><span class="nv">$expr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+        <span class="k">echo</span> <span class="s1">&#39;First case, with a break&#39;</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="k">echo</span> <span class="s1">&#39;Second case, which falls through&#39;</span><span class="p">;</span>
+        <span class="c1">// no break</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+        <span class="k">echo</span> <span class="s1">&#39;Third case, return instead of break&#39;</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="k">echo</span> <span class="s1">&#39;Default case&#39;</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="while-do-while">
+<h3>4.3. <cite>while</cite>, <cite>do while</cite><a class="headerlink" href="#while-do-while" title="Permalink to this headline">¶</a></h3>
+<p>A <cite>while</cite> statement looks like the following. Note the placement of
+parentheses, spaces, and braces.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">while</span> <span class="p">(</span><span class="nv">$expr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// structure body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Similarly, a <cite>do while</cite> statement looks like the following. Note the placement
+of parentheses, spaces, and braces.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// structure body;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$expr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for">
+<h3>4.4. <cite>for</cite><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
+<p>A <cite>for</cite> statement looks like the following. Note the placement of parentheses,
+spaces, and braces.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// for body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="foreach">
+<h3>4.5. <cite>foreach</cite><a class="headerlink" href="#foreach" title="Permalink to this headline">¶</a></h3>
+<p>A <cite>foreach</cite> statement looks like the following. Note the placement of
+parentheses, spaces, and braces.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$iterable</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// foreach body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="try-catch">
+<h3>4.6. <cite>try</cite>, <cite>catch</cite><a class="headerlink" href="#try-catch" title="Permalink to this headline">¶</a></h3>
+<p>A <cite>try catch</cite> block looks like the following. Note the placement of
+parentheses, spaces, and braces.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// try body</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">FirstExceptionType</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// catch body</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">OtherExceptionType</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// catch body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="closures-psr-2">
+<h2>5. Closures <a class="reference internal" href="#psr-2" id="id8">[PSR-2]</a><a class="headerlink" href="#closures-psr-2" title="Permalink to this headline">¶</a></h2>
+<p>Closures MUST be declared with a space after the <cite>function</cite> keyword, and a
+space before and after the <cite>use</cite> keyword.</p>
+<p>The opening brace MUST go on the same line, and the closing brace MUST go on
+the next line following the body.</p>
+<p>There MUST NOT be a space after the opening parenthesis of the argument list
+or variable list, and there MUST NOT be a space before the closing parenthesis
+of the argument list or variable list.</p>
+<p>In the argument list and variable list, there MUST NOT be a space before each
+comma, and there MUST be one space after each comma.</p>
+<p>Closure arguments with default values MUST go at the end of the argument
+list.</p>
+<p>A closure declaration looks like the following. Note the placement of
+parentheses, commas, spaces, and braces:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$closureWithArgs</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="nv">$arg2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">};</span>
+
+<span class="nv">$closureWithArgsAndVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="nv">$arg2</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$var1</span><span class="p">,</span> <span class="nv">$var2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Argument lists and variable lists MAY be split across multiple lines, where
+each subsequent line is indented once. When doing so, the first item in the
+list MUST be on the next line, and there MUST be only one argument or variable
+per line.</p>
+<p>When the ending list (whether or arguments or variables) is split
+across multiple lines, the closing parenthesis and opening brace MUST be placed
+together on their own line with one space between them.</p>
+<p>The following are examples of closures with and without argument lists and
+variable lists split across multiple lines <a class="reference internal" href="#modification-3" id="id9">[Modification-3]</a>.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$longArgsNoVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span>
+    <span class="nv">$longArgument</span><span class="p">,</span>
+    <span class="nv">$longerArgument</span><span class="p">,</span>
+    <span class="nv">$muchLongerArgument</span>
+<span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// body</span>
+<span class="p">};</span>
+
+<span class="nv">$noArgsLongVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span>
+    <span class="nv">$longVar1</span><span class="p">,</span>
+    <span class="nv">$longerVar2</span><span class="p">,</span>
+    <span class="nv">$muchLongerVar3</span>
+<span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// body</span>
+<span class="p">};</span>
+
+<span class="nv">$longArgsLongVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span>
+    <span class="nv">$longArgument</span><span class="p">,</span>
+    <span class="nv">$longerArgument</span><span class="p">,</span>
+    <span class="nv">$muchLongerArgument</span>
+<span class="p">)</span> <span class="k">use</span> <span class="p">(</span>
+    <span class="nv">$longVar1</span><span class="p">,</span>
+    <span class="nv">$longerVar2</span><span class="p">,</span>
+    <span class="nv">$muchLongerVar3</span>
+<span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// body</span>
+<span class="p">};</span>
+
+<span class="nv">$longArgsShortVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span>
+    <span class="nv">$longArgument</span><span class="p">,</span>
+    <span class="nv">$longerArgument</span><span class="p">,</span>
+    <span class="nv">$muchLongerArgument</span>
+<span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$var1</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// body</span>
+<span class="p">};</span>
+
+<span class="nv">$shortArgsLongVars</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span>
+    <span class="nv">$longVar1</span><span class="p">,</span>
+    <span class="nv">$longerVar2</span><span class="p">,</span>
+    <span class="nv">$muchLongerVar3</span>
+<span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// body</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Note that the formatting rules also apply when the closure is used directly
+in a function or method call as an argument.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">(</span>
+    <span class="nv">$arg1</span><span class="p">,</span>
+    <span class="k">function</span> <span class="p">(</span><span class="nv">$arg2</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$var1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// body</span>
+    <span class="p">},</span>
+    <span class="nv">$arg3</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Changes:</p>
+<table class="docutils citation" frame="void" id="modification-1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[Modification-1]</a></td><td><em>The opening brace for the class MUST go on its own line</em>
+<strong>changed to:</strong>
+<em>The opening brace for the class MUST be on the same line with no space
+before</em>:</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="modification-2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[Modification-2]</a></td><td><em>opening brace MUST go on its own line</em> <strong>changed to:</strong>
+<em>opening brace MUST be on the same line</em>:</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="modification-3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[Modification-3]</a></td><td>Variable names formatting changed to camelCase</td></tr>
+</tbody>
+</table>
+<p>References</p>
+<table class="docutils citation" frame="void" id="psr-2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[PSR-2]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id7">4</a>, <a class="fn-backref" href="#id8">5</a>)</em> <a class="reference external" href="http://www.php-fig.org/psr/psr-2/">http://www.php-fig.org/psr/psr-2/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="keywords" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[keywords]</a></td><td><a class="reference external" href="http://php.net/manual/en/reserved.keywords.php">http://php.net/manual/en/reserved.keywords.php</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="coding-standards.html" title="previous chapter (use the left arrow)">Basic Coding Standard</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="php-doc.html" title="next chapter (use the right arrow)">PHP-Doc-Comments</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="php-doc.html" title="PHP-Doc-Comments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="coding-standards.html" title="Basic Coding Standard"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/coding-style-guide.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

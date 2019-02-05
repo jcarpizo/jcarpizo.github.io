@@ -1,0 +1,70 @@
+Switch between Multiple PHP Version on Ubuntu
+=============================================
+
+On your system, if you have installed multiple versions of PHP (eg PHP 7.1 and PHP 5.6 both). PHP 7.1 is running as default PHP for Apache and CLI. For any requirement, you need to use PHP 5.6. Then you don’t need to remove PHP 7.1. You can simply switch your PHP version to default used for Apache and command line.
+
+For example, your server has PHP 7.1 and PHP 5.6 both version’s installed. Now following example will help you to switch between both versions.
+
+=======================
+From PHP 5.6 => PHP 7.1
+=======================
+
+Default PHP 5.6 is set on your system and you need to switch to PHP 7.1. Run the following commands to switch for Apache and command line.
+
+Apache:
+-------
+
+::
+
+    sudo a2dismod php5.6
+
+    sudo a2enmod php7.1
+
+    sudo service apache2 restart
+
+
+Command Line:
+-------------
+
+::
+
+    sudo update-alternatives --set php /usr/bin/php7.1
+
+    sudo update-alternatives --set phar /usr/bin/phar7.1
+
+    sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.1
+
+
+=======================
+From PHP 7.1 => PHP 5.6
+=======================
+
+Default PHP 7.1 is set on your system and you need to switch to PHP 5.6. Now run the following commands to switch for Apache and command line.
+
+Apache:
+-------
+
+::
+
+    sudo a2dismod php7.1
+
+    sudo a2enmod php5.6
+
+    sudo service apache2 restart
+
+Command Line:
+-------------
+
+::
+
+    sudo update-alternatives --set php /usr/bin/php5.6
+
+    sudo update-alternatives --set phar /usr/bin/phar5.6
+
+    sudo update-alternatives --set phar.phar /usr/bin/phar.phar5.6
+
+
+.. meta::
+    :description: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :keywords: PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs.
+    :author: Jasper Carpizo

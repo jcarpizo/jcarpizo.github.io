@@ -1,0 +1,358 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/php-doc.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>PHP-Doc-Comments &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="Comments" href="comments.html" />
+    <link rel="prev" title="Coding Style Guide" href="coding-style-guide.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="comments.html" title="Comments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="coding-style-guide.html" title="Coding Style Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PHP-Doc-Comments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">1. Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#properties">2. Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods">3. Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-variables">4. Local variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>PHP-Doc-Comments</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="php-doc-comments">
+<h1>PHP-Doc-Comments<a class="headerlink" href="#php-doc-comments" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The full Documentation for the PHP-Doc-Comment can be found here:
+<a class="reference external" href="https://github.com/phpDocumentor/fig-standards/tree/master/proposed">https://github.com/phpDocumentor/fig-standards/tree/master/proposed</a></p>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Doc-Comments MUST NOT have a blank line at the end of the deceleration</li>
+<li>Inline Doc-Comments MUST NOT be used. Use instead: <cite>/**/</cite></li>
+<li>Comments of parameters, return statements and exceptions MUST start with a capital letter and end with a full stop.</li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h2>1. Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A class SHOULD contain a short description</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">foo\bar</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Short description of the class</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">{</span>
+
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>2. Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>All properties MUST have a Doc-Comment with the &#64;var Tag, that specifies the
+<a class="reference internal" href="#dt-label"><span>Data types</span></a> of the property</p>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">foo\bar</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Short description of the class</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var int</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$foo</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var float</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$bar</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var \foo\bar\FooBar</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$fooBar</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>3. Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All methods SHOULD contain a short description</li>
+<li>If a method uses parameters, then the &#64;param Tag MUST be provided for each
+parameter with:<ul>
+<li>The data type</li>
+<li>A comment that describes the parameter</li>
+</ul>
+</li>
+<li>If a method returns data, then a &#64;return Tag MUST be provided with:<ul>
+<li>The data type</li>
+<li>A comment that describes the returned result</li>
+<li>Multiple returned data types MUST be concatenated with a pipe (|)</li>
+<li>Void MUST NOT be used as return data type</li>
+</ul>
+</li>
+<li>If a method throws Exceptions or uses classes that throws Exceptions, then
+a &#64;throws Tag MUST be provided with:<ul>
+<li>The type of the Exception</li>
+<li>A comment that describes when or why the Exception occurs</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">foo\bar</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Short description of the class</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Short description</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param $bar int Describe bar here.</span>
+<span class="sd">     * @param $fooBar \foo\bar\FooBar Describe FooBar here.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span><span class="p">,</span> <span class="nv">$fooBar</span><span class="p">){</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Short description</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param $foo \foo\bar\Foo|null Parameter description.</span>
+<span class="sd">     * @throws \Exception Describe why.</span>
+<span class="sd">     * @throws \ErrorException Describe why.</span>
+<span class="sd">     * @return string Output description.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">bar</span><span class="p">(</span><span class="nv">$foo</span> <span class="o">=</span> <span class="k">null</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&quot;msg&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// throws ErrorException</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">service</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">();</span>
+        <span class="k">return</span> <span class="s2">&quot;ok&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Short description</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param $foo \foo\bar\Foo|null Parameter description.</span>
+<span class="sd">     * @return string|int Output description.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">fooBar</span><span class="p">(</span><span class="nv">$foo</span> <span class="o">=</span> <span class="k">null</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">__toString</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-variables">
+<h2>4. Local variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h2>
+<p>Missing type declarations (Type Hinting) MUST be declared for local variables
+with a multi line comment.</p>
+<p>Example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// PHP view file.</span>
+
+<span class="cm">/* @var $someVar string */</span>
+<span class="k">echo</span> <span class="nv">$someVar</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-types">
+<span id="dt-label"></span><h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>string, the element to which this type applies is a string of binary
+characters.</li>
+<li>int, the element to which this type applies is a whole number or integer.</li>
+<li>bool, the element to which this type applies only has state TRUE or FALSE.</li>
+<li>float, the element to which this type applies is a continuous, or real,
+number.</li>
+<li>object, the element to which this type applies is the instance of an
+undetermined class.</li>
+<li>mixed, the element to which this type applies can be of any type as specified
+here. It is not known on compile time which type will be used.</li>
+<li>array, the element to which this type applies is an array of values.</li>
+<li>resource, the element to which this type applies is a resource per the
+definition of PHP.</li>
+<li>void, this type is commonly only used when defining the return type of a
+method or function.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="coding-style-guide.html" title="previous chapter (use the left arrow)">Coding Style Guide</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="comments.html" title="next chapter (use the right arrow)">Comments</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="comments.html" title="Comments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="coding-style-guide.html" title="Coding Style Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/php-doc.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>

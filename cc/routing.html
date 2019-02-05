@@ -1,0 +1,280 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/routing.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Routing &mdash; FFuF Coding-Conventions</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FFuF Coding-Conventions" href="index.html" />
+    <link rel="next" title="Dependencies" href="dependencies.html" />
+    <link rel="prev" title="Comments" href="comments.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="dependencies.html" title="Dependencies"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="comments.html" title="Comments"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="index.html" class="text-logo">Coding Conventions</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-setup.html">Project-Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-standards.html">Basic Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding-style-guide.html">Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-doc.html">PHP-Doc-Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">Comments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#routes">1. Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#http-verbs">2. HTTP-Verbs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="front-end-dependencies.html">Front-End-Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-conventions.html">FW-Basic-Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-controllers.html">FW-Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework-services.html">FW-Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="https://ci.ffuf.de/docs/cc/html/search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Routing</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="routing">
+<h1>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="routes">
+<h2>1. Routes<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Resource names MUST be in plural e.g. customers</li>
+<li>Resource names SHOULD be all lower case</li>
+<li>A Route MUST begin with a slash and end with one</li>
+</ul>
+<p>Examples:</p>
+<table class="table table-bordered">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Action</th>
+<th class="head">URL</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Get a list of all books.</td>
+<td>/api/books/</td>
+</tr>
+<tr class="row-odd"><td>Get a book by ID.</td>
+<td>/api/books/1/</td>
+</tr>
+<tr class="row-even"><td>Get the details of a book.</td>
+<td>/api/books/1/details/</td>
+</tr>
+<tr class="row-odd"><td>Get a list of books by genre.</td>
+<td>/api/books/fantasy/</td>
+</tr>
+<tr class="row-even"><td>Get a list of books by publication date.</td>
+<td>/api/books/date/2013-02-16/</td>
+</tr>
+<tr class="row-odd"><td>Get a list of books by a particular author.</td>
+<td>/api/authors/1/books/</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="http-verbs">
+<h2>2. HTTP-Verbs<a class="headerlink" href="#http-verbs" title="Permalink to this headline">¶</a></h2>
+<table class="table table-bordered">
+<colgroup>
+<col width="11%" />
+<col width="15%" />
+<col width="40%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-even"><th class="head">Verb</th>
+<th class="head">Operation</th>
+<th class="head">Entire Collection
+(e.g. /customers/</th>
+<th class="head">Specific Item
+(e.g. /customers/{id})/</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>POST</td>
+<td>Create</td>
+<td>201 (Created),
+'Location' header
+with link to /customers/{id}
+containing new ID.</td>
+<td>404 (Not Found),
+409 (Conflict) if
+resource already exists.</td>
+</tr>
+<tr class="row-even"><td>GET</td>
+<td>Read</td>
+<td>200 (OK), list of customers.
+Use pagination, sorting
+and filtering to navigate
+big lists.</td>
+<td>200 (OK),single customer.
+404 (Not Found), if ID
+not found or invalid</td>
+</tr>
+<tr class="row-odd"><td>PUT</td>
+<td>Update</td>
+<td>404 (Not Found), unless you
+want to update/replace every
+resource in the entire
+collection.</td>
+<td>200 (OK) or 204 (No
+Content). 404 (Not Found)
+, if ID not found or
+invalid.</td>
+</tr>
+<tr class="row-even"><td>DELETE</td>
+<td>Delete</td>
+<td>404 (Not Found), unless you
+want to delete the whole
+collection - not often
+desirable.</td>
+<td>200 (OK). 404 (Not Found)
+if ID not found
+or invalid</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="comments.html" title="previous chapter (use the left arrow)">Comments</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="dependencies.html" title="next chapter (use the right arrow)">Dependencies</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="dependencies.html" title="Dependencies"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="comments.html" title="Comments"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">FFuF-Coding-Conventions</a> &raquo;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2015, FFuF. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+
+<!-- Mirrored from ci.ffuf.de/docs/cc/html/routing.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 02:21:48 GMT -->
+</html>
