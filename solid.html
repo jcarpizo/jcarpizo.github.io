@@ -1,13 +1,11 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs." name="description" />
+    <meta charset="utf-8" /><meta content="PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs." name="description" />
 <meta content="PHP 5.4.15+ with PHP Unit testing - Object Oriented Programming in PHP / RESTful API’s ,PHP Code Sniffer for checking coding compliance / PSR-2 standard coding style ,MVC PHP Framework – Symfony , Laravel, CakePHP and Phalcon,Docker Engine / Docker Hub,Guzzle, PHP HTTP Client,Auth0's API authorization,Google API, Twillio API, and Facebook API Integration,Object Relational Mapper (ORM) / Doctrine Query Language,JAVA Programming (J2SE),Angular JS 1 / 2 with Protractor End to End Tesing for Angular- JavaScript’s Framework,Joomla, Wordpress and Drupal ( Content Management System ), Adobe Flex PHP / Adobe ColdFusion, Unix Shell Scripting in Unix / Linux Environment,Twitter Bootstrap / Foundation,Grunt: The JavaScript Task Runner ,Qunit Javascript Unit Testing,Python 2.7.10 ,Highcharts JS ,Node JS, React JS, Vue JS, JQuery, and Navtive Javascript ,eJabberd XMPP Server ,Bitbuket with Pipeline Build Integration ,GitLab with Gitlab CI integration ,Git with Git Flow Integration ,MS SQL Enterprise ,MySQL with MySql Workbench and Sequel Pro, Postgre SQL,Composer for PHP dependencies,WebPack Node JS for JavaScript and Css dependencies ,Solaris 10 / Ubuntu 16.04 / Fedora 18 / Backtrack / Mac OS X – Unix and Linux OS ,Windows XP, Vista, 7 and 8 ,VMware Server / Virtual Box / Homestead ,HTML5, CSS and SASS ,SPHINX - Python Documentation Generator ,Sample API docs for mobile dev - Leaders Summit API Docs." name="keywords" />
 <meta content="Jasper Carpizo" name="author" />
 
@@ -23,7 +21,7 @@
     <title>The First 5 Principles of Object Oriented Design &#8212; Jasper Carpizo</title>
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -142,8 +140,8 @@
 <div class="section" id="single-responsibility">
 <h2>Single-responsibility<a class="headerlink" href="#single-responsibility" title="Permalink to this headline">¶</a></h2>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">A class should have one and only one reason to change, meaning that a class should have only one job.</p>
+<p class="admonition-title">Hint</p>
+<p>A class should have one and only one reason to change, meaning that a class should have only one job.</p>
 </div>
 <p>For example, say we have some shapes and we wanted to sum all the areas of the shapes. Well this is pretty simple right?</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span>
@@ -230,8 +228,8 @@
 <div class="section" id="open-closed">
 <h2>Open-closed<a class="headerlink" href="#open-closed" title="Permalink to this headline">¶</a></h2>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">Objects or entities should be open for extension, but closed for modification.</p>
+<p class="admonition-title">Hint</p>
+<p>Objects or entities should be open for extension, but closed for modification.</p>
 </div>
 <p>This simply means that a class should be easily extendable without modifying the class itself. Let’s take a look at the AreaCalculator class, especially it’s sum method.</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">sum</span><span class="p">()</span>
@@ -330,8 +328,8 @@
 <div class="section" id="liskov-substitution">
 <h2>Liskov substitution<a class="headerlink" href="#liskov-substitution" title="Permalink to this headline">¶</a></h2>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">Let <strong>q(x)</strong> be a property provable about objects of <strong>x</strong> of type <strong>T</strong>. Then <strong>q(y)</strong> should be provable for objects <strong>y</strong> of type <strong>S</strong> where <strong>S</strong> is a subtype of <strong>T</strong>.</p>
+<p class="admonition-title">Hint</p>
+<p>Let <strong>q(x)</strong> be a property provable about objects of <strong>x</strong> of type <strong>T</strong>. Then <strong>q(y)</strong> should be provable for objects <strong>y</strong> of type <strong>S</strong> where <strong>S</strong> is a subtype of <strong>T</strong>.</p>
 </div>
 <p>All this is stating is that every subclass/derived class should be substitutable for their base/parent class.</p>
 <p>Still making use of out <strong>AreaCalculator</strong> class, say we have a <strong>VolumeCalculator</strong> class that extends the <strong>AreaCalculator</strong> class:</p>
@@ -395,8 +393,8 @@
 <div class="section" id="interface-segregation">
 <h2>Interface segregation<a class="headerlink" href="#interface-segregation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.</p>
+<p class="admonition-title">Hint</p>
+<p>A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.</p>
 </div>
 <p>Still using our shapes example, we know that we also have solid shapes, so since we would also want to calculate the volume of the shape, we can add another contract to the <strong>ShapeInterface</strong>:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">interface</span> <span class="nx">ShapeInterface</span>
@@ -476,8 +474,8 @@
 <div class="section" id="dependency-inversion">
 <h2>Dependency Inversion<a class="headerlink" href="#dependency-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.</p>
+<p class="admonition-title">Hint</p>
+<p>Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.</p>
 </div>
 <p>This might sound bloated, but it is really easy to understand. This principle allows for decoupling, an example that seems like the best way to explain this principle:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PasswordReminder</span>

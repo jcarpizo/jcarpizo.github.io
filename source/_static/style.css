@@ -6,13 +6,8 @@ code, pre, tt {
     font-size: 12px; !important;
 }
 
-#left-column {
-    width: 400px; !important;
-}
-
 #right-column {
     max-width: 100% !important;
-    margin-left: 400px;
 }
 
 .text-logo {

@@ -10,7 +10,7 @@
       <li>PHP 7+ with PHPUnit Testing Framework</li>
       <li>Build and create from the scratch cRESTful API in PHP</li>
       <li>PHP_CodeSniffer for checking coding compliance and PSR-2 standard coding style</li>
-      <li>OWASP - The Open Web Application Security Project</li>
+      <li><a href="owasp-info" target="__blank">OWASP - The Open Web Application Security Project</a></li>
       <li>Docker Engine, Docker Hub</li>
       <li>Guzzle, PHP HTTP Client</li>
       <li>Auth0's API authorization</li>
