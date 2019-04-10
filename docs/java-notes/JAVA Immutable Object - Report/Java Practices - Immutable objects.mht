@@ -1,0 +1,1433 @@
+From: "Saved by Windows Internet Explorer 7"
+Subject: Java Practices -> Immutable objects
+Date: Fri, 21 Nov 2008 16:26:53 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0095_01C94BF5.F6E31E00"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.0.6001.18049
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0095_01C94BF5.F6E31E00
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.javapractices.com/topic/TopicAction.do?Id=29
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML><HEAD><TITLE>Java Practices -> Immutable objects</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dutf-8"><LINK media=3Dall=20
+href=3D"http://www.javapractices.com/stylesheet3.css" type=3Dtext/css=20
+rel=3Dstylesheet><LINK href=3D"/images/favicon.ico" =
+type=3Dimage/vnd.microsoft.icon=20
+rel=3D"shortcut icon">
+<META=20
+content=3D"Concise presentations of java programming practices, tasks, =
+and conventions, amply illustrated with syntax highlighted code =
+examples."=20
+name=3Ddescription>
+<META=20
+content=3D"field,final,set,synchronized,design pattern,java,java =
+programming,java practices,java idiom,java style,java design =
+patterns,java coding conventions,"=20
+name=3Dkeywords>
+<META content=3D"MSHTML 6.00.6001.18148" name=3DGENERATOR></HEAD>
+<BODY>
+<P align=3Dcenter><A title=3D"Free Download - Java Web Application =
+Framework"=20
+href=3D"http://www.web4j.com/Java_Web_Application_Framework.jsp?From=3D1"=
+><B>WEB4J -=20
+Minimalist Java Web Application Framework</B> </A></P>
+<DIV class=3Dmenu-bar><A title=3D"Table of Contents"=20
+href=3D"http://www.javapractices.com/home/HomeAction.do">Home</A> | <A=20
+title=3D"View Poll Results"=20
+href=3D"http://www.javapractices.com/vote/VoteSummaryAction.do">Poll</A> =
+| <A=20
+title=3D"Send Your Feedback"=20
+href=3D"http://www.javapractices.com/feedback/FeedbackAction.do?Operation=
+=3DShow">Feedback</A>=20
+| <B><A title=3D"Grab Source Code"=20
+href=3D"http://www.javapractices.com/source/SourceAction.do">Source=20
+Code</A></B><IMG class=3Dno-margin alt=3D""=20
+src=3D"http://www.javapractices.com/images/goldstar.gif"> | <A =
+title=3DReferences=20
+href=3D"http://www.javapractices.com/references/ReferencesAction.do">Link=
+s</A>=20
+<FORM class=3Dsearch-form action=3D/search/SearchAction.do =
+method=3Dget><INPUT=20
+class=3Dsearch maxLength=3D50 size=3D12 name=3DSearchTerms> <INPUT =
+type=3Dsubmit value=3DSearch> </FORM></DIV>
+<P>
+<DIV class=3Dmenu-bar><B=20
+style=3D"PADDING-RIGHT: 0.3em; PADDING-LEFT: 0.3em; PADDING-BOTTOM: =
+0.3em; PADDING-TOP: 0.3em; BACKGROUND-COLOR: #fffde3"><A=20
+title=3DJavaRebel =
+href=3D"http://www.zeroturnaround.com/javarebel/">JavaRebel - Java=20
+Code Reloading Agent</A></B> </DIV>
+<P class=3Ddisplay-messages></P>
+<DIV class=3Dmain-layout>
+<DIV class=3Dpage-title>Immutable objects</DIV>
+<DIV class=3Dmain-body><BR>Immutable objects are simply objects whose =
+state (the=20
+object's data) cannot change after construction. Examples of immutable =
+objects=20
+from the JDK include <TT><A=20
+href=3D"http://java.sun.com/javase/6/docs/api/java/lang/String.html">Stri=
+ng</A></TT>=20
+and <TT><A=20
+href=3D"http://java.sun.com/javase/6/docs/api/java/lang/Integer.html">Int=
+eger</A></TT>.=20
+
+<P>Immutable objects greatly simplify your program, since they :=20
+<UL>
+  <LI>are simple to construct, test, and use=20
+  <LI>are automatically <A=20
+  =
+href=3D"http://www.javapractices.com/topic/Topic48.cjp">thread-safe</A> =
+and have=20
+  no synchronization issues=20
+  <LI>do not need a <A=20
+  href=3D"http://www.javapractices.com/topic/Topic12.cjp">copy =
+constructor</A>=20
+  <LI>do not need an implementation of <TT><A=20
+  href=3D"http://www.javapractices.com/topic/Topic71.cjp">clone</A></TT> =
+
+  <LI>allow <TT><A=20
+  =
+href=3D"http://www.javapractices.com/topic/Topic28.cjp">hashCode</A></TT>=
+ to use=20
+  <A href=3D"http://www.javapractices.com/topic/Topic34.cjp">lazy=20
+  initialization</A>, and to cache its return value=20
+  <LI>do not need to be <A=20
+  href=3D"http://www.javapractices.com/topic/Topic15.cjp">copied =
+defensively</A>=20
+  when used as a field=20
+  <LI>make good <TT>Map</TT> keys and <TT>Set</TT> elements (these =
+objects must=20
+  not change state while in the collection)=20
+  <LI>have their <A =
+href=3D"http://www.javapractices.com/topic/Topic6.cjp">class=20
+  invariant</A> established once upon construction, and it never needs =
+to be=20
+  checked again=20
+  <LI>always have "failure atomicity" (a term used by Joshua Bloch) : if =
+an=20
+  immutable object throws an exception, it's never left in an =
+undesirable or=20
+  indeterminate state </LI></UL><SPAN class=3Dhighlight>Immutable =
+objects have a=20
+very compelling list of positive qualities. Without question, they are =
+among the=20
+simplest and most robust kinds of classes you can possibly build. When =
+you=20
+create immutable classes, entire categories of problems simply =
+disappear.</SPAN>=20
+
+<P>Make a class immutable by following these guidelines :=20
+<UL>
+  <LI>ensure the class cannot be overridden - make the class =
+<TT>final</TT>, or=20
+  use static factories and keep constructors private=20
+  <LI>make fields <TT>private</TT> and <TT>final</TT>=20
+  <LI>force callers to construct an object completely in a single step, =
+instead=20
+  of using a no-argument constructor combined with subsequent calls to=20
+  <TT>setXXX</TT> methods (that is, <A=20
+  href=3D"http://www.javapractices.com/topic/Topic84.cjp">avoid the Java =
+Beans=20
+  convention</A>)=20
+  <LI>do not provide any methods which can change the state of the =
+object in any=20
+  way - not just <TT>setXXX</TT> methods, but any method which can =
+change state=20
+  <LI>if the class has any mutable object fields, then they must be <A=20
+  =
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D15">defens=
+ively=20
+  copied</A> when passed between the class and its caller </LI></UL>In =
+<I><A=20
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0321356683/ref=3Dnosim/jav=
+apractices-20">Effective=20
+Java</A></I>, Joshua Bloch makes this compelling recommendation :=20
+<P><B>"Classes should be immutable unless there's a very good reason to =
+make=20
+them mutable....If a class cannot be made immutable, limit its =
+mutability as=20
+much as possible."</B>=20
+<P>It's interesting to note that <TT><A=20
+href=3D"http://java.sun.com/javase/6/docs/api/java/math/BigDecimal.html">=
+BigDecimal</A></TT>=20
+is technically <EM>not</EM> immutable, since it's not <TT>final</TT>.=20
+<P><B>Example</B> <BR><PRE>
+<SPAN class=3Dkeyword>import</SPAN> java.util.Date;
+
+<SPAN class=3Dcomment>/**
+* Planet is an immutable class, since there is no way to change
+* its state after construction.
+*/</SPAN>
+<SPAN class=3Dkeyword>public</SPAN> <SPAN class=3Dkeyword>final</SPAN> =
+<SPAN class=3Dkeyword>class</SPAN> Planet {
+
+  <SPAN class=3Dkeyword>public</SPAN> Planet (<SPAN =
+class=3Dkeyword>double</SPAN> aMass, String aName, Date =
+aDateOfDiscovery) {
+     fMass =3D aMass;
+     fName =3D aName;
+     <SPAN class=3Dcomment>//make a private copy of aDateOfDiscovery
+</SPAN>     <SPAN class=3Dcomment>//this is the only way to keep the =
+fDateOfDiscovery
+</SPAN>     <SPAN class=3Dcomment>//field private, and shields this =
+class from any changes that=20
+</SPAN>     <SPAN class=3Dcomment>//the caller may make to the original =
+aDateOfDiscovery object
+</SPAN>     fDateOfDiscovery =3D <SPAN class=3Dkeyword>new</SPAN> =
+Date(aDateOfDiscovery.getTime());
+  }
+
+  <SPAN class=3Dcomment>/**
+  * Returns a primitive value.
+  *
+  * The caller can do whatever they want with the return value, without=20
+  * affecting the internals of this class. Why? Because this is a =
+primitive=20
+  * value. The caller sees its "own" double that simply has the
+  * same value as fMass.
+  */</SPAN>
+  <SPAN class=3Dkeyword>public</SPAN> <SPAN =
+class=3Dkeyword>double</SPAN> getMass() {
+    <SPAN class=3Dkeyword>return</SPAN> fMass;
+  }
+
+  <SPAN class=3Dcomment>/**
+  * Returns an immutable object.
+  *
+  * The caller gets a direct reference to the internal field. But this =
+is not=20
+  * dangerous, since String is immutable and cannot be changed.
+  */</SPAN>
+  <SPAN class=3Dkeyword>public</SPAN> String getName() {
+    <SPAN class=3Dkeyword>return</SPAN> fName;
+  }
+
+<SPAN class=3Dcomment>//  /**
+</SPAN><SPAN class=3Dcomment>//  * Returns a mutable object - likely bad =
+style.
+</SPAN><SPAN class=3Dcomment>//  *
+</SPAN><SPAN class=3Dcomment>//  * The caller gets a direct reference to =
+the internal field. This is usually dangerous,=20
+</SPAN><SPAN class=3Dcomment>//  * since the Date object state can be =
+changed both by this class and its caller.
+</SPAN><SPAN class=3Dcomment>//  * That is, this class is no longer in =
+complete control of fDate.
+</SPAN><SPAN class=3Dcomment>//  */
+</SPAN><SPAN class=3Dcomment>//  public Date getDateOfDiscovery() {
+</SPAN><SPAN class=3Dcomment>//    return fDateOfDiscovery;
+</SPAN><SPAN class=3Dcomment>//  }
+</SPAN>
+  <SPAN class=3Dcomment>/**
+  * Returns a mutable object - good style.
+  *=20
+  * Returns a defensive copy of the field.
+  * The caller of this method can do anything they want with the
+  * returned Date object, without affecting the internals of this
+  * class in any way. Why? Because they do not have a reference to=20
+  * fDate. Rather, they are playing with a second Date that initially =
+has the=20
+  * same data as fDate.
+  */</SPAN>
+  <SPAN class=3Dkeyword>public</SPAN> Date getDateOfDiscovery() {
+    <SPAN class=3Dkeyword>return</SPAN> <SPAN class=3Dkeyword>new</SPAN> =
+Date(fDateOfDiscovery.getTime());
+  }
+
+  <SPAN class=3Dcomment>// PRIVATE //
+</SPAN>
+  <SPAN class=3Dcomment>/**
+  * Final primitive data is always immutable.
+  */</SPAN>
+  <SPAN class=3Dkeyword>private</SPAN> <SPAN =
+class=3Dkeyword>final</SPAN> <SPAN class=3Dkeyword>double</SPAN> fMass;
+
+  <SPAN class=3Dcomment>/**
+  * An immutable object field. (String objects never change state.)
+  */</SPAN>
+  <SPAN class=3Dkeyword>private</SPAN> <SPAN =
+class=3Dkeyword>final</SPAN> String fName;
+
+  <SPAN class=3Dcomment>/**
+  * A mutable object field. In this case, the state of this mutable =
+field
+  * is to be changed only by this class. (In other cases, it makes =
+perfect
+  * sense to allow the state of a field to be changed outside the native
+  * class; this is the case when a field acts as a "pointer" to an =
+object
+  * created elsewhere.)
+  */</SPAN>
+  <SPAN class=3Dkeyword>private</SPAN> <SPAN =
+class=3Dkeyword>final</SPAN> Date fDateOfDiscovery;
+}
+=20
+</PRE><BR><BR>Note that <A=20
+href=3D"http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/javadoc.html=
+">javadoc=20
+1.4</A> includes the <TT>-tag</TT> option, whereby simple custom tags =
+may be=20
+defined. One might define an <TT>@is.Immutable</TT> tag, for example, to =
+
+document a class as being immutable. <BR><BR></DIV>
+<DIV style=3D"FLOAT: right">
+<OBJECT id=3Dsquare_javarebel_banner=20
+codeBase=3Dhttp://download.macromedia.com/pub/shockwave/cabs/flash/swflas=
+h.cab#version=3D6,0,0,0=20
+height=3D192 width=3D230 align=3Dmiddle=20
+classid=3Dclsid:d27cdb6e-ae6d-11cf-96b8-444553540000><PARAM =
+NAME=3D"allowScriptAccess" VALUE=3D"sameDomain"><PARAM =
+NAME=3D"allowFullScreen" VALUE=3D"false"><PARAM NAME=3D"movie" =
+VALUE=3D"/square_javarebel_banner.swf"><PARAM NAME=3D"quality" =
+VALUE=3D"high"><PARAM NAME=3D"bgcolor" VALUE=3D"#ffffff"><PARAM =
+NAME=3D"clickTAG" =
+VALUE=3D"http://www.zeroturnaround.com/"></OBJECT></DIV>
+<DIV class=3Dtopic-section>See Also :</DIV>
+<DIV class=3Dmain-body><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D6">Validat=
+e state=20
+with class invariants</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D12">Copy=20
+constructors</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D15">Defens=
+ive=20
+copying</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D21">Factor=
+y=20
+methods</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D23">Use =
+final=20
+liberally</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D28">Implem=
+enting=20
+hashCode</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D34">Lazy=20
+initialization</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D48">Docume=
+nt thread=20
+safety</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D84">Avoid =
+JavaBeans=20
+style of construction</A> <BR><A=20
+href=3D"http://www.javapractices.com/topic/TopicAction.do?Id=3D187">Model=
+=20
+Objects</A> <BR></DIV>
+<DIV class=3Dtopic-section>Would you use this technique?</DIV>
+<DIV class=3Dmain-body>
+<FORM action=3D/vote/AddVoteAction.do method=3Dpost>Yes<INPUT =
+type=3Dradio value=3DY=20
+name=3DChoice> &nbsp;&nbsp;No<INPUT type=3Dradio value=3DN =
+name=3DChoice>=20
+&nbsp;&nbsp;Undecided<INPUT type=3Dradio value=3D? name=3DChoice> =
+&nbsp;&nbsp;<INPUT type=3Dsubmit value=3DVote> <INPUT type=3Dhidden =
+value=3DApply=20
+name=3DOperation> <INPUT type=3Dhidden value=3D29 name=3DTopicId> =
+</FORM></DIV>
+<DIV class=3Dtopic-section>Add your comment to this Topic :</DIV>
+<DIV class=3Dmain-body>
+<P align=3Dleft>
+<FORM action=3D/feedback/FeedbackAction.do?Operation=3DApply =
+method=3Dpost>
+<TABLE align=3Dcenter>
+  <TBODY>
+  <TR>
+    <TD><TEXTAREA class=3Dfeedback name=3DComment rows=3D3 =
+cols=3D50></TEXTAREA></TD></TR>
+  <TR align=3Dmiddle>
+    <TD><INPUT type=3Dsubmit value=3D"Add =
+Comment"></TD></TR></TBODY></TABLE><INPUT=20
+type=3Dhidden value=3D29 name=3DTopicId> </FORM></P></DIV></DIV>
+<DIV class=3Dlegalese align=3Dcenter>=C2=A9 2008 Hirondelle Systems | <A =
+
+href=3D"http://www.javapractices.com/source/SourceAction.do"><B>Source=20
+Code</B></A><IMG class=3Dno-margin alt=3D""=20
+src=3D"http://www.javapractices.com/images/goldstar.gif"> | <A=20
+href=3D"mailto:webmaster@javapractices.com">Contact</A> | <A=20
+href=3D"http://creativecommons.org/licenses/by-nc-sa/1.0/">License</A> | =
+<A=20
+href=3D"http://www.javapractices.com/quotes/SlideshowAction.do">Quotes</A=
+> | <A=20
+href=3D"http://www.javapractices.com/apps/cjp.rss">RSS</A> <!-- =
+ukey=3D"2AC36CD2" --><!-- ckey=3D"16DF3D87" --><BR>Individual code =
+snippets can=20
+be used under this <A=20
+href=3D"http://creativecommons.org/licenses/by/3.0/">license</A> - Last =
+updated on=20
+September 6, 2008.<BR>Over 98,000 visits last month - <SPAN=20
+title=3D"Java Practices 2.5.0, Fri May 30 00:00:00 EDT 2008">Built =
+with</SPAN> <A=20
+href=3D"http://www.web4j.com/">WEB4J</A>.<BR>- In Memoriam : Bill Dirani =
+- </DIV>
+<SCRIPT src=3D"http://www.google-analytics.com/urchin.js" =
+type=3Dtext/javascript>
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+_uacct =3D "UA-2633428-1";
+urchinTracker();
+</SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0095_01C94BF5.F6E31E00
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.javapractices.com/images/goldstar.gif
+
+R0lGODlhFAASAMQAAL+/v56NRPPXWNK9UufTb+/WWPbWWLurTr6vTvHaZqCVRsrEoeDLVufPV/HV
+V7u3nL6qXMTCrOzTcLikTfPZY+rPWKaaVNW/U+zTVwAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEA
+AAAALAAAAAAUABIAAAVgICCOZGmeQISuIsOiEGa85sHMNGkbVC4eOxyKUCgWgA2DQcAUSEiPQMV4
+vDWZg0UpwJ0UG82BGMUtX8RoVlkRwA5eXAWC24TLy23BS3EvO/QrFnIII3QJK4NbbSuEZCUhADs=
+
+------=_NextPart_000_0095_01C94BF5.F6E31E00
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.javapractices.com/stylesheet3.css
+
+BODY {
+	COLOR: black; FONT-FAMILY: Verdana, sans-serif; POSITION: relative; =
+BACKGROUND-COLOR: rgb(191,191,191); TEXT-ALIGN: justify
+}
+LI {
+	LIST-STYLE-TYPE: square
+}
+IMG {
+	MARGIN: 0.5em
+}
+IMG.no-margin {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; PADDING-TOP: 0px
+}
+TD {
+	VERTICAL-ALIGN: top
+}
+ACRONYM[title] {
+	CURSOR: help; BORDER-BOTTOM: gray 1px solid
+}
+:focus {
+	BACKGROUND: #00ffff
+}
+.main-title {
+	FONT-WEIGHT: bolder; FONT-SIZE: 200%
+}
+.legalese {
+	MARGIN-TOP: 1em; FONT-SIZE: 80%; MARGIN-BOTTOM: 0em; TEXT-ALIGN: center
+}
+.menu-bar {
+	CLEAR: both; PADDING-RIGHT: 0.25em; PADDING-LEFT: 0.25em; TEXT-ALIGN: =
+center
+}
+FORM.search-form {
+	DISPLAY: inline
+}
+IMG.banner {
+	CLEAR: both
+}
+.message {
+	FONT-WEIGHT: bolder
+}
+.warning {
+	FONT-WEIGHT: bolder
+}
+.error {
+	FONT-WEIGHT: bolder; COLOR: rgb(255,0,0)
+}
+.error:unknown {
+	content: "*** "
+}
+.error:unknown {
+	content: " ***"
+}
+P.display-messages {
+	TEXT-ALIGN: center
+}
+.highlight {
+	BACKGROUND-COLOR: #fffde3
+}
+.keyword {
+	FONT-WEIGHT: bolder; COLOR: #000080
+}
+.literal {
+	COLOR: blue
+}
+.comment {
+	COLOR: rgb(0,102,0)
+}
+.row_highlight {
+	BACKGROUND-COLOR: rgb(229,229,229)
+}
+.help {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 0.3em; BORDER-TOP: black =
+1px solid; PADDING-LEFT: 0.3em; FONT-SIZE: 80%; MARGIN-BOTTOM: 1em; =
+PADDING-BOTTOM: 0.3em; MARGIN-LEFT: auto; BORDER-LEFT: black 1px solid; =
+WIDTH: 60%; MARGIN-RIGHT: auto; PADDING-TOP: 0.3em; BORDER-BOTTOM: black =
+1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #fffde3
+}
+TABLE.report {
+	BORDER-RIGHT: rgb(114,114,114) 2px solid; BORDER-TOP: rgb(114,114,114) =
+2px solid; BORDER-LEFT: rgb(114,114,114) 2px solid; BORDER-BOTTOM: =
+rgb(114,114,114) 2px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: =
+rgb(211,211,211); empty-cells: show; caption-side: bottom
+}
+TABLE.report TD {
+	BORDER-RIGHT: rgb(165,165,165) 1px ridge; PADDING-RIGHT: 0.3em; =
+BORDER-TOP: rgb(165,165,165) 1px ridge; PADDING-LEFT: 0.3em; =
+PADDING-BOTTOM: 0.3em; BORDER-LEFT: rgb(165,165,165) 1px ridge; =
+PADDING-TOP: 0.3em; BORDER-BOTTOM: rgb(165,165,165) 1px ridge
+}
+TH {
+	BORDER-RIGHT: rgb(165,165,165) 1px ridge; PADDING-RIGHT: 0.3em; =
+BORDER-TOP: rgb(165,165,165) 1px ridge; PADDING-LEFT: 0.3em; =
+PADDING-BOTTOM: 0.3em; BORDER-LEFT: rgb(165,165,165) 1px ridge; =
+PADDING-TOP: 0.3em; BORDER-BOTTOM: rgb(165,165,165) 1px ridge
+}
+TABLE.report TH A {
+	TEXT-DECORATION: none
+}
+TABLE.report TH IMG {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; PADDING-TOP: 0px
+}
+TABLE.report TBODY {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; =
+BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid
+}
+TABLE.report TR:hover {
+	BACKGROUND-COLOR: #fffde3
+}
+TABLE.report CAPTION {
+	PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; FONT-WEIGHT: bold; =
+PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em; TEXT-ALIGN: center
+}
+TABLE.report CAPTION:unknown {
+	content: " - "
+}
+TABLE.report CAPTION:unknown {
+	content: " - "
+}
+TABLE.report-panel {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; =
+BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; =
+BORDER-COLLAPSE: collapse; empty-cells: show; caption-side: bottom
+}
+TABLE.report-panel TH {
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: rgb(211,211,211)
+}
+TABLE.report-panel TH.not-current {
+	BACKGROUND-COLOR: rgb(153,153,153)
+}
+LABEL:unknown {
+	content: " :"
+}
+LABEL.mandatory:unknown {
+	content: " * :"
+}
+LABEL {
+	FONT-WEIGHT: bold
+}
+FORM.user-input TABLE {
+	BORDER-RIGHT: rgb(114,114,114) 2px solid; PADDING-RIGHT: 1em; =
+BORDER-TOP: rgb(114,114,114) 2px solid; PADDING-LEFT: 1em; =
+PADDING-BOTTOM: 1em; BORDER-LEFT: rgb(114,114,114) 2px solid; =
+PADDING-TOP: 1em; BORDER-BOTTOM: rgb(114,114,114) 2px solid; =
+BACKGROUND-COLOR: rgb(211,211,211)
+}
+FORM.user-input INPUT {
+	MARGIN: 0px
+}
+FORM.log-off {
+	DISPLAY: inline
+}
+TD.performance-high {
+	COLOR: green; FONT-FAMILY: monospace
+}
+TD.performance-medium {
+	COLOR: rgb(111,87,221); FONT-FAMILY: monospace
+}
+TD.performance-low {
+	COLOR: rgb(225,96,89); FONT-FAMILY: monospace
+}
+.diagnostic-header {
+	FONT-WEIGHT: bold; FONT-SIZE: 125%
+}
+TABLE.layout {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 85%; =
+PADDING-TOP: 0px; empty-cells: show; border-spacing: 0px
+}
+.page-title {
+	CLEAR: both; BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 0.25em; =
+BORDER-TOP: gray 1px solid; PADDING-LEFT: 0.25em; FONT-SIZE: 250%; =
+PADDING-BOTTOM: 0.25em; BORDER-LEFT: gray 1px solid; PADDING-TOP: =
+0.25em; BORDER-BOTTOM: gray 1px solid; BACKGROUND-COLOR: =
+rgb(216,216,216); TEXT-ALIGN: center
+}
+.page-section {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: gray 1px =
+solid; PADDING-LEFT: 2px; FONT-SIZE: 120%; PADDING-BOTTOM: 2px; =
+BORDER-LEFT: gray 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: gray 1px =
+solid; FONT-FAMILY: system; BACKGROUND-COLOR: rgb(216,216,216)
+}
+.topic-section {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 120%; PADDING-BOTTOM: =
+2px; PADDING-TOP: 2px; FONT-FAMILY: system
+}
+.home-page-section {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 0.4em; PADDING-LEFT: =
+0.4em; PADDING-BOTTOM: 0.4em; BORDER-LEFT: gray 1px solid; PADDING-TOP: =
+0.4em
+}
+.quotation-section {
+	PADDING-RIGHT: 0.4em; PADDING-LEFT: 0.4em; FONT-SIZE: 200%; =
+PADDING-BOTTOM: 0.4em; PADDING-TOP: 0.4em; BACKGROUND-COLOR: =
+rgb(171,112,56)
+}
+DIV.author {
+	MARGIN-TOP: 0.25em; PADDING-TOP: 0em; TEXT-ALIGN: right
+}
+.quotation {
+	MARGIN-LEFT: 4%; MARGIN-RIGHT: 4%
+}
+.quotation-slideshow {
+	MARGIN-LEFT: 4%; MARGIN-RIGHT: 4%
+}
+.main-body {
+	MARGIN-TOP: 0.5em; MARGIN-BOTTOM: 0.5em
+}
+.main-layout {
+	MARGIN-LEFT: 8%; MARGIN-RIGHT: 8%
+}
+.chapters {
+	PADDING-RIGHT: 0.4em; MARGIN-TOP: 4px; PADDING-LEFT: 0.4em; FONT-SIZE: =
+80%; MARGIN-BOTTOM: 4px
+}
+.topic-left {
+	MARGIN-RIGHT: 50%
+}
+IMG.banner-ad {
+	BORDER-LEFT-COLOR: #003399; BORDER-BOTTOM-COLOR: #003399; MARGIN: 0px; =
+BORDER-TOP-COLOR: #003399; BORDER-RIGHT-COLOR: #003399
+}
+TEXTAREA.feedback {
+	BACKGROUND-COLOR: rgb(216,216,216)
+}
+INPUT.search {
+	BACKGROUND-COLOR: rgb(216,216,216)
+}
+
+@media Print   =20
+{
+* {
+	BACKGROUND: white; COLOR: black! important
+}
+.menu-bar {
+	DISPLAY: none
+}
+.title-bar {
+	DISPLAY: none
+}
+DIV.sidebar {
+	DISPLAY: none
+}
+.legalese {
+	DISPLAY: none
+}
+BODY {
+	FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman", serif
+}
+A {
+	TEXT-DECORATION: none
+}
+TABLE.report {
+	PAGE-BREAK-BEFORE: always
+}
+
+}
+
+------=_NextPart_000_0095_01C94BF5.F6E31E00
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.google-analytics.com/urchin.js
+
+//-- Google Analytics Urchin Module=0A=
+//-- Copyright 2007 Google, All Rights Reserved.=0A=
+=0A=
+//-- Urchin On Demand Settings ONLY=0A=
+var _uacct=3D"";			// set up the Urchin Account=0A=
+var _userv=3D1;			// service mode (0=3Dlocal,1=3Dremote,2=3Dboth)=0A=
+=0A=
+//-- UTM User Settings=0A=
+var _ufsc=3D1;			// set client info flag (1=3Don|0=3Doff)=0A=
+var _udn=3D"auto";		// (auto|none|domain) set the domain name for cookies=0A=
+var _uhash=3D"on";		// (on|off) unique domain hash for cookies=0A=
+var _utimeout=3D"1800";   	// set the inactive session timeout in seconds=0A=
+var _ugifpath=3D"/__utm.gif";	// set the web path to the __utm.gif file=0A=
+var _utsp=3D"|";			// transaction field separator=0A=
+var _uflash=3D1;			// set flash version detect option (1=3Don|0=3Doff)=0A=
+var _utitle=3D1;			// set the document title detect option =
+(1=3Don|0=3Doff)=0A=
+var _ulink=3D0;			// enable linker functionality (1=3Don|0=3Doff)=0A=
+var _uanchor=3D0;			// enable use of anchors for campaign =
+(1=3Don|0=3Doff)=0A=
+var _utcp=3D"/";			// the cookie path for tracking=0A=
+var _usample=3D100;		// The sampling % of visitors to track (1-100).=0A=
+=0A=
+//-- UTM Campaign Tracking Settings=0A=
+var _uctm=3D1;			// set campaign tracking module (1=3Don|0=3Doff)=0A=
+var _ucto=3D"15768000";		// set timeout in seconds (6 month default)=0A=
+var _uccn=3D"utm_campaign";	// name=0A=
+var _ucmd=3D"utm_medium";		// medium (cpc|cpm|link|email|organic)=0A=
+var _ucsr=3D"utm_source";		// source=0A=
+var _uctr=3D"utm_term";		// term/keyword=0A=
+var _ucct=3D"utm_content";	// content=0A=
+var _ucid=3D"utm_id";		// id number=0A=
+var _ucno=3D"utm_nooverride";	// don't override=0A=
+=0A=
+//-- Auto/Organic Sources and Keywords=0A=
+var _uOsr=3Dnew Array();=0A=
+var _uOkw=3Dnew Array();=0A=
+_uOsr[0]=3D"google";	_uOkw[0]=3D"q";=0A=
+_uOsr[1]=3D"yahoo";	_uOkw[1]=3D"p";=0A=
+_uOsr[2]=3D"msn";		_uOkw[2]=3D"q";=0A=
+_uOsr[3]=3D"aol";		_uOkw[3]=3D"query";=0A=
+_uOsr[4]=3D"aol";		_uOkw[4]=3D"encquery";=0A=
+_uOsr[5]=3D"lycos";	_uOkw[5]=3D"query";=0A=
+_uOsr[6]=3D"ask";		_uOkw[6]=3D"q";=0A=
+_uOsr[7]=3D"altavista";	_uOkw[7]=3D"q";=0A=
+_uOsr[8]=3D"netscape";	_uOkw[8]=3D"query";=0A=
+_uOsr[9]=3D"cnn";	_uOkw[9]=3D"query";=0A=
+_uOsr[10]=3D"looksmart";	_uOkw[10]=3D"qt";=0A=
+_uOsr[11]=3D"about";	_uOkw[11]=3D"terms";=0A=
+_uOsr[12]=3D"mamma";	_uOkw[12]=3D"query";=0A=
+_uOsr[13]=3D"alltheweb";	_uOkw[13]=3D"q";=0A=
+_uOsr[14]=3D"gigablast";	_uOkw[14]=3D"q";=0A=
+_uOsr[15]=3D"voila";	_uOkw[15]=3D"rdata";=0A=
+_uOsr[16]=3D"virgilio";	_uOkw[16]=3D"qs";=0A=
+_uOsr[17]=3D"live";	_uOkw[17]=3D"q";=0A=
+_uOsr[18]=3D"baidu";	_uOkw[18]=3D"wd";=0A=
+_uOsr[19]=3D"alice";	_uOkw[19]=3D"qs";=0A=
+_uOsr[20]=3D"yandex";	_uOkw[20]=3D"text";=0A=
+_uOsr[21]=3D"najdi";	_uOkw[21]=3D"q";=0A=
+_uOsr[22]=3D"aol";	_uOkw[22]=3D"q";=0A=
+_uOsr[23]=3D"club-internet"; _uOkw[23]=3D"query";=0A=
+_uOsr[24]=3D"mama";	_uOkw[24]=3D"query";=0A=
+_uOsr[25]=3D"seznam";	_uOkw[25]=3D"q";=0A=
+_uOsr[26]=3D"search";	_uOkw[26]=3D"q";=0A=
+_uOsr[27]=3D"wp";	_uOkw[27]=3D"szukaj";=0A=
+_uOsr[28]=3D"onet";	_uOkw[28]=3D"qt";=0A=
+_uOsr[29]=3D"netsprint";	_uOkw[29]=3D"q";=0A=
+_uOsr[30]=3D"google.interia";	_uOkw[30]=3D"q";=0A=
+_uOsr[31]=3D"szukacz";	_uOkw[31]=3D"q";=0A=
+_uOsr[32]=3D"yam";	_uOkw[32]=3D"k";=0A=
+_uOsr[33]=3D"pchome";	_uOkw[33]=3D"q";=0A=
+_uOsr[34]=3D"kvasir";	_uOkw[34]=3D"searchExpr";=0A=
+_uOsr[35]=3D"sesam";	_uOkw[35]=3D"q";=0A=
+_uOsr[36]=3D"ozu"; _uOkw[36]=3D"q";=0A=
+_uOsr[37]=3D"terra"; _uOkw[37]=3D"query";=0A=
+_uOsr[38]=3D"nostrum"; _uOkw[38]=3D"query";=0A=
+_uOsr[39]=3D"mynet"; _uOkw[39]=3D"q";=0A=
+_uOsr[40]=3D"ekolay"; _uOkw[40]=3D"q";=0A=
+_uOsr[41]=3D"search.ilse"; _uOkw[41]=3D"search_for";=0A=
+=0A=
+//-- Auto/Organic Keywords to Ignore=0A=
+var _uOno=3Dnew Array();=0A=
+//_uOno[0]=3D"urchin";=0A=
+//_uOno[1]=3D"urchin.com";=0A=
+//_uOno[2]=3D"www.urchin.com";=0A=
+=0A=
+//-- Referral domains to Ignore=0A=
+var _uRno=3Dnew Array();=0A=
+//_uRno[0]=3D".urchin.com";=0A=
+=0A=
+//-- **** Don't modify below this point ***=0A=
+var =
+_uff,_udh,_udt,_ubl=3D0,_udo=3D"",_uu,_ufns=3D0,_uns=3D0,_ur=3D"-",_ufno=3D=
+0,_ust=3D0,_ubd=3Ddocument,_udl=3D_ubd.location,_udlh=3D"",_uwv=3D"1.3";=0A=
+var _ugifpath2=3D"http://www.google-analytics.com/__utm.gif";=0A=
+if (_udl.hash) _udlh=3D_udl.href.substring(_udl.href.indexOf('#'));=0A=
+if (_udl.protocol=3D=3D"https:") =
+_ugifpath2=3D"https://ssl.google-analytics.com/__utm.gif";=0A=
+if (!_utcp || _utcp=3D=3D"") _utcp=3D"/";=0A=
+function urchinTracker(page) {=0A=
+ if (_udl.protocol=3D=3D"file:") return;=0A=
+ if (_uff && (!page || page=3D=3D"")) return;=0A=
+ var a,b,c,xx,v,z,k,x=3D"",s=3D"",f=3D0,nv=3D0;=0A=
+ var nx=3D" expires=3D"+_uNx()+";";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ _udh=3D_uDomain();=0A=
+ if (!_uVG()) return;=0A=
+ _uu=3DMath.round(Math.random()*2147483647);=0A=
+ _udt=3Dnew Date();=0A=
+ _ust=3DMath.round(_udt.getTime()/1000);=0A=
+ a=3Ddc.indexOf("__utma=3D"+_udh+".");=0A=
+ b=3Ddc.indexOf("__utmb=3D"+_udh);=0A=
+ c=3Ddc.indexOf("__utmc=3D"+_udh);=0A=
+ if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ if (_utimeout && _utimeout!=3D"") {=0A=
+  x=3Dnew Date(_udt.getTime()+(_utimeout*1000));=0A=
+  x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ }=0A=
+ if (_ulink) {=0A=
+  if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+  s+=3D_udl.search;=0A=
+  if(s && s!=3D"" && s.indexOf("__utma=3D")>=3D0) {=0A=
+   if (!(_uIN(a=3D_uGC(s,"__utma=3D","&")))) a=3D"-";=0A=
+   if (!(_uIN(b=3D_uGC(s,"__utmb=3D","&")))) b=3D"-";=0A=
+   if (!(_uIN(c=3D_uGC(s,"__utmc=3D","&")))) c=3D"-";=0A=
+   v=3D_uGC(s,"__utmv=3D","&");=0A=
+   z=3D_uGC(s,"__utmz=3D","&");=0A=
+   k=3D_uGC(s,"__utmk=3D","&");=0A=
+   xx=3D_uGC(s,"__utmx=3D","&");=0A=
+   if ((k*1) !=3D ((_uHash(a+b+c+xx+z+v)*1)+(_udh*1))) =
+{_ubl=3D1;a=3D"-";b=3D"-";c=3D"-";xx=3D"-";z=3D"-";v=3D"-";}=0A=
+   if (a!=3D"-" && b!=3D"-" && c!=3D"-") f=3D1;=0A=
+   else if(a!=3D"-") f=3D2;=0A=
+  }=0A=
+ }=0A=
+ if(f=3D=3D1) {=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+c+"; path=3D"+_utcp+";"+_udo;=0A=
+ } else if (f=3D=3D2) {=0A=
+  a=3D_uFixA(s,"&",_ust);=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ } else if (a>=3D0 && b>=3D0 && c>=3D0) {=0A=
+   b =3D _uGC(dc,"__utmb=3D"+_udh,";");=0A=
+   b =3D ("-" =3D=3D b) ? _udh : b;  =0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+ } else {=0A=
+  if (a>=3D0) a=3D_uFixA(_ubd.cookie,";",_ust);=0A=
+  else {=0A=
+   a=3D_udh+"."+_uu+"."+_ust+"."+_ust+"."+_ust+".1";=0A=
+   nv=3D1;=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ }=0A=
+ if (_ulink && xx && xx!=3D"" && xx!=3D"-") {=0A=
+   xx=3D_uUES(xx);=0A=
+   if (xx.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmx=3D"+xx+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ if (_ulink && v && v!=3D"" && v!=3D"-") {=0A=
+  v=3D_uUES(v);=0A=
+  if (v.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmv=3D"+v+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ var wc=3Dwindow;=0A=
+ var c=3D_ubd.cookie;=0A=
+ if(wc && wc.gaGlobal && wc.gaGlobal.dh=3D=3D_udh){=0A=
+  var g=3Dwc.gaGlobal;=0A=
+  var ua=3Dc.split("__utma=3D"+_udh+".")[1].split(";")[0].split(".");=0A=
+  if(g.sid)ua[3]=3Dg.sid;=0A=
+  if(nv>0){=0A=
+   ua[2]=3Dua[3];=0A=
+   if(g.vid){=0A=
+    var v=3Dg.vid.split(".");=0A=
+    ua[0]=3Dv[0];=0A=
+    ua[1]=3Dv[1];=0A=
+   }=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+_udh+"."+ua.join(".")+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ _uInfo(page);=0A=
+ _ufns=3D0;=0A=
+ _ufno=3D0;=0A=
+ if (!page || page=3D=3D"") _uff=3D1;=0A=
+}=0A=
+function _uGH() {=0A=
+ var hid;=0A=
+ var wc=3Dwindow;=0A=
+ if (wc && wc.gaGlobal && wc.gaGlobal.hid) {=0A=
+  hid=3Dwc.gaGlobal.hid;=0A=
+ } else {=0A=
+  hid=3DMath.round(Math.random()*0x7fffffff);=0A=
+  if (!wc.gaGlobal) wc.gaGlobal=3D{};=0A=
+  wc.gaGlobal.hid=3Dhid;=0A=
+ }=0A=
+ return hid;=0A=
+}=0A=
+function _uInfo(page) {=0A=
+ var p,s=3D"",dm=3D"",pg=3D_udl.pathname+_udl.search;=0A=
+ if (page && page!=3D"") pg=3D_uES(page,1);=0A=
+ _ur=3D_ubd.referrer;=0A=
+ if (!_ur || _ur=3D=3D"") { _ur=3D"-"; }=0A=
+ else {=0A=
+  dm=3D_ubd.domain;=0A=
+  if(_utcp && _utcp!=3D"/") dm+=3D_utcp;=0A=
+  p=3D_ur.indexOf(dm);=0A=
+  if ((p>=3D0) && (p<=3D8)) { _ur=3D"0"; }=0A=
+  if (_ur.indexOf("[")=3D=3D0 && =
+_ur.lastIndexOf("]")=3D=3D(_ur.length-1)) { _ur=3D"-"; }=0A=
+ }=0A=
+ s+=3D"&utmn=3D"+_uu;=0A=
+ if (_ufsc) s+=3D_uBInfo();=0A=
+ if (_uctm) s+=3D_uCInfo();=0A=
+ if (_utitle && _ubd.title && _ubd.title!=3D"") =
+s+=3D"&utmdt=3D"+_uES(_ubd.title);=0A=
+ if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ s+=3D"&utmhid=3D"+_uGH();=0A=
+ s+=3D"&utmr=3D"+_ur;=0A=
+ s+=3D"&utmp=3D"+pg;=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uVoid() { return; }=0A=
+function _uCInfo() {=0A=
+ if (!_ucto || _ucto=3D=3D"") { _ucto=3D"15768000"; }=0A=
+ if (!_uVG()) return;=0A=
+ var =
+c=3D"",t=3D"-",t2=3D"-",t3=3D"-",o=3D0,cs=3D0,cn=3D0,i=3D0,z=3D"-",s=3D""=
+;=0A=
+ if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+ s+=3D_udl.search;=0A=
+ var x=3Dnew Date(_udt.getTime()+(_ucto*1000));=0A=
+ var dc=3D_ubd.cookie;=0A=
+ x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ if (_ulink && !_ubl) {=0A=
+  z=3D_uUES(_uGC(s,"__utmz=3D","&"));=0A=
+  if (z!=3D"-" && z.indexOf(";")=3D=3D-1) { =
+_ubd.cookie=3D"__utmz=3D"+z+"; path=3D"+_utcp+";"+x+_udo; return ""; }=0A=
+ }=0A=
+ z=3Ddc.indexOf("__utmz=3D"+_udh+".");=0A=
+ if (z>-1) { z=3D_uGC(dc,"__utmz=3D"+_udh+".",";"); }=0A=
+ else { z=3D"-"; }=0A=
+ t=3D_uGC(s,_ucid+"=3D","&");=0A=
+ t2=3D_uGC(s,_ucsr+"=3D","&");=0A=
+ t3=3D_uGC(s,"gclid=3D","&");=0A=
+ if ((t!=3D"-" && t!=3D"") || (t2!=3D"-" && t2!=3D"") || (t3!=3D"-" && =
+t3!=3D"")) {=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"utmcid=3D"+_uEC(t);=0A=
+  if (t2!=3D"-" && t2!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmcsr=3D"+_uEC(t2); }=0A=
+  if (t3!=3D"-" && t3!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmgclid=3D"+_uEC(t3); }=0A=
+  t=3D_uGC(s,_uccn+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmccn=3D"+_uEC(t);=0A=
+  else c+=3D"|utmccn=3D(not+set)";=0A=
+  t=3D_uGC(s,_ucmd+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcmd=3D"+_uEC(t);=0A=
+  else  c+=3D"|utmcmd=3D(not+set)";=0A=
+  t=3D_uGC(s,_uctr+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmctr=3D"+_uEC(t);=0A=
+  else { t=3D_uOrg(1); if (t!=3D"-" && t!=3D"") =
+c+=3D"|utmctr=3D"+_uEC(t); }=0A=
+  t=3D_uGC(s,_ucct+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcct=3D"+_uEC(t);=0A=
+  t=3D_uGC(s,_ucno+"=3D","&");=0A=
+  if (t=3D=3D"1") o=3D1;=0A=
+  if (z!=3D"-" && o=3D=3D1) return "";=0A=
+ }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { c=3D_uOrg(); if (z!=3D"-" && =
+_ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { if (_ufns=3D=3D1)  c=3D_uRef(); if =
+(z!=3D"-" && _ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") {=0A=
+  if (z=3D=3D"-" && _ufns=3D=3D1) { =
+c=3D"utmccn=3D(direct)|utmcsr=3D(direct)|utmcmd=3D(none)"; }=0A=
+  if (c=3D=3D"-" || c=3D=3D"") return "";=0A=
+ }=0A=
+ if (z!=3D"-") {=0A=
+  i=3Dz.indexOf(".");=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  t=3Dz.substring(i+1,z.length);=0A=
+  if (t.toLowerCase()=3D=3Dc.toLowerCase()) cs=3D1;=0A=
+  t=3Dz.substring(0,i);=0A=
+  if ((i=3Dt.lastIndexOf(".")) > -1) {=0A=
+   t=3Dt.substring(i+1,t.length);=0A=
+   cn=3D(t*1);=0A=
+  }=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) {=0A=
+  t=3D_uGC(dc,"__utma=3D"+_udh+".",";");=0A=
+  if ((i=3Dt.lastIndexOf(".")) > 9) {=0A=
+   _uns=3Dt.substring(i+1,t.length);=0A=
+   _uns=3D(_uns*1);=0A=
+  }=0A=
+  cn++;=0A=
+  if (_uns=3D=3D0) _uns=3D1;=0A=
+  _ubd.cookie=3D"__utmz=3D"+_udh+"."+_ust+"."+_uns+"."+cn+"."+c+"; =
+path=3D"+_utcp+"; "+x+_udo;=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) return "&utmcn=3D1";=0A=
+ else return "&utmcr=3D1";=0A=
+}=0A=
+function _uRef() {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k,n;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  k=3Dh.substring(h.indexOf("/"),h.length);=0A=
+  if (k.indexOf("?") > -1) k=3Dk.substring(0,k.indexOf("?"));=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ h=3Dh.toLowerCase();=0A=
+ n=3Dh;=0A=
+ if ((i=3Dn.indexOf(":")) > -1) n=3Dn.substring(0,i);=0A=
+ for (var ii=3D0;ii<_uRno.length;ii++) {=0A=
+  if ((i=3Dn.indexOf(_uRno[ii].toLowerCase())) > -1 && =
+n.length=3D=3D(i+_uRno[ii].length)) { _ufno=3D1; break; }=0A=
+ }=0A=
+ if (h.indexOf("www.")=3D=3D0) h=3Dh.substring(4,h.length);=0A=
+ return =
+"utmccn=3D(referral)|utmcsr=3D"+_uEC(h)+"|"+"utmcct=3D"+_uEC(k)+"|utmcmd=3D=
+referral";=0A=
+}=0A=
+function _uOrg(t) {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ for (var ii=3D0;ii<_uOsr.length;ii++) {=0A=
+  if (h.toLowerCase().indexOf(_uOsr[ii].toLowerCase()) > -1) {=0A=
+   if ((i=3D_ur.indexOf("?"+_uOkw[ii]+"=3D")) > -1 || =
+(i=3D_ur.indexOf("&"+_uOkw[ii]+"=3D")) > -1) {=0A=
+    k=3D_ur.substring(i+_uOkw[ii].length+2,_ur.length);=0A=
+    if ((i=3Dk.indexOf("&")) > -1) k=3Dk.substring(0,i);=0A=
+    for (var yy=3D0;yy<_uOno.length;yy++) {=0A=
+     if (_uOno[yy].toLowerCase()=3D=3Dk.toLowerCase()) { _ufno=3D1; =
+break; }=0A=
+    }=0A=
+    if (t) return _uEC(k);=0A=
+    else return =
+"utmccn=3D(organic)|utmcsr=3D"+_uEC(_uOsr[ii])+"|"+"utmctr=3D"+_uEC(k)+"|=
+utmcmd=3Dorganic";=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+ return "";=0A=
+}=0A=
+function _uGCse() {=0A=
+ var h,p;=0A=
+ h=3Dp=3D_ur.split("://")[1];=0A=
+ if(h.indexOf("/")>-1) {=0A=
+  h=3Dh.split("/")[0];=0A=
+  p=3Dp.substring(p.indexOf("/")+1,p.length);=0A=
+ }=0A=
+ if(p.indexOf("?")>-1) {=0A=
+  p=3Dp.split("?")[0];=0A=
+ }=0A=
+ if(h.toLowerCase().indexOf("google")>-1) {=0A=
+  if(_ur.indexOf("?q=3D")>-1 || _ur.indexOf("&q=3D")>-1) {=0A=
+   if (p.toLowerCase().indexOf("cse")>-1) {=0A=
+    return true;=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+}=0A=
+function _uBInfo() {=0A=
+ var sr=3D"-",sc=3D"-",ul=3D"-",fl=3D"-",cs=3D"-",je=3D1;=0A=
+ var n=3Dnavigator;=0A=
+ if (self.screen) {=0A=
+  sr=3Dscreen.width+"x"+screen.height;=0A=
+  sc=3Dscreen.colorDepth+"-bit";=0A=
+ } else if (self.java) {=0A=
+  var j=3Djava.awt.Toolkit.getDefaultToolkit();=0A=
+  var s=3Dj.getScreenSize();=0A=
+  sr=3Ds.width+"x"+s.height;=0A=
+ }=0A=
+ if (n.language) { ul=3Dn.language.toLowerCase(); }=0A=
+ else if (n.browserLanguage) { ul=3Dn.browserLanguage.toLowerCase(); }=0A=
+ je=3Dn.javaEnabled()?1:0;=0A=
+ if (_uflash) fl=3D_uFlash();=0A=
+ if (_ubd.characterSet) cs=3D_uES(_ubd.characterSet);=0A=
+ else if (_ubd.charset) cs=3D_uES(_ubd.charset);=0A=
+ return =
+"&utmcs=3D"+cs+"&utmsr=3D"+sr+"&utmsc=3D"+sc+"&utmul=3D"+ul+"&utmje=3D"+j=
+e+"&utmfl=3D"+fl;=0A=
+}=0A=
+function __utmSetTrans() {=0A=
+ var e;=0A=
+ if (_ubd.getElementById) e=3D_ubd.getElementById("utmtrans");=0A=
+ else if (_ubd.utmform && _ubd.utmform.utmtrans) =
+e=3D_ubd.utmform.utmtrans;=0A=
+ if (!e) return;=0A=
+ var l=3De.value.split("UTM:");=0A=
+ var i,i2,c;=0A=
+ if (_userv=3D=3D0 || _userv=3D=3D2) i=3Dnew Array();=0A=
+ if (_userv=3D=3D1 || _userv=3D=3D2) { i2=3Dnew Array(); c=3D_uGCS(); }=0A=
+=0A=
+ for (var ii=3D0;ii<l.length;ii++) {=0A=
+  l[ii]=3D_uTrim(l[ii]);=0A=
+  if (l[ii].charAt(0)!=3D'T' && l[ii].charAt(0)!=3D'I') continue;=0A=
+  var r=3DMath.round(Math.random()*2147483647);=0A=
+  if (!_utsp || _utsp=3D=3D"") _utsp=3D"|";=0A=
+  var f=3Dl[ii].split(_utsp),s=3D"";=0A=
+  if (f[0].charAt(0)=3D=3D'T') {=0A=
+   s=3D"&utmt=3Dtran"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmtst=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmtto=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmttx=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmtsp=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmtci=3D"+_uES(f[6]);=0A=
+   f[7]=3D_uTrim(f[7]); if(f[7]&&f[7]!=3D"") =
+s+=3D"&utmtrg=3D"+_uES(f[7]);=0A=
+   f[8]=3D_uTrim(f[8]); if(f[8]&&f[8]!=3D"") =
+s+=3D"&utmtco=3D"+_uES(f[8]);=0A=
+  } else {=0A=
+   s=3D"&utmt=3Ditem"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmipc=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmipn=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmiva=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmipr=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmiqt=3D"+_uES(f[6]);=0A=
+  }=0A=
+  if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+  if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+=0A=
+  if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+   i[ii]=3Dnew Image(1,1);=0A=
+   i[ii].src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+   i[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+  if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+   i2[ii]=3Dnew Image(1,1);=0A=
+   =
+i2[ii].src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D=
+"+c;=0A=
+   i2[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uFlash() {=0A=
+ var f=3D"-",n=3Dnavigator;=0A=
+ if (n.plugins && n.plugins.length) {=0A=
+  for (var ii=3D0;ii<n.plugins.length;ii++) {=0A=
+   if (n.plugins[ii].name.indexOf('Shockwave Flash')!=3D-1) {=0A=
+    f=3Dn.plugins[ii].description.split('Shockwave Flash ')[1];=0A=
+    break;=0A=
+   }=0A=
+  }=0A=
+ } else {=0A=
+  var fl;=0A=
+  try {=0A=
+   fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");=0A=
+   f =3D fl.GetVariable("$version");=0A=
+  } catch(e) {}=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");=0A=
+    f =3D "WIN 6,0,21,0";=0A=
+    fl.AllowScriptAccess =3D "always";=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash");=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f !=3D "-") {=0A=
+   f =3D f.split(" ")[1].split(",");=0A=
+   f =3D f[0] + "." + f[1] + " r" + f[2];=0A=
+  }=0A=
+ }=0A=
+ return f;=0A=
+}=0A=
+function __utmLinkerUrl(l,h) {=0A=
+ var p,k,a=3D"-",b=3D"-",c=3D"-",x=3D"-",z=3D"-",v=3D"-";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ var iq =3D l.indexOf("?");=0A=
+ var ih =3D l.indexOf("#");=0A=
+ var url=3Dl;=0A=
+ if (dc) {=0A=
+  a=3D_uES(_uGC(dc,"__utma=3D"+_udh+".",";"));=0A=
+  b=3D_uES(_uGC(dc,"__utmb=3D"+_udh,";"));=0A=
+  c=3D_uES(_uGC(dc,"__utmc=3D"+_udh,";"));=0A=
+  x=3D_uES(_uGC(dc,"__utmx=3D"+_udh,";"));=0A=
+  z=3D_uES(_uGC(dc,"__utmz=3D"+_udh+".",";"));=0A=
+  v=3D_uES(_uGC(dc,"__utmv=3D"+_udh+".",";"));=0A=
+  k=3D(_uHash(a+b+c+x+z+v)*1)+(_udh*1);=0A=
+  =
+p=3D"__utma=3D"+a+"&__utmb=3D"+b+"&__utmc=3D"+c+"&__utmx=3D"+x+"&__utmz=3D=
+"+z+"&__utmv=3D"+v+"&__utmk=3D"+k;=0A=
+ }=0A=
+ if (p) {=0A=
+  if (h && ih>-1) return;=0A=
+  if (h) { url=3Dl+"#"+p; }=0A=
+  else {=0A=
+   if (iq=3D=3D-1 && ih=3D=3D-1) url=3Dl+"?"+p;=0A=
+   else if (ih=3D=3D-1) url=3Dl+"&"+p;=0A=
+   else if (iq=3D=3D-1) url=3Dl.substring(0,ih-1)+"?"+p+l.substring(ih);=0A=
+   else url=3Dl.substring(0,ih-1)+"&"+p+l.substring(ih);=0A=
+  }=0A=
+ }=0A=
+ return url;=0A=
+}=0A=
+function __utmLinker(l,h) {=0A=
+ if (!_ulink || !l || l=3D=3D"") return;=0A=
+ _udl.href=3D__utmLinkerUrl(l,h);=0A=
+}=0A=
+function __utmLinkPost(f,h) {=0A=
+ if (!_ulink || !f || !f.action) return;=0A=
+ f.action=3D__utmLinkerUrl(f.action, h);=0A=
+ return;=0A=
+}=0A=
+function __utmSetVar(v) {=0A=
+ if (!v || v=3D=3D"") return;=0A=
+ if (!_udo || _udo =3D=3D "") {=0A=
+  _udh=3D_uDomain();=0A=
+  if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ }=0A=
+ if (!_uVG()) return;=0A=
+ var r=3DMath.round(Math.random() * 2147483647);=0A=
+ _ubd.cookie=3D"__utmv=3D"+_udh+"."+_uES(v)+"; path=3D"+_utcp+"; =
+expires=3D"+_uNx()+";"+_udo;=0A=
+ var s=3D"&utmt=3Dvar&utmn=3D"+r;=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+}=0A=
+function _uGCS() {=0A=
+ var t,c=3D"",dc=3D_ubd.cookie;=0A=
+ if ((t=3D_uGC(dc,"__utma=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utma=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmx=3D"+_udh,";"))!=3D"-") =
+c+=3D_uES("__utmx=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmz=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmz=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmv=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmv=3D"+t+";");=0A=
+ if (c.charAt(c.length-1)=3D=3D"+") c=3Dc.substring(0,c.length-1);=0A=
+ return c;=0A=
+}=0A=
+function _uGC(l,n,s) {=0A=
+ if (!l || l=3D=3D"" || !n || n=3D=3D"" || !s || s=3D=3D"") return "-";=0A=
+ var i,i2,i3,c=3D"-";=0A=
+ i=3Dl.indexOf(n);=0A=
+ i3=3Dn.indexOf("=3D")+1;=0A=
+ if (i > -1) {=0A=
+  i2=3Dl.indexOf(s,i); if (i2 < 0) { i2=3Dl.length; }=0A=
+  c=3Dl.substring((i+i3),i2);=0A=
+ }=0A=
+ return c;=0A=
+}=0A=
+function _uDomain() {=0A=
+ if (!_udn || _udn=3D=3D"" || _udn=3D=3D"none") { _udn=3D""; return 1; }=0A=
+ if (_udn=3D=3D"auto") {=0A=
+  var d=3D_ubd.domain;=0A=
+  if (d.substring(0,4)=3D=3D"www.") {=0A=
+   d=3Dd.substring(4,d.length);=0A=
+  }=0A=
+  _udn=3Dd;=0A=
+ }=0A=
+ _udn =3D _udn.toLowerCase(); =0A=
+ if (_uhash=3D=3D"off") return 1;=0A=
+ return _uHash(_udn);=0A=
+}=0A=
+function _uHash(d) {=0A=
+ if (!d || d=3D=3D"") return 1;=0A=
+ var h=3D0,g=3D0;=0A=
+ for (var i=3Dd.length-1;i>=3D0;i--) {=0A=
+  var c=3DparseInt(d.charCodeAt(i));=0A=
+  h=3D((h << 6) & 0xfffffff) + c + (c << 14);=0A=
+  if ((g=3Dh & 0xfe00000)!=3D0) h=3D(h ^ (g >> 21));=0A=
+ }=0A=
+ return h;=0A=
+}=0A=
+function _uFixA(c,s,t) {=0A=
+ if (!c || c=3D=3D"" || !s || s=3D=3D"" || !t || t=3D=3D"") return "-";=0A=
+ var a=3D_uGC(c,"__utma=3D"+_udh+".",s);=0A=
+ var lt=3D0,i=3D0;=0A=
+ if ((i=3Da.lastIndexOf(".")) > 9) {=0A=
+  _uns=3Da.substring(i+1,a.length);=0A=
+  _uns=3D(_uns*1)+1;=0A=
+  a=3Da.substring(0,i);=0A=
+  if ((i=3Da.lastIndexOf(".")) > 7) {=0A=
+   lt=3Da.substring(i+1,a.length);=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  if ((i=3Da.lastIndexOf(".")) > 5) {=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  a+=3D"."+lt+"."+t+"."+_uns;=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+function _uTrim(s) {=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  while ((s.charAt(0)=3D=3D' ') || (s.charAt(0)=3D=3D'\n') || =
+(s.charAt(0,1)=3D=3D'\r')) s=3Ds.substring(1,s.length);=0A=
+  while ((s.charAt(s.length-1)=3D=3D' ') || =
+(s.charAt(s.length-1)=3D=3D'\n') || (s.charAt(s.length-1)=3D=3D'\r')) =
+s=3Ds.substring(0,s.length-1);=0A=
+  return s;=0A=
+}=0A=
+function _uEC(s) {=0A=
+  var n=3D"";=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  for (var i=3D0;i<s.length;i++) {if (s.charAt(i)=3D=3D" ") n+=3D"+"; =
+else n+=3Ds.charAt(i);}=0A=
+  return n;=0A=
+}=0A=
+function __utmVisitorCode(f) {=0A=
+ var r=3D0,t=3D0,i=3D0,i2=3D0,m=3D31;=0A=
+ var a=3D_uGC(_ubd.cookie,"__utma=3D"+_udh+".",";");=0A=
+ if ((i=3Da.indexOf(".",0))<0) return;=0A=
+ if ((i2=3Da.indexOf(".",i+1))>0) r=3Da.substring(i+1,i2); else return =
+"";  =0A=
+ if ((i=3Da.indexOf(".",i2+1))>0) t=3Da.substring(i2+1,i); else return =
+"";  =0A=
+ if (f) {=0A=
+  return r;=0A=
+ } else {=0A=
+  var c=3Dnew =
+Array('A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T'=
+,'U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');=0A=
+  return =
+c[r>>28&m]+c[r>>23&m]+c[r>>18&m]+c[r>>13&m]+"-"+c[r>>8&m]+c[r>>3&m]+c[((r=
+&7)<<2)+(t>>30&3)]+c[t>>25&m]+c[t>>20&m]+"-"+c[t>>15&m]+c[t>>10&m]+c[t>>5=
+&m]+c[t&m];=0A=
+ }=0A=
+}=0A=
+function _uIN(n) {=0A=
+ if (!n) return false;=0A=
+ for (var i=3D0;i<n.length;i++) {=0A=
+  var c=3Dn.charAt(i);=0A=
+  if ((c<"0" || c>"9") && (c!=3D".")) return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uES(s,u) {=0A=
+ if (typeof(encodeURIComponent) =3D=3D 'function') {=0A=
+  if (u) return encodeURI(s);=0A=
+  else return encodeURIComponent(s);=0A=
+ } else {=0A=
+  return escape(s);=0A=
+ }=0A=
+}=0A=
+function _uUES(s) {=0A=
+ if (typeof(decodeURIComponent) =3D=3D 'function') {=0A=
+  return decodeURIComponent(s);=0A=
+ } else {=0A=
+  return unescape(s);=0A=
+ }=0A=
+}=0A=
+function _uVG() {=0A=
+ if((_udn.indexOf("www.google.") =3D=3D 0 || _udn.indexOf(".google.") =
+=3D=3D 0 || _udn.indexOf("google.") =3D=3D 0) && _utcp=3D=3D'/' && =
+_udn.indexOf("google.org")=3D=3D-1) {=0A=
+  return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uSP() {=0A=
+ var s=3D100;=0A=
+ if (_usample) s=3D_usample;=0A=
+ if(s>=3D100 || s<=3D0) return true;=0A=
+ return ((__utmVisitorCode(1)%10000)<(s*100));=0A=
+}=0A=
+function urchinPathCopy(p){=0A=
+ var d=3Ddocument,nx,tx,sx,i,c,cs,t,h,o;=0A=
+ cs=3Dnew Array("a","b","c","v","x","z");=0A=
+ h=3D_uDomain(); if (_udn && _udn!=3D"") o=3D" domain=3D"+_udn+";";=0A=
+ nx=3D_uNx()+";";=0A=
+ tx=3Dnew Date(); tx.setTime(tx.getTime()+(_utimeout*1000));=0A=
+ tx=3Dtx.toGMTString()+";";=0A=
+ sx=3Dnew Date(); sx.setTime(sx.getTime()+(_ucto*1000));=0A=
+ sx=3Dsx.toGMTString()+";";=0A=
+ for (i=3D0;i<6;i++){=0A=
+  t=3D" expires=3D";=0A=
+  if (i=3D=3D1) t+=3Dtx; else if (i=3D=3D2) t=3D""; else if (i=3D=3D5) =
+t+=3Dsx; else t+=3Dnx;=0A=
+  c=3D_uGC(d.cookie,"__utm"+cs[i]+"=3D"+h,";");=0A=
+  if (c!=3D"-") d.cookie=3D"__utm"+cs[i]+"=3D"+c+"; path=3D"+p+";"+t+o;=0A=
+ }=0A=
+}=0A=
+function _uCO() {=0A=
+ if (!_utk || _utk=3D=3D"" || _utk.length<10) return;=0A=
+ var d=3D'www.google.com';=0A=
+ if (_utk.charAt(0)=3D=3D'!') d=3D'analytics.corp.google.com';=0A=
+ _ubd.cookie=3D"GASO=3D"+_utk+"; path=3D"+_utcp+";"+_udo;=0A=
+ var sc=3Ddocument.createElement('script');=0A=
+ sc.type=3D'text/javascript';=0A=
+ sc.id=3D"_gasojs";=0A=
+ =
+sc.src=3D'https://'+d+'/analytics/reporting/overlay_js?gaso=3D'+_utk+'&'+=
+Math.random();=0A=
+ document.getElementsByTagName('head')[0].appendChild(sc);  =0A=
+}=0A=
+function _uGT() {=0A=
+ var h=3Dlocation.hash, a;=0A=
+ if (h && h!=3D"" && h.indexOf("#gaso=3D")=3D=3D0) {=0A=
+  a=3D_uGC(h,"gaso=3D","&");=0A=
+ } else {=0A=
+  a=3D_uGC(_ubd.cookie,"GASO=3D",";");=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+var _utk=3D_uGT();=0A=
+if (_utk && _utk!=3D"" && _utk.length>10 && _utk.indexOf("=3D")=3D=3D-1) =
+{=0A=
+ if (window.addEventListener) {=0A=
+  window.addEventListener('load', _uCO, false); =0A=
+ } else if (window.attachEvent) { =0A=
+  window.attachEvent('onload', _uCO);=0A=
+ }=0A=
+}=0A=
+=0A=
+function _uNx() {=0A=
+  return (new Date((new Date()).getTime()+63072000000)).toGMTString();=0A=
+}=0A=
+
+------=_NextPart_000_0095_01C94BF5.F6E31E00--
