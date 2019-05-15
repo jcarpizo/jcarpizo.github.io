@@ -4,8 +4,8 @@ BODY
 body {
     font-family: 'Titillium Web', sans-serif !important;
     font-size: 1.3em !important;
-    color: #142D44 !important;
-    background: #ededed;
+    color: #fff !important;
+    background: #2f323b;
     font-style: normal !important;
     font-weight: 300 !important;
     text-align: left !important;
@@ -14,7 +14,7 @@ body {
 .text-info {
     font-style: normal !important;
     font-weight: 400 !important;
-    color: #142D44 !important;
+    color: #f6a821 !important;
 }
 
 /*******************************************
@@ -23,7 +23,7 @@ CONTAINER
 .container {
     margin-top: 80px;
     margin-bottom: 15px;
-    background: #fff;
+    background: rgba(68, 70, 79, 0.5);
 }
 
 /*******************************************
@@ -39,7 +39,7 @@ PHOTO (AVATAR)
     border-radius: 50%;
     overflow: hidden;
     padding: 5px;
-    background: #ededed;
+    background: rgba(68, 70, 79, 0.5);
     display: inline-block;
 }
 
@@ -65,11 +65,11 @@ PHOTO (AVATAR)
 }
 
 .header {
-    color: #CD1619 !important;
+    color: #f6a821 !important;
     font-size: 1.3em;
     text-transform: uppercase;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
  }
 
 .header::before {
@@ -82,7 +82,7 @@ SKILLS
 .item-skills {
     font-weight: 600;
     height: 30px;
-    background: #364251;
+    background: #2f323b;
     color: #fff;
     padding: 6px 10px;
     margin-bottom: 5px;
@@ -192,8 +192,9 @@ MEDIA
 }
 
 .cover-background {
-    background: #364251 url('../img/manila.jpg') no-repeat center center;
+    background: #2f323b url('../images/80599d30a04e725.jpg') no-repeat center center;
     background-size: cover;
+
 }
 
 .info-details {
@@ -206,8 +207,9 @@ MEDIA
 }
 
 div.company, .position, .project-name, .school {
-    font-weight: 550;
+    font-weight: 600;
     margin-top: 10px;
+    color: #f6a821;
 }
 
 div.position, div.project-name, div.school, div.company, span.child-project {
@@ -219,11 +221,11 @@ div.description {
 }
 
 .child-project {
-    color:#CD1619 !important;
+    color:#f6a821 !important;
     margin-top: 10px !important;
     font-weight: 600;
 }
 
 a {
-    color:#CD1619 !important;
+    color:#f6a821 !important;
 }

@@ -70,7 +70,7 @@ Symfony Flex
    </blockquote>
 
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" width="816" height="459" src="https://www.youtube.com/embed/o9N1nOYfAl4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" width="696" height="400" src="https://www.youtube.com/embed/o9N1nOYfAl4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
 
@@ -81,7 +81,9 @@ Symfony Flex
        :hidden:
        :maxdepth: 2
 
-
+       head-first-design-patterns
+       head-first-java
+       design-patterns
        lamp
        lemp
        xampp
@@ -95,6 +97,7 @@ Symfony Flex
        virtual-host
        multiple-php
        doctrine
+       unit-testing-phpunit
        solid
        file-permission
        docker
@@ -109,3 +112,4 @@ Symfony Flex
        owasp
        mysql
        menu-tree
+       vim-as-php-ide

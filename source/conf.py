@@ -2,8 +2,8 @@ import sys, os, guzzle_sphinx_theme
 from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 
-#pygments_style = 'native'
-
+pygments_style = 'native'
+#import sphinx_ustack_theme
 
 extensions = [
     'sphinxcontrib.phpdomain'
@@ -15,22 +15,22 @@ primary_domain = 'php'
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
-project = u'Reference Documentation 3.6.8.4'
-copyright = u'2009-2018 Jasper Carpizo'
-version = 'Jasper Carpizo'
+project = u'jcarpizo.github.io'
+copyright = u'2004-2017 Jasper Carpizo'
+version = 'new \DateTimeImmutable()'
 html_title = "Jasper Carpizo"
 html_short_title = "Reference Documentation"
 
 exclude_patterns = ['_build']
 html_static_path = ['_static']
 
-html_theme_path = guzzle_sphinx_theme.html_theme_path()
-html_theme = 'guzzle_sphinx_theme'
+#html_theme_path = guzzle_sphinx_theme.html_theme_path()
+html_theme = "sphinx_rtd_theme"
 
 html_show_sourcelink = False
 html_show_sphinx = False
-html_experimental_html5_writer = False
-html_show_copyright = False
+html_experimental_html5_writer = True
+html_show_copyright = True
 
 html_sidebars = {
     '**': ['logo-text.html', 'searchbox.html', 'globaltoc.html' ]
@@ -44,20 +44,21 @@ html_theme_options = {
     #"index_template": "special_index.html",
 
     # Set the name of the project to appear in the left sidebar.
-    "project_nav_name": "Jasper Carpizo",
+    #"project_nav_name": "Jasper Carpizo",
 
     # Set your Disqus short name to enable comments
     #"disqus_comments_shortname": "https-jcarpizo-github-io",
 
     # Set you GA account ID to enable tracking
-    "google_analytics_account": "UA-133821205-1",
+    #"google_analytics_account": "UA-133821205-1",
+    "analytics_id": "UA-133821205-1",
 
     # Path to a touch icon
-    "touch_icon": "",
+    #"touch_icon": "",
 
     # Specify a base_url used to generate sitemap.xml links. If not
     # specified, then no sitemap will be built.
-    "base_url": ""
+    #"base_url": ""
 
     # Allow a separate homepage from the master_doc
     #"homepage": "index",

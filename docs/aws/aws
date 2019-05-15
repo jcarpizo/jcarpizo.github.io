@@ -1,0 +1,6 @@
+aws cloudformation deploy --template-file ~/Downloads/aws/packaged-template.yaml --stack-name serverless-immersion-day-stack --capabilities CAPABILITY_IAM
+
+
+serverless-immersion-day-sta-MedianPriceCalculator-1CB57WOKKO8CC		Java 8	2.0 MB	23 seconds ago
+
+serverless-immersion-day-stac-CalculateCostPerUnit-1CM30OO9J0QED		Java 8	2.0 MB	23 seconds ago
