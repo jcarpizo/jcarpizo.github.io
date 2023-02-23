@@ -9,7 +9,7 @@ This course covers the foundations of the Docker platform, including an overview
 .. raw:: html
 
    <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" width="816" height="459" src="https://www.youtube.com/embed/zV1sckmhX8s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item" width="696" height="400" src="https://www.youtube.com/embed/zV1sckmhX8s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
     <br/><br/>
 
@@ -22,7 +22,7 @@ This course provides hands-on instruction for getting started using Docker. This
 .. raw:: html
 
      <div class="embed-responsive embed-responsive-16by9">
-                     <iframe class="embed-responsive-item" width="816" height="459" src="https://www.youtube.com/embed/2l74pg--5As" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     <iframe class="embed-responsive-item" width="696" height="400" src="https://www.youtube.com/embed/2l74pg--5As" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <br/><br/>
 
@@ -35,7 +35,7 @@ This course covers topics to help you operate a Dockerized application environme
 .. raw:: html
 
     <div class="embed-responsive embed-responsive-16by9">
-                         <iframe class="embed-responsive-item" width="816" height="459" src="https://www.youtube.com/embed/qn62xrGD9s8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                         <iframe class="embed-responsive-item" width="696" height="400" src="https://www.youtube.com/embed/qn62xrGD9s8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
      <br/><br/>
 

@@ -1,0 +1,378 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vi / Vim Editor as PHP IDE &mdash; Jasper Carpizo</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/jenkins.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Build a Menu with Recursive Functions" href="menu-tree.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> jcarpizo.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                new \DateTimeImmutable()
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="head-first-design-patterns.html">Head First Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="head-first-java.html">Head First Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design-patterns.html">Design Patterns Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lamp.html">Install LAMP in one command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lemp.html">How To Install Linux, Nginx, MySQL, PHP (LEMP stack) on Ubuntu 18.04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xampp.html">XAMPP - Replacing MariaDB with MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac-mysql.html">Install MySQL on Mac OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-install.html">Install PHP 5.6 or PHP 7.1 on Ubuntu 16.04, 14.04 using PPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Install Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-node.html">Install Node.js via Package Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejabberd.html">Install eJabberd XMPP Server on Ubuntu 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac-php.html">Update PHP on Mac OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-codesniffer.html">PHP CodeSniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual-host.html">Set Up Apache Virtual Hosts on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple-php.html">Switch between Multiple PHP Version on Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine.html">Doctrine Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit-testing-phpunit.html">Unit Testing with PHP Unit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solid.html">The First 5 Principles of Object Oriented Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-permission.html">Unix / Linux File permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git-flow.html">Git Flow Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adwords-api.html">Adwords API Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tao-of-programming.html">The Tao / Zen of Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php-storm.html">PhpStorm Keymap Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync-gmail-inbox.html">Synchronized GMail Inbox [PHP]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repositories-doctrine.html">Using Repositories in Doctrine 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="composite-pattern.html">Composite Pattern in PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owasp.html">OWASP Secure Coding Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Getting the Best MySQL Performance in Your Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu-tree.html">Build a Menu with Recursive Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vi / Vim Editor as PHP IDE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-vimrc-and-add-the-following-lines">Create ~/.vimrc and add the following lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vimplug">VimPlug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#screenshot">Screenshot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jcarpizo.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Vi / Vim Editor as PHP IDE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vi-vim-editor-as-php-ide">
+<h1>Vi / Vim Editor as PHP IDE<a class="headerlink" href="#vi-vim-editor-as-php-ide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-vimrc-and-add-the-following-lines">
+<h2>Create ~/.vimrc and add the following lines<a class="headerlink" href="#create-vimrc-and-add-the-following-lines" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot; Specify a directory for plugins</span>
+<span class="go">&quot; - For Neovim: ~/.local/share/nvim/plugged</span>
+<span class="go">&quot; - Avoid using standard Vim directory names like &#39;plugin&#39;</span>
+<span class="go">call plug#begin(&#39;~/.vim/plugged&#39;)</span>
+
+<span class="go">&quot; Make sure you use single quotes</span>
+
+<span class="go">&quot; Shorthand notation; fetches https://github.com/junegunn/vim-easy-align</span>
+<span class="go">Plug &#39;junegunn/vim-easy-align&#39;</span>
+
+<span class="go">&quot; Any valid git URL is allowed</span>
+<span class="go">Plug &#39;https://github.com/junegunn/vim-github-dashboard.git&#39;</span>
+
+<span class="go">&quot; Multiple Plug commands can be written in a single line using | separators</span>
+<span class="go">Plug &#39;SirVer/ultisnips&#39; | Plug &#39;honza/vim-snippets&#39;</span>
+
+<span class="go">&quot; On-demand loading</span>
+<span class="go">Plug &#39;scrooloose/nerdtree&#39;, { &#39;on&#39;:  &#39;NERDTreeToggle&#39; }</span>
+<span class="go">Plug &#39;tpope/vim-fireplace&#39;, { &#39;for&#39;: &#39;clojure&#39; }</span>
+
+<span class="go">&quot; Using a non-master branch</span>
+<span class="go">Plug &#39;rdnetto/YCM-Generator&#39;, { &#39;branch&#39;: &#39;stable&#39; }</span>
+
+<span class="go">&quot; Using a tagged release; wildcard allowed (requires git 1.9.2 or above)</span>
+<span class="go">Plug &#39;fatih/vim-go&#39;, { &#39;tag&#39;: &#39;*&#39; }</span>
+
+<span class="go">&quot; Plugin options</span>
+<span class="go">Plug &#39;nsf/gocode&#39;, { &#39;tag&#39;: &#39;v.20150303&#39;, &#39;rtp&#39;: &#39;vim&#39; }</span>
+
+<span class="go">&quot; Plugin outside ~/.vim/plugged with post-update hook</span>
+<span class="go">Plug &#39;junegunn/fzf&#39;, { &#39;dir&#39;: &#39;~/.fzf&#39;, &#39;do&#39;: &#39;./install --all&#39; }</span>
+
+<span class="go">&quot; Unmanaged plugin (manually installed and updated)</span>
+<span class="go">Plug &#39;~/my-prototype-plugin&#39;</span>
+
+<span class="go">&quot; Initialize plugin system</span>
+
+<span class="go">Plug &#39;vim-scripts/taglist.vim&#39;</span>
+<span class="go">Plug &#39;StanAngeloff/php.vim&#39;</span>
+<span class="go">Plug &#39;lvht/phpcd.vim&#39;, { &#39;for&#39;: &#39;php&#39;, &#39;do&#39;: &#39;composer install&#39; }</span>
+<span class="go">Plug &#39;ervandew/supertab&#39;</span>
+<span class="go">Plug &#39;nlknguyen/papercolor-theme&#39;</span>
+<span class="go">Plug &#39;vim-airline/vim-airline&#39;</span>
+<span class="go">Plug &#39;borissov/vim-mysql-suggestions&#39;</span>
+<span class="go">Plug &#39;jparise/vim-graphql&#39;</span>
+<span class="go">Plug &#39;scrooloose/syntastic&#39;</span>
+<span class="go">Plug &#39;yggdroot/indentline&#39;</span>
+<span class="go">Plug &#39;symfony/symfony&#39;</span>
+<span class="go">Plug &#39;blueshirts/darcula&#39;</span>
+
+<span class="go">if has(&#39;nvim&#39;)</span>
+<span class="go">  Plug &#39;Shougo/deoplete.nvim&#39;, { &#39;do&#39;: &#39;:UpdateRemotePlugins&#39; }</span>
+<span class="go">else</span>
+<span class="go">  Plug &#39;Shougo/deoplete.nvim&#39;</span>
+<span class="go">  Plug &#39;roxma/nvim-yarp&#39;</span>
+<span class="go">  Plug &#39;roxma/vim-hug-neovim-rpc&#39;</span>
+<span class="go">endif</span>
+<span class="go">let g:deoplete#enable_at_startup = 1</span>
+
+<span class="go">call plug#end()</span>
+
+<span class="go">set number</span>
+<span class="go">syntax enable</span>
+<span class="go">set background=dark</span>
+<span class="go">colorscheme darcula</span>
+<span class="go">set laststatus=2</span>
+<span class="go">set tabstop=4</span>
+<span class="go">set softtabstop=0 noexpandtab</span>
+<span class="go">set shiftwidth=4</span>
+<span class="go">set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab</span>
+<span class="go">set autoindent</span>
+<span class="go">inoremap &quot; &quot;&quot;&lt;left&gt;</span>
+<span class="go">inoremap &#39; &#39;&#39;&lt;left&gt;</span>
+<span class="go">inoremap ( ()&lt;left&gt;</span>
+<span class="go">inoremap [ []&lt;left&gt;</span>
+<span class="go">inoremap { {}&lt;left&gt;</span>
+<span class="go">inoremap {&lt;CR&gt; {&lt;CR&gt;}&lt;ESC&gt;O</span>
+<span class="go">inoremap {;&lt;CR&gt; {&lt;CR&gt;};&lt;ESC&gt;O</span>
+
+<span class="go">autocmd vimenter * NERDTree</span>
+<span class="go">autocmd StdinReadPre * let s:std_in=1</span>
+<span class="go">autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif</span>
+<span class="go">autocmd StdinReadPre * let s:std_in=1</span>
+<span class="go">autocmd VimEnter * if argc() == 1 &amp;&amp; isdirectory(argv()[0]) &amp;&amp; !exists(&quot;s:std_in&quot;) | exe &#39;NERDTree&#39; argv()[0] | wincmd p | ene | exe &#39;cd &#39;.argv()[0] | endif</span>
+<span class="go">map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;</span>
+<span class="go">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</span>
+
+
+<span class="go">function! PhpSyntaxOverride()</span>
+<span class="go">  &quot; Put snippet overrides in this function.</span>
+<span class="go">  hi! link phpDocTags phpDefine</span>
+<span class="go">  hi! link phpDocParam phpType</span>
+<span class="go">endfunction</span>
+<span class="go">augroup phpSyntaxOverride</span>
+<span class="go">  autocmd!</span>
+<span class="go">  autocmd FileType php call PhpSyntaxOverride()</span>
+<span class="go">augroup END</span>
+<span class="go">hi phpUseNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE</span>
+<span class="go">hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE</span>
+<span class="go">syn match phpParentOnly &quot;[()]&quot; contained containedin=phpParent</span>
+<span class="go">hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE</span>
+
+<span class="go">let g:deoplete#ignore_sources = get(g:, &#39;deoplete#ignore_sources&#39;, {})</span>
+<span class="go">let g:deoplete#ignore_sources.php = [&#39;omni&#39;]</span>
+<span class="go">let g:phpcd_php_cli_executable = &#39;php7.3&#39;</span>
+
+<span class="go">let g:indentLine_setColors = 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vimplug">
+<h2>VimPlug<a class="headerlink" href="#vimplug" title="Permalink to this headline">¶</a></h2>
+<p>then run the following in Vim</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">:source %</span>
+<span class="go">:PlugInstall</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="screenshot">
+<h2>Screenshot<a class="headerlink" href="#screenshot" title="Permalink to this headline">¶</a></h2>
+<img src="image/editor1.png" />
+
+ <img src="image/editor2.png" /></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="menu-tree.html" class="btn btn-neutral float-left" title="Build a Menu with Recursive Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2004-2017 Jasper Carpizo
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-133821205-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
